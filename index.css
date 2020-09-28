@@ -1,10 +1,10 @@
 body,html {
     padding:0px;
     margin:0px;
-    font-family: 'Comfortaa', cursive;
-    font-weight:bold;
+    font-family: 'Open Sans', sans-serif;
+    font-weight:400;
     color:#fff;
-    background:rgb(0, 0, 0);
+    background:rgb(19, 19, 19);
     scroll-behavior: smooth;
 }
 #loading {
@@ -41,19 +41,8 @@ body,html {
 #header div {
     display:block;
 }
-#title {
-    font-size:40px;
-    background-image: linear-gradient(to left, #FF416C 0%, #FF4B2B 100%);
-    -webkit-background-clip:text;
-    background-clip:text;
-    -webkit-text-fill-color: transparent;
-    background-size:500% 500% !important;
-    -webkit-animation: Gradient 20s ease infinite;
-    -moz-animation: Gradient 20s ease infinite;
-    -o-animation: Gradient 20s ease infinite;
-    animation: Gradient 20s ease infinite;
-    font-family: 'Comfortaa', cursive;
-}
+
+
 #links {
     margin:40px 0px;
     transition:0.6s ease-in-out;
@@ -73,24 +62,65 @@ body,html {
 #middle {
     width:100%;
     height:80vh;
-    background:linear-gradient(0deg,rgba(0,0,0,1),rgba(41, 38, 38, 0)),url("https://images.unsplash.com/photo-1601278280154-c39236c6055c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80") center center fixed;
-    background-size:100% auto;
+    background:linear-gradient(0deg,rgb(19, 19, 20),rgba(19, 19, 19, 0)),url("https://images.unsplash.com/photo-1542903660-eedba2cda473?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80") center center fixed;
+    background-size:100% auto;  
     background-repeat:no-repeat;
     color:white;
     display:flex;
     justify-content:center;
     flex-direction:column;
     transition:1s ease-in-out;
+    text-align: left;
+
     padding-top:20vh;
 }
 #tagline {
     font-size:50px;
     width:60%;
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: 300;
+    padding-left: 5vh;
+
 }
+#taglinename {
+    font-size:50px;
+    width:60%;
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: 600;
+}
+
+#taglinesub {
+    font-size:30px;
+    width:60%;
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: 300;
+    text-align: left;
+    padding-top: 5vh;
+    padding-left: 5vh;
+
+}
+
 #portfolio {
     width:80%;
     padding:2% 10%;
 }
+
+#date {
+    font-size: 18px;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 300;
+    font-style: italic;
+    padding-bottom: 15px;
+
+}
+
+#h2butnicer {
+    font-size: 33px;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 600;
+    color: #ff7a62
+}
+
 #portfolio div h1 {
     font-size:40px;
     background-image: linear-gradient(to left, #FF416C 0%, #FF4B2B 100%);
@@ -102,13 +132,18 @@ body,html {
     -moz-animation: Gradient 20s ease infinite;
     -o-animation: Gradient 20s ease infinite;
     animation: Gradient 20s ease infinite;
-    font-family: 'Comfortaa', cursive;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 600;
 }
 #skills {
     margin:4vh 0px !important;
     padding:2vh 0px !important;
 }
-#work {
+#education {
+    margin:4vh 0px !important;
+    padding:2vh 0px !important;
+}
+#projects {
     margin:4vh 0px !important;
     padding:2vh 0px !important;
 }
@@ -167,11 +202,23 @@ body,html {
     background:transparent;
     transition:0.4s ease-in-out;
     margin:30px 10px;
+    
 }
 .btn_one:hover {
     background:white;
     cursor:pointer;
     color:#000;
+}
+.blinking{
+    animation:blinkingText 1.2s infinite;
+}
+
+@keyframes blinkingText{
+    0%{     color: #FFF;    }
+    49%{    color: #FFF; }
+    60%{    color: transparent; }
+    99%{    color:transparent;  }
+    100%{   color: #FFF;    }
 }
 .project div {
     font-weight:normal;
@@ -179,7 +226,7 @@ body,html {
 .btn_two {
     color:#000;
     padding:10px 40px;
-    border-radius:50px;
+    border-radius:25px;
     border:2px solid #fff;
     font-size:18px;
     font-family: 'Comfortaa', cursive;
@@ -260,7 +307,7 @@ body,html {
     text-align:center;
     font-weight:bold;
 }
-#footer a {
+#footer ba {
     font-size:18px;
     background-image: linear-gradient(to left, #FF416C 0%, #FF4B2B 100%);
     -webkit-background-clip:text;
@@ -272,6 +319,19 @@ body,html {
     -o-animation: Gradient 20s ease infinite;
     animation: Gradient 20s ease infinite;
     font-family: 'Comfortaa', cursive;
+    text-decoration:none;
+}
+#footer a {
+    font-size:16px;
+    background-image: linear-gradient(to left, #ffffff 0%, #ffffff 100%);
+    -webkit-background-clip:text;
+    background-clip:text;
+    -webkit-text-fill-color: transparent;
+    background-size:500% 500% !important;
+    -webkit-animation: Gradient 20s ease infinite;
+    -moz-animation: Gradient 20s ease infinite;
+    -o-animation: Gradient 20s ease infinite;
+    animation: Gradient 20s ease infinite;
     text-decoration:none;
 }
 button:focus {
