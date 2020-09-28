@@ -75,22 +75,24 @@ body,html {
     padding-top:20vh;
 }
 #tagline {
-    font-size:50px;
+    font-size:8.5vh;
     width:60%;
     font-family: 'Josefin Sans', sans-serif;
     font-weight: 300;
+    padding-top: 5vh;
     padding-left: 5vh;
 
 }
 #taglinename {
-    font-size:50px;
+    font-size:8.5vh;
     width:60%;
     font-family: 'Josefin Sans', sans-serif;
     font-weight: 600;
+    padding-top: 5vh
 }
 
 #taglinesub {
-    font-size:30px;
+    font-size:5.11vh;
     width:60%;
     font-family: 'Josefin Sans', sans-serif;
     font-weight: 300;
