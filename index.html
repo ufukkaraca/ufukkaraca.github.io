@@ -2,6 +2,31 @@
 <html lang="en">
 
 <head>
+    <script src="https://cdn.websitepolicies.io/lib/cookieconsent/1.0.3/cookieconsent.min.js" defer></script>
+    <script>
+        window.addEventListener("load", function() {
+            window.wpcc.init({
+                "border": "thick",
+                "corners": "large",
+                "colors": {
+                    "popup": {
+                        "background": "#222222",
+                        "text": "#ffffff",
+                        "border": "#f9f9f9"
+                    },
+                    "button": {
+                        "background": "#ff0000",
+                        "text": "#ffffff"
+                    }
+                },
+                "position": "bottom-right",
+                "content": {
+                    "href": "https://www.karacaufuk.com/cookie-policy.html",
+                    "message": "I use cookies on this website to provide you with the best experience."
+                }
+            })
+        });
+    </script>
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-179256726-1"></script>
     <script>
@@ -32,18 +57,15 @@
 </head>
 
 <body>
-    <div id="loading">
-        <div id="spinner"></div>
-    </div>
 
     <div id="header" class="animated slideInDown" style="animation-delay:1.0s;">
 
         <div id="links">
             <a href="https://www.medium.com/@ufuk.karaca" style="margin:0px 10px; padding-bottom:2vh">blog</a>
             <a href="#about" style="margin:0px 10px; padding-bottom:2vh">about</a>
-            <a href="#skills" style="margin:0px 10px; padding-bottom:2vh">skills and certifications</a>
+            <a href="#projects" style="margin:0px 10px; padding-bottom:2vh">projects and experience</a>
             <a href="#education" style="margin:0px 10px; padding-bottom:2vh">education</a>
-            <a href="#projects" style="margin:0px 10px; padding-bottom:2vh">projects and leadership</a>
+            <a href="#skills" style="margin:0px 10px; padding-bottom:2vh">skills and certifications</a>
             <a href="#contact" style="margin:0px 10px; padding-bottom:2vh">contact</a>
         </div>
     </div>
@@ -75,136 +97,18 @@
             </div>
         </div>
 
-
-        <div id="education">
-            <h1>education.</h1>
-            <div class="project">
-                <h2>TOBB University of Economics and Technology</h2>
-                <h3>Electrical and Electronics Engineering (B.S.) & Political Science and International Relations (Minor)
-                </h3>
-                <div id="date">09.2019 - Ongoing</div>
-                <div><b>Activities and Societies:</b> Google Developer Student Club, International Entrepreneurship Society, Sustainable Development Goals Student Hub, Electric Vehicle Development Team, IEEE. </div>
-                </br>
-                <div><b>Courses:</b> Logic Circuit Design, Circuit Analysis, Probability and Stochastic Processes, C Programming, C++ Programming.</div>
-                <form action="https://www.etu.edu.tr/en"><button class="btn_one" ;>Visit Institution Website</button>
-                </form>
-            </div>
-
-            <div class="project">
-                <h2>Anadolu University</h2>
-                <h3>Management Information Systems (B.S.)</h3>
-                <div id="date">09.2019 - Ongoing</div>
-                <div><b>Activities and Societies:</b> Information Technologies Society </div>
-                </br>
-                <div><b>Courses:</b> Modern Communication Technologies, Project Management, IT Law, Operational Research, Fundamentals of Economics, Business Management.</div>
-                <form action="https://www.anadolu.edu.tr/en"><button class="btn_one" ;>Visit Institution
-                        Website</button></form>
-            </div>
-
-
-
-        </div>
-        <div id="skills">
-            <h1>skills and certifications.</h1>
-            <div id="h2butnicer">skills<span class="blinking">:</span></div>
-            <button class="btn_two">Verilog</button><button class="btn_two">C</button><button class="btn_two">C++</button>
-            <button class="btn_two">MATLAB</button><button class="btn_two">Spice</button><button class="btn_two">Project
-                Management</button>
-            <button class="btn_two">Leadership</button><button class="btn_two">Teamwork</button>
-            <form action="Ufuk_Karaca_Resume.pdf"><button class="btn_one">Click to see full Resume</button></form>
-            <div id="h2butnicer">certifications<span class="blinking">:</span></div>
-
-            <div class="project">
-                <h2>Engineering: Undergraduate & Masters Virtual Experience Program</h2>
-                <h3>Microsoft</h3>
-                <div id="date">Issued December 2020</div>
-                <form action="https://www.theforage.com/badges/dYpd4Avg6BsDFjoXA/Q83fsYbN4HHab6X9u/Engineering%3A%20Undergraduate%20%26%20Masters%20Asia%20Virtual%20Experience%20Program/Ufuk"><button class="btn_one" ;>Verify
-                        Certificate</button></form>
-            </div>
-
-            <div class="project">
-                <h2>AWS Fundamentals: Going Cloud Native</h2>
-                <h3>Amazon Web Services (AWS)</h3>
-                <div id="date">Issued October 2020</div>
-                <form action="https://coursera.org/verify/P7ZV5KKSHXXF"><button class="btn_one" ;>Verify
-                        Certificate</button></form>
-            </div>
-
-            <div class="project">
-                <h2>Crash Course on Python</h2>
-                <h3>Google</h3>
-                <div id="date">Issued September 2020</div>
-                <form action="https://coursera.org/verify/MUYTN22KNFCX"><button class="btn_one" ;>Verify
-                        Certificate</button></form>
-            </div>
-
-            <div class="project">
-                <h2>Digital Marketing</h2>
-                <h3>University of Illinois at Urbana-Champaign</h3>
-                <div id="date">Issued August 2020</div>
-                <form action="https://coursera.org/verify/HRBN9PYNF9M4"><button class="btn_one" ;>Verify
-                        Certificate</button></form>
-            </div>
-
-            <div class="project">
-                <h2>Fundamentals of Digital Marketing</h2>
-                <h3>Google Digital Garage</h3>
-                <div id="date">Issued August 2020</div>
-                <form action="https://learndigital.withgoogle.com/link/1d6camnqfi8"><button class="btn_one" ;>Verify
-                        Certificate</button></form>
-            </div>
-
-            <div class="project">
-                <h2>Introduction to Programming in Swift 5</h2>
-                <h3>LearnQuest</h3>
-                <div id="date">Issued August 2020</div>
-                <form action="https://coursera.org/verify/3JNK55X9BBR5"><button class="btn_one" ;>Verify
-                        Certificate</button></form>
-            </div>
-        </div>
         <div id="projects">
-            <h1>projects and leadership.</h1>
-            <div id="h2butnicer">projects<span class="blinking">:</span></div>
+            <h1>experience and projects.</h1>
 
-
-            <div class="project">
-                <h2>32 Bit Multifunction Verilog Calculator</h2>
-                <div>Developed a multifunctional calculator to be used with 32 bit fixed point numbers, encompassing addition, subtraction, multiplication, division, square root, tangent and cotangent functions.</div>
-                <form action="http://www.github.com/ufukkaraca/verilogCalculator"><button class="btn_one" ;>Visit Project</button></form>
-            </div>
+            <div id="h2butnicer">experience<span class="blinking">:</span></div>
 
             <div class="project">
-                <h2>Manevis</h2>
-                <div>Manevis is the world’s first financial youth network, aiming to make finance relatable and financial education reachable for generation Z. This project was developed as part of the Code.YapıKredi Ideathon 2020.</div>
-                <form action="https://www.karacaufuk.com/manevis"><button class="btn_one" ;>Visit Project</button></form>
-            </div>
-
-
-            <div class="project">
-                <h2>EverythingRoe</h2>
-                <div>EverythingRoe, of which I'm a co-founder, has been providing digitalisation services to small local businesses with competitive pricing to help them adapt to the needs of the 21st century and keep on supporting their local communities.</div>
-                <form action="https://www.everythingroe.com"><button class="btn_one" ;>Visit Project</button></form>
-            </div>
-
-            <div class="project">
-                <h2>Verilog Implementation of the Advanced Encryption Standard</h2>
-                <div>Co-developed an implementation of the Advanced Encryption Standard for logical circuitry using Verilog with a focus on resource use efficiency and pipelining success.</div>
-                <form action="https://github.com/ufukkaraca/Verilog_AES256"><button class="btn_one" ;>See Source
-                        Code</button></form>
-            </div>
-            </br>
-            <div class="project">
-                <h2>HAYAT433 - Emergency Locator for Hydrologic and Geomorphologic Disasters</h2>
-                <div>HAYAT433 is an ultra-affordable locating system designed to minimise the amount of time spent finding victims after hydrological and geomorphological hazards. It uses RF transmitters and receivers within the base of a wearable microchip
-                    to provide rescue teams information about distance and 'recoverability' of victims in accordance with custom algorithms. Having the potential to significantly increase the efficiency of search and rescue protocols, the project was
-                    awarded national first place among 5000+ others in Science Expo 2018 funded by Turkish Airlines.
+                <h2>Intern - Piëch Automotive</h2>
+                <h3>June 2021 - Present</h3>
+                <div>Working on Piëch GT2, a European Electric Sports Car designed with the harmony of timelessness and technology in mind.
                 </div>
-
+                <form action="http://piech.com"><button class="btn_one" ;>Company Website</button></form>
             </div>
-            </br>
-            </br>
-
-            <div id="h2butnicer">leadership<span class="blinking">:</span></div>
 
             <div class="project">
                 <h2>SDG Coordinator - SDSN Youth</h2>
@@ -249,57 +153,240 @@
                 <form action="https://dsc.community.dev/tobb-university-of-economics-and-technology/"><button class="btn_one" ;>See Community Page</button></form>
             </div>
 
+
+            <div id="h2butnicer">projects<span class="blinking">:</span></div>
+
+
+            <div class="project">
+                <h2>32 Bit Multifunction Verilog Calculator</h2>
+                <div>Developed a multifunctional calculator to be used with 32 bit fixed point numbers, encompassing addition, subtraction, multiplication, division, square root, tangent and cotangent functions.</div>
+                <form action="http://www.github.com/ufukkaraca/verilogCalculator"><button class="btn_one" ;>Visit Project</button></form>
+            </div>
+
+            <div class="project">
+                <h2>Manevis</h2>
+                <div>Manevis is the world’s first financial youth network, aiming to make finance relatable and financial education reachable for generation Z. This project was developed as part of the Code.YapıKredi Ideathon 2020.</div>
+                <form action="https://www.karacaufuk.com/manevis"><button class="btn_one" ;>Visit Project</button></form>
+            </div>
+
+
+            <div class="project">
+                <h2>EverythingRoe</h2>
+                <div>EverythingRoe, of which I'm a co-founder, has been providing digitalisation services to small local businesses with competitive pricing to help them adapt to the needs of the 21st century and keep on supporting their local communities.</div>
+                <form action="https://www.everythingroe.com"><button class="btn_one" ;>Visit Project</button></form>
+            </div>
+
+            <div class="project">
+                <h2>Verilog Implementation of the Advanced Encryption Standard</h2>
+                <div>Co-developed an implementation of the Advanced Encryption Standard for logical circuitry using Verilog with a focus on resource use efficiency and pipelining success.</div>
+                <form action="https://github.com/ufukkaraca/Verilog_AES256"><button class="btn_one" ;>See Source
+                        Code</button></form>
+            </div>
+            </br>
+            <div class="project">
+                <h2>HAYAT433 - Emergency Locator for Hydrologic and Geomorphologic Disasters</h2>
+                <div>HAYAT433 is an ultra-affordable locating system designed to minimise the amount of time spent finding victims after hydrological and geomorphological hazards. It uses RF transmitters and receivers within the base of a wearable microchip
+                    to provide rescue teams information about distance and 'recoverability' of victims in accordance with custom algorithms. Having the potential to significantly increase the efficiency of search and rescue protocols, the project was
+                    awarded national first place among 5000+ others in Science Expo 2018 funded by Turkish Airlines.
+                </div>
+
+            </div>
+
+        </div>
+        <div id="education">
+            <h1>education.</h1>
+            <div class="project">
+                <h2>TOBB University of Economics and Technology</h2>
+                <h3>Electrical and Electronics Engineering (B.S.) & Political Science and International Relations (Minor)
+                </h3>
+                <div id="date">09.2019 - Ongoing</div>
+                <div><b>Activities and Societies:</b> Sustainable Development Goals Student Hub,Google Developer Student Club, International Entrepreneurship Society, Electric Vehicle Development Team, IEEE. </div>
+                </br>
+                <div><b>Courses:</b> Logic Circuit Design, Circuit Analysis, Probability and Stochastic Processes, C Programming, C++ Programming.</div>
+                <form action="https://www.etu.edu.tr/en"><button class="btn_one" ;>Visit Institution Website</button>
+                </form>
+            </div>
+
+            <div class="project">
+                <h2>Anadolu University</h2>
+                <h3>Management Information Systems (B.S.)</h3>
+                <div id="date">09.2019 - Ongoing</div>
+                <div><b>Activities and Societies:</b> Information Technologies Society </div>
+                </br>
+                <div><b>Courses:</b> Modern Communication Technologies, Project Management, IT Law, Operational Research, Fundamentals of Economics, Business Management.</div>
+                <form action="https://www.anadolu.edu.tr/en"><button class="btn_one" ;>Visit Institution
+                        Website</button></form>
+            </div>
+
+
+
+        </div>
+        <div id="skills">
+            <h1>skills and certifications.</h1>
+            <div id="h2butnicer">skills<span class="blinking">:</span></div>
+            <button class="btn_two">Verilog</button><button class="btn_two">C</button><button class="btn_two">C++</button>
+            <button class="btn_two">MATLAB</button><button class="btn_two">Spice</button><button class="btn_two">Project
+                    Management</button>
+            <button class="btn_two">Leadership</button><button class="btn_two">Teamwork</button>
+            <form action="Ufuk_Karaca_Resume.pdf"><button class="btn_one">Click to see full Resume</button></form>
+
+            <!-- Certifications -->
+            <div id="h2butnicer">certifications<span class="blinking">:</span></div>
+
+            <div class="row">
+                <div class="column">
+                    <form action=" https://www.theforage.com/badges/dYpd4Avg6BsDFjoXA/Q83fsYbN4HHab6X9u/Engineering%3A%20Undergraduate%20%26%20Masters%20Asia%20Virtual%20Experience%20Program/Ufuk ">
+                        <button class="btn_two ">
+                            <h2>Engineering: Undergraduate & Masters Virtual Experience Program</h2>
+                            <h3>Microsoft</h3>
+                            <div id="date ">Issued December 2020</div>
+                        </button>
+                    </form>
+                </div>
+                <div class="column">
+                    <form action=" https://coursera.org/verify/P7ZV5KKSHXXF ">
+                        <button class="btn_two ">
+                            <h2>AWS Fundamentals: Going Cloud Native</h2>
+                            <h3>Amazon Web Services (AWS)</h3>
+                            <div id="date ">Issued October 2020</div>
+                        </button>
+                    </form>
+                </div>
+            </div>
+            <div class="row">
+                <div class="column">
+                    <form action="https://coursera.org/verify/MUYTN22KNFCX ">
+                        <button class="btn_two ">
+                            <h2>Crash Course on Python</h2>
+                            <h3>Google</h3>
+                            <div id="date ">Issued September 2020</div>
+                        </button>
+                    </form>
+                </div>
+
+                <div class="column">
+                    <form action="https://coursera.org/verify/HRBN9PYNF9M4 ">
+                        <button class="btn_two ">
+                            <h2>Digital Marketing</h2>
+                            <h3>University of Illinois at Urbana-Champaign</h3>
+                            <div id="date ">Issued August 2020</div>
+                        </button>
+                    </form>
+                </div>
+
+
+            </div>
+
+            <div class="row">
+
+                <div class="column">
+                    <form action="https://learndigital.withgoogle.com/link/1d6camnqfi8 ">
+                        <button class="btn_two ">
+                            <h2>Fundamentals of Digital Marketing</h2>
+                            <h3>Google Digital Garage</h3>
+                            <div id="date ">Issued August 2020</div>
+                        </button>
+                    </form>
+                </div>
+                <div class="column">
+                    <form action="https://coursera.org/verify/3JNK55X9BBR5 ">
+                        <button class="btn_two ">
+                            <h2>Introduction to Programming in Swift 5</h2>
+                            <h3>LearnQuest</h3>
+                            <div id="date ">Issued August 2020</div>
+                        </button>
+                    </form>
+                </div>
+
+
+            </div>
+
+            <!-- <div class="project ">
+                <h2>Engineering: Undergraduate & Masters Virtual Experience Program</h2>
+                <h3>Microsoft</h3>
+                <div id="date ">Issued December 2020</div>
+                <form action="https://www.theforage.com/badges/dYpd4Avg6BsDFjoXA/Q83fsYbN4HHab6X9u/Engineering%3A%20Undergraduate%20%26%20Masters%20Asia%20Virtual%20Experience%20Program/Ufuk "><button class="btn_one " ;>Verify
+                        Certificate</button></form>
+            </div>
+
+            <div class="project ">
+                <h2>AWS Fundamentals: Going Cloud Native</h2>
+                <h3>Amazon Web Services (AWS)</h3>
+                <div id="date ">Issued October 2020</div>
+                <form action="https://coursera.org/verify/P7ZV5KKSHXXF "><button class="btn_one " ;>Verify
+                        Certificate</button></form>
+            </div>
+
+            <div class="project ">
+                <h2>Crash Course on Python</h2>
+                <h3>Google</h3>
+                <div id="date ">Issued September 2020</div>
+                <form action="https://coursera.org/verify/MUYTN22KNFCX "><button class="btn_one " ;>Verify
+                        Certificate</button></form>
+            </div>
+
+            <div class="project ">
+                <h2>Digital Marketing</h2>
+                <h3>University of Illinois at Urbana-Champaign</h3>
+                <div id="date ">Issued August 2020</div>
+                <form action="https://coursera.org/verify/HRBN9PYNF9M4 "><button class="btn_one " ;>Verify
+                        Certificate</button></form>
+            </div>
+
+            <div class="project ">
+                <h2>Fundamentals of Digital Marketing</h2>
+                <h3>Google Digital Garage</h3>
+                <div id="date ">Issued August 2020</div>
+                <form action="https://learndigital.withgoogle.com/link/1d6camnqfi8 "><button class="btn_one " ;>Verify
+                        Certificate</button></form>
+            </div>
+
+            <div class="project ">
+                <h2>Introduction to Programming in Swift 5</h2>
+                <h3>LearnQuest</h3>
+                <div id="date ">Issued August 2020</div>
+                <form action="https://coursera.org/verify/3JNK55X9BBR5 "><button class="btn_one " ;>Verify
+                        Certificate</button></form>
+            </div> -->
         </div>
 
-        <div id="contact">
+        </br>
+        </br>
+
+
+
+        <div id="contact ">
             <h1>contact.</h1>
-            <div><b>Feel free to contact me on my email or find me on any of the networks below!</b></br>
+            <div><b>Feel free to contact me on my email or find me on any of the networks below!
+
+            </b></br>
             </div>
-            <div id="details">
-                <a class="btn_social" href="mailto:ufuk@karacaufuk.com"><i class="fas fa-at"></i></a>
-                <a class="btn_social" href="https://www.instagram.com/theufukkaraca"><i
-                        class="fab fa-instagram"></i></a>
-                <a class="btn_social" href="https://www.twitter.com/theufukkaraca"><i class="fab fa-twitter"></i></a>
-                <a class="btn_social" href="https://www.linkedin.com/in/ufuk-karaca"><i class="fab fa-linkedin"></i></a>
-                <a class="btn_social" href="https://www.github.com/ufukkaraca"><i class="fab fa-github"></i></a>
-                <a class="btn_social" href="https://www.medium.com/@ufuk.karaca"><i class="fab fa-medium"></i></a>
+            </br>
+            </br>
+            <div id="details ">
+                <div class="row">
+                    <a class="btn_social " href="mailto:ufuk@karacaufuk.com "><i class="fas fa-at "></i></a>
+                    <a class="btn_social " href="https://www.instagram.com/theufukkaraca "><i
+                        class="fab fa-instagram "></i></a>
+                    <a class="btn_social " href="https://www.twitter.com/theufukkaraca "><i class="fab fa-twitter "></i></a>
+                    <a class="btn_social " href="https://www.linkedin.com/in/ufuk-karaca "><i class="fab fa-linkedin "></i></a>
+                    <a class="btn_social " href="https://www.github.com/ufukkaraca "><i class="fab fa-github "></i></a>
+                    <a class="btn_social " href="https://www.medium.com/@ufuk.karaca "><i class="fab fa-medium "></i></a>
+                </div>
             </div>
         </div>
     </div>
-    <div id="footer">
-        made with love by <a href="https://www.github.com/ufukkaraca"><b><u>@ufukkaraca</u></b></a><br><br>
-        <ba href="https://www.github.com/ufukkaraca">2020</ba>
+
+    <div id="footer" {text-align:center}> made with love by <a href="https://www.github.com/ufukkaraca "><b><u>@ufukkaraca</u></b></a><br><br>
+        <ba>2020</ba>
     </div>
-    <script src="index.js" type="text/javascript"></script>
+    <script src="index.js " type="text/javascript "></script>
 </body>
 
 </html>
-<ba href="https://www.github.com/ufukkaraca">2020</ba>
 </div>
-<script src="index.js" type="text/javascript"></script>
-<script src="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.js" data-cfasync="false"></script>
-<script>
-    window.cookieconsent.initialise({
-        "palette": {
-            "popup": {
-                "background": "#000000",
-                "text": "#ffffff"
-            },
-            "button": {
-                "background": "transparent",
-                "text": "#ffffff",
-                "border": "#ff0000"
-            }
-        },
-        "position": "top",
-        "static": true,
-        "content": {
-            "message": "I use cookies on this site to provide you with the best experience.",
-            "dismiss": "Makes sense, got it!",
-            "href": "www.karacaufuk.com/cookie-policy.html"
-        }
-    });
-</script>
+<script src="index.js " type="text/javascript "></script>
+
 </body>
 
 </html>
