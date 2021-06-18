@@ -211,12 +211,28 @@
                 <h2>Anadolu University</h2>
                 <h3>Management Information Systems (B.S.)</h3>
                 <div id="date">09.2019 - Ongoing</div>
-                <div><b>Activities and Societies:</b> Information Technologies Society </div>
+                <div><b>Activities and Societies: </b> Information Technologies Society </div>
                 </br>
-                <div><b>Courses:</b> Modern Communication Technologies, Project Management, IT Law, Operational Research, Fundamentals of Economics, Business Management.</div>
+                <div><b>Courses: </b> Modern Communication Technologies, Project Management, IT Law, Operational Research, Fundamentals of Economics, Business Management.</div>
                 <form action="https://www.anadolu.edu.tr/en"><button class="btn_one" ;>Visit Institution
                         Website</button></form>
             </div>
+
+
+            {% for item in site.data.education.universities %}
+            <div class="project">
+                <h2>{{ item.name }}</h2>
+                <h3>{{ item.subject }}
+                </h3>
+                <div id="date">{{ item.date }}</div>
+                <div><b>Activities and Societies: </b>{{ item.societies }}</div>
+                </br>
+                <div><b>Courses: </b>{{ item.courses }}</div>
+                <form action="{{ item.link }}"><button class="btn_one" ;>Visit Institution Website</button>
+                </form>
+            </div>
+            {% endfor %}
+
 
 
 
