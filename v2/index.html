@@ -7,7 +7,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
     <!--endregion-->
-    <div class="container-flex bg-dark">
+    <div class="container-flex sticky-top" id="navigation_bar">
         <header class="d-flex justify-content-center py-3">
             <ul class="nav nav-pills">
                 <li class="nav-item"><a href="./index.html" class="nav-link text-white active"
@@ -22,7 +22,8 @@
     </div>
 </head>
 <body style="background-color: #777777">
-<div class="container-fluid py-2 justify-content-between position-relative" id="welcome_card" style="width: 95%; min-width: 95%; max-width: 100%">
+<div class="container-fluid py-2 justify-content-between position-relative" id="welcome_card"
+     style="width: 95%; min-width: 95%; max-width: 100%">
     <div class="row p-3 bg-danger shadow rounded justify-content-between">
         <div class="col-md-7 d-flex align-items-center">
             <div class="display-1">Hello, my name is <strong>Ufuk Karaca.</strong></div>
@@ -49,14 +50,31 @@
         //expandDiv.style.transform = "scalex( " + Math.min(Math.max(scrollAndSpeed, 1), 10) + ")";
 
         //Or using width
-            wd = parseInt(expandDiv.style.width)
-            expandDiv.style.width = (95 * scrollAndSpeed).toString() + "%";
+        wd = parseInt(expandDiv.style.width)
+        expandDiv.style.width = (95 * scrollAndSpeed).toString() + "%";
 
     }
 
     window.addEventListener('scroll', function () { // on page scroll
         requestAnimationFrame(expanding); // call parallaxing()
     }, false);
+</script>
+<script>
+    $(document).ready(function () {
+
+        $("#navigation_bar").toggleClass("bg-transparent");
+
+    });
+
+    // Scrolling Effect
+
+    $(window).on("scroll", function () {
+        if ($(window).scrollTop()) {
+            $('#navigation_bar').toggle('bg-light');
+        } else {
+            $('#navigation_bar').toggle('bg-light');
+        }
+    })
 </script>
 <!--region JS-->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
