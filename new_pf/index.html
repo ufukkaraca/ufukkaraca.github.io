@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>UF | PW</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
+            crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+
+
+    <!--region Extra Libraries -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!--region Flickity-->
+    <!-- CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+    <!-- JavaScript -->
+    <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+    <!--endregion-->
+    <!--endregion-->
+    <link rel="stylesheet" href="static/css/navbar.css"/>
+
+    <style>
+        /* position dots up a bit */
+        .flickity-page-dots {
+            bottom: -22px;
+        }
+
+        /* dots are lines */
+        .flickity-page-dots .dot {
+            height: 4px;
+            width: 40px;
+            margin: 0;
+            border-radius: 0;
+        }
+    </style>
+
+
+</head>
+<body class="bg-black">
+<!--region Old Code-->
+<!--<nav class="navbar navbar-expand-lg navbar-light text-dark position-relative" id="page_navar"
+     aria-label="Tenth navbar example">
+    <div class="container-fluid position-sticky top-0">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample08"
+                aria-controls="navbarsExample08" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse justify-content-md-center" id="navbarsExample08">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">Centered nav only</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Link</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link disabled">Disabled</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="dropdown08" data-bs-toggle="dropdown"
+                       aria-expanded="false">Dropdown</a>
+                    <ul class="dropdown-menu" aria-labelledby="dropdown08">
+                        <li><a class="dropdown-item" href="#">Action</a></li>
+                        <li><a class="dropdown-item" href="#">Another action</a></li>
+                        <li><a class="dropdown-item" href="#">Something else here</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<div class="row p-5 bg-dark text-white " style="height: 100vh">
+    <div class="d-flex col-md-8 order-1 order-md-0 justify-content-start align-items-center">
+        <div class="vstack align-items-start justify-content-center px-5">
+            <p class="display-1 fw-bolder">Hey there! 👋🏻</p>
+            <p class="display-6">My name is <strong class="fw-bolder">Ufuk Karaca</strong> and I am an engineering student, a developer and a full-time
+                dreamer.</p>
+            <div class="hstack d-flex  flex-wrap align-items-center">
+                <hr style="width: 10%; color: white; margin-right: 10px">
+                <span>Scroll to learn more.</span>
+            </div>
+        </div>
+    </div>
+    <div class="d-flex col-md-4 order-0 order-md-1 justify-content-center align-items-center">
+        <img class="rounded-circle w-75" src="static/img/index/ufuk.pngk" alt="Ufuk Karaca">
+    </div>
+</div>
+<div class="row p-5 bg-light gap-2 w-100">
+    <div class="container d-flex flex-nowrap" style="overflow-x: auto">
+        <div class="card d-flex" style="width:40%;flex: 0 0 auto; min-width: 300px">
+            <div class="card-title">
+                    <span class="d-flex flex-row justify-content-start">
+                    <i class="bi bi-arrow-clockwise"></i>                </span>
+
+                <span class="h5">
+                            Sustainability
+                        </span>
+            </div>
+        </div>
+        <div class="card d-flex w-50" style="width:40%;flex: 0 0 auto; min-width: 300px">
+            <div class="card-title">
+                    <span class="d-flex flex-row justify-content-start">
+                    <i class="bi bi-arrow-clockwise"></i>                </span>
+
+                <span class="h5">
+                            Sustainability
+                        </span>
+            </div>
+        </div>
+        <div class="card d-flex w-50" style="width:40%;flex: 0 0 auto; min-width: 300px">
+            <div class="card-title">
+                    <span class="d-flex flex-row justify-content-start">
+                    <i class="bi bi-arrow-clockwise"></i>                </span>
+
+                <span class="h5">
+                            Sustainability
+                        </span>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row p-5 bg-light gap-2 w-100">
+    <span class="h3 py-2">
+                At a glance.
+    </span><div class="col w-100">
+    <div class="row gap-2 overflow-scroll bg-danger w-100 d-flex flex-nowrap" style="min-width: 900px">
+        <div class="col-4 d-inline-block card rounded shadow" style="width: 30%; height: 50vh">
+            <div class="card-title">
+                    <span class="d-flex flex-row justify-content-start">
+                    <i class="bi bi-arrow-clockwise"></i>                </span>
+
+                <span class="h5">
+                            Sustainability
+                        </span>
+            </div>
+
+        </div>
+        <div class="col-4 d-inline-block card rounded shadow" style="width: 30%; height: 50vh">
+            <div class="card-title"><span class="d-flex flex-row justify-content-start">
+                    <i class="bi bi-battery-charging"></i>
+                </span>
+                <span class="h5">
+                            Engineering
+                        </span>
+            </div>
+        </div>
+        <div class="col-4 d-inline-block card rounded shadow" style="width: 30%; height: 50vh">
+            <div class="card-title">
+                    <span class="d-flex flex-row justify-content-start">
+                    <i class="bi bi-graph-up"></i>
+                </span>
+                <span class="h5">
+                            Entrepreneurship
+                        </span>
+            </div>
+        </div>
+    </div>
+</div>
+    &lt;!&ndash;
+    <div class="col w-100">
+        <span class="h3 py-2">
+                At a glance.
+            </span>
+        <hr>
+        <div class="row justify-content-center gap-2" style="width: 100%; min-width: 900px">
+            <div class="col card rounded shadow" style="width: 30%; height: 50vh">
+                <div class="card-title">
+                    <span class="d-flex flex-row justify-content-start">
+                    <i class="bi bi-arrow-clockwise"></i>                </span>
+
+                    <span class="h5">
+                            Sustainability
+                        </span>
+                </div>
+
+            </div>
+            <div class="col card rounded shadow" style="width: 30%; height: 50vh">
+                <div class="card-title"><span class="d-flex flex-row justify-content-start">
+                    <i class="bi bi-battery-charging"></i>
+                </span>
+                    <span class="h5">
+                            Engineering
+                        </span>
+                </div>
+            </div>
+            <div class="col card rounded shadow" style="width: 30%; height: 50vh">
+                <div class="card-title">
+                    <span class="d-flex flex-row justify-content-start">
+                    <i class="bi bi-graph-up"></i>
+                </span>
+                    <span class="h5">
+                            Entrepreneurship
+                        </span>
+                </div>
+            </div>
+        </div>
+    </div>
+&ndash;&gt;
+</div>
+<div class="row">
+
+</div>
+<section id="why-us" class="why-us">
+      <div class="container">
+
+        <div class="section-title">
+          <h2>Why choose <span>Our Restaurant</span></h2>
+          <p>Ut possimus qui ut temporibus culpa velit eveniet modi omnis est adipisci expedita at voluptas atque vitae autem.</p>
+        </div>
+
+        <div class="row">
+
+          <div class="col-lg-4">
+            <div class="box">
+              <span>01</span>
+              <h4>Lorem Ipsum</h4>
+              <p>Ulamco laboris nisi ut aliquip ex ea commodo consequat. Et consectetur ducimus vero placeat</p>
+            </div>
+          </div>
+
+          <div class="col-lg-4 mt-4 mt-lg-0">
+            <div class="box">
+              <span>02</span>
+              <h4>Repellat Nihil</h4>
+              <p>Dolorem est fugiat occaecati voluptate velit esse. Dicta veritatis dolor quod et vel dire leno para dest</p>
+            </div>
+          </div>
+
+          <div class="col-lg-4 mt-4 mt-lg-0">
+            <div class="box">
+              <span>03</span>
+              <h4> Ad ad velit qui</h4>
+              <p>Molestiae officiis omnis illo asperiores. Aut doloribus vitae sunt debitis quo vel nam quis</p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+&lt;!&ndash; region Scripts &ndash;&gt;
+<script>
+    window.onload = function () {
+        $("#page_navbar").hide()
+    }
+
+    function trackScrollPosition() {
+        const y = window.scrollY;
+        const label = Math.min(Math.floor(y / 30) + 1, 20);
+        // Change the background image
+        $("#page_navbar").show();
+    }
+
+    $(document).ready(() => {
+        $(window).scroll(() => {
+            trackScrollPosition();
+        })
+    })
+</script>-->
+
+
+<!--endregion-->
+<!--endregion-->
+
+<header>
+    <input id="page-nav-toggle" class="main-navigation-toggle" type="checkbox"/>
+    <label for="page-nav-toggle">
+        <svg class="icon--menu-toggle" viewBox="0 0 60 30">
+            <g class="icon-group">
+                <g class="icon--menu">
+                    <path d="M 6 0 L 54 0"/>
+                    <path d="M 6 15 L 54 15"/>
+                    <path d="M 6 30 L 54 30"/>
+                </g>
+                <g class="icon--close">
+                    <path d="M 15 0 L 45 30"/>
+                    <path d="M 15 30 L 45 0"/>
+                </g>
+            </g>
+        </svg>
+    </label>
+
+    <nav class="main-navigation">
+        <ul>
+            <li><a href="#0">Home</a></li>
+            <li><a href="#0">Experience</a></li>
+            <li><a href="#0">Projects</a></li>
+            <li><a href="#0">Education</a></li>
+            <li><a href="#0">Contact</a></li>
+
+        </ul>
+    </nav>
+
+</header>
+
+<section class="w-100 bg-black d-flex" style="height: 200vh">
+
+    <h1 class="text-white scrolltextr m-0 "
+        style="background-color: #151516;position: fixed;left: 80vw; top: 25%; transform: translateY(-25%); font-size: 800%; white-space: nowrap">
+        sustainability as core value
+    </h1>
+    <h1 class="text-white scrolltextl m-0 "
+        style="background-color: #151516; position: fixed;right: 80vw; top: 50%; transform: translateY(-50%); font-size: 800%; white-space: nowrap">
+        engineering based solutions
+    </h1>
+    <h1 class="text-white scrolltextr m-0 "
+        style="background-color: #151516; position: fixed;left: 80vw; top: 75%; transform: translateY(-75%); font-size: 800%; white-space: nowrap">
+        entrepreneurship mindset
+    </h1>
+    <p class="h3 scrollindicator ms-5" style="color:#a1a1a6 ;position: fixed; bottom: 10%; opacity: 100%">
+        Scroll to see more.
+    </p>
+
+
+</section>
+<section class="welcomesection w-100 text-white d-flex py-3 my-5" style="padding-inline: 10%">
+    <div class="vstack d-flex rounded rounded-3 shadow p-5" style="width: 100%; background-color: #151516">
+        <h1 class="">
+            Hi.
+        </h1>
+        <br/>
+        <h2 class="h3">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+            et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+            aliquip ex ea commodo consequat.
+        </h2>
+        <br>
+        <br>
+
+</section>
+
+
+<section id="entry" class="w-100 bg-warning" style="height: 100vh;">
+    <div class="container-fluid w-100 h-100 bg-danger d-flex justify-content-center">
+        <div class="row h-100 w-100 bg-secondary">
+            <div class="col col-sm-12 col-lg-7 bg-primary d-flex align-items-center order-1 order-lg-0">
+                <p class="h3 bg-danger text-start aos-animate" data-aos="fade-right">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+                    et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                    aliquip ex ea commodo consequat.
+                </p>
+            </div>
+            <div class="col col-sm-12 col-lg-5 bg-warning d-flex align-items-center justify-content-center">
+                <img class="w-50 h-50" style="filter: invert(1)" src="static/img/index/ufukkaraca_signature.png">
+            </div>
+        </div>
+    </div>
+</section>
+<section id="at_a_glance" class="py-5" style="height: 50vh; max-height: 60vw">
+    <div class="container-fluid h-100 align-items-center ">
+        <div class="row h-100 my-2 d-flex align-items-center my-auto"
+             data-flickity='{ "parallax": true, "initialIndex": 1, "selectedAttraction":0.015, "friction": 0.2}'>
+
+            <!--region Sustainability -->
+            <div class="col col-lg-3 col-6 mx-1 mx-lg-3" style="height: 100%;">
+                <div class="card w-100 h-100 bg-danger aos-animate" data-aos="fade-right"
+                     data-aos-anchor-placement="bottom-bottom">
+                    <div class="card-title">
+                        <span class="d-flex flex-row justify-content-start">
+                            <i class="bi bi-arrow-clockwise"></i> </span>
+
+                        <span class="h5">
+                            LoremIpsum1
+                        </span>
+                        <a class="btn btn-primary" type="button" data-bs-toggle="offcanvas"
+                           data-bs-target="#sustainabilityCanvas"
+                           aria-controls="sustainabilityCanvas">Toggle right offcanvas
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+
+            <!--endregion-->
+
+            <!--region Engineering-->
+            <div class="col col-lg-3 col-6 mx-1 mx-lg-3" style="height: 100%;">
+                <div class="card w-100 h-100 bg-dark aos-animate" data-aos="fade-up"
+                     data-aos-anchor-placement="bottom-bottom">
+                    <div class="card-title">
+                    <span class="d-flex flex-row justify-content-start">
+                        <i class="bi bi-arrow-clockwise"></i> </span>
+
+                        <span class="h5">
+                        LoremIpsum2
+                    </span>
+                        <a class="btn btn-primary" type="button" data-bs-toggle="offcanvas"
+                           data-bs-target="#engineeringCanvas"
+                           aria-controls="engineeringCanvas">Toggle right offcanvas
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+
+            <!--endregion-->
+
+
+            <!--region Entrepreneurship-->
+            <div class="col col-lg-3 col-6 mx-1 mx-lg-3" style="height: 100%;">
+                <div class="card w-100 h-100 bg-secondary aos-animate" data-aos="fade-left"
+                     data-aos-anchor-placement="bottom-bottom">
+                    <div class="card-title">
+                    <span class="d-flex flex-row justify-content-start">
+                        <i class="bi bi-arrow-clockwise"></i> </span>
+
+                        <span class="h5">
+                        LoremIpsum3
+                    </span>
+                        <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas"
+                                data-bs-target="#entrepreneurshipCanvas"
+                                aria-controls="entrepreneurshipCanvas">Toggle right offcanvas
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+
+            <!--endregion-->
+        </div>
+    </div>
+</section>
+<!--region At a Glance Canvases-->
+<div class="offcanvas offcanvas-start" style="width: 95vw" tabindex="-1" id="sustainabilityCanvas"
+     aria-labelledby="sustainabilityCanvasLabel">
+    <div class="offcanvas-header">
+        <h5 id="sustainabilityCanvasLabel">Offcanvas right</h5>
+        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
+                aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+        ...
+    </div>
+</div>
+<div class="offcanvas offcanvas-bottom" style="height: 95vh" tabindex="-1" id="engineeringCanvas"
+     aria-labelledby="engineeringCanvasLabel">
+    <div class="offcanvas-header">
+        <h5 id="engineeringCanvasLabel">Offcanvas right</h5>
+        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
+                aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+        ...
+    </div>
+</div>
+<div class="offcanvas offcanvas-end" style="width: 95vw" tabindex="-1" id="entrepreneurshipCanvas"
+     aria-labelledby="entrepreneurshipCanvasLabel">
+    <div class="offcanvas-header">
+        <h5 id="entrepreneurshipCanvasLabel">Offcanvas right</h5>
+        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
+                aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+        ...
+    </div>
+</div>
+<!--endregion-->
+
+
+<!--------------------------------------------------->
+<!--------------------------------------------------->
+<!--------------------------------------------------->
+<!--------------------------------------------------->
+<!--region Extra Libraries -->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+    AOS.init();
+</script>
+<!--endregion-->
+
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script src="static/js/index/sliding_text.js" type="text/javascript"></script>
+</body>
+</html>
