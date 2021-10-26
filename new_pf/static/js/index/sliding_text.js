@@ -21,10 +21,10 @@ $(document).on("scroll", function () {
     let scrollTop = window.scrollY;
     let elementOffset = welcomesection.offset().top;
     let distance = (elementOffset - scrollTop);
-    if (distance > vh(50)) {
-        welcomesection.css("opacity", Math.max(-200 + 200 * window.scrollY / window.innerHeight) + "%");
-    } else if (distance < vh(40)) {
-        welcomesection.css("opacity", Math.max(100 - 100 * window.scrollY / window.innerHeight) + "%");
+    let screen = vh(100)
+    if (distance < screen) {
+
+                    welcomesection.css("opacity", Math.max(50 * window.scrollY / window.innerHeight) + "%");
 
     }
 })

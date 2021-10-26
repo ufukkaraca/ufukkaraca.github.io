@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css?family=Merriweather:900&display=swap");
 :root {
-  --color-primary: #002626;
+  --color-primary: #151516;
   --color-secondary: #f0f7ee;
   --duration: 1s;
   --nav-duration: calc(var(--duration) / 4);
@@ -62,7 +62,8 @@ h1 {
 }
 
 .icon--menu {
-  stroke: var(--color-primary);
+  stroke: #8D1900;
+  mix-blend-mode: exclusion;
 }
 
 .icon--close {
