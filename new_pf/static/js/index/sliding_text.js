@@ -8,23 +8,40 @@ function vw(v) {
     return (v * w) / 100;
 }
 
+function pxw(px) {
+    return px * (100 / document.documentElement.clientWidth);
+}
+
+function pxh(px) {
+    return px * (100 / document.documentElement.clientHeight);
+}
+
+window.onload = function () {
+    let scc = $(".slidercontainer");
+    scc.css("height", (parseFloat($(".scrolltextl").css("width")) * 1.2))
+}
+
+
 $(document).on("scroll", function () {
     let stl = $(".scrolltextl");
-    stl.css("right", Math.max(80 - 200 * window.scrollY / window.innerHeight) + "vw");
+    stl.css("right", Math.max(80 - 0.2 * (window.scrollY)) + "vw");
     let str = $(".scrolltextr");
-    str.css("left", Math.max(80 - 200 * window.scrollY / window.innerHeight) + "vw");
+    str.css("left", Math.max(80 - 0.2 * window.scrollY) + "vw");
+
+
     let sci = $(".scrollindicator");
     sci.css("opacity", Math.max(100 - 200 * window.scrollY / window.innerHeight) + "%");
-    let apl = $(".appearlater");
-    apl.css("opacity", Math.max(-200 + 200 * window.scrollY / window.innerHeight) + "%");
-    let welcomesection = $(".welcomesection");
+
+
+    let slidingcol = $(".slidingcol");
     let scrollTop = window.scrollY;
-    let elementOffset = welcomesection.offset().top;
+    let elementOffset = slidingcol.offset().top;
     let distance = (elementOffset - scrollTop);
     let screen = vh(100)
-    if (distance < screen) {
+    console.log("Margin Top: "+slidingcol.css("margin-top"))
+    console.log("Offset:" + (elementOffset))
+    console.log("Distance: " + distance)
 
-                    welcomesection.css("opacity", Math.max(50 * window.scrollY / window.innerHeight) + "%");
 
-    }
+
 })
