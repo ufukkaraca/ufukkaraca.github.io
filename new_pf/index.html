@@ -114,11 +114,12 @@
         .zilla {
             font-family: 'Zilla Slab', serif;
         }
-        p, a, span{
+
+        p, a, span {
             font-size: 2vh;
         }
 
-        .textmedium{
+        .textmedium {
             font-size: 2.5vh;
         }
 
@@ -465,25 +466,146 @@
             Bir bakışta.
         </p>
         <div class="hstack w-100 overflow-auto">
-            <h2 class="category activecategory zilla textmedium" type="button">sürdürülebilirlik</h2>
+            <h2 class="category activecategory zilla textmedium" type="button" onclick="{
+                $('.activecategory').removeClass('activecategory')
+                $(this).toggleClass('activecategory')
+                $('#sustainability_section').show('blind')
+                $('#engineering_section').hide('slide')
+                $('#entrepreneurship_section').hide('slide')
+            }"
+            >sürdürülebilirlik</h2>
             <h2 class="px-2 categoryseparator textmedium">/</h2>
-            <h2 class="category zilla textmedium" type="button">mühendislik</h2>
+            <h2 class="category zilla textmedium" type="button" onclick="{
+                $('.activecategory').removeClass('activecategory')
+                $(this).toggleClass('activecategory')
+                $('#sustainability_section').hide('slide')
+                $('#engineering_section').show('blind')
+                $('#entrepreneurship_section').hide('slide')
+            }"
+            >mühendislik</h2>
             <h2 class="px-2 categoryseparator textmedium">/</h2>
-            <h2 class="category zilla textmedium" type="button">girişimcilik</h2>
+            <h2 class="category zilla textmedium" type="button" onclick="{
+                $('.activecategory').removeClass('activecategory')
+                $(this).toggleClass('activecategory')
+                $('#sustainability_section').hide('slide')
+                $('#engineering_section').hide('slide')
+                $('#entrepreneurship_section').show('blind')
+            }"
+            >girişimcilik</h2>
         </div>
         <br>
-        <div class="row">
+        <div id="sustainability_section" class="row">
             <div class="col col-sm-12 col-lg-5">
                 <div class="row py-2">
-                    <h3 class="textmedium zilla" style="color: antiquewhite">Deneyimler<hr></h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                        labore
-                        et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
-                        ut
-                        aliquip ex ea commodo consequat.</p>
+                    <h3 class="textmedium zilla" style="color: antiquewhite">Experiences
+                        <hr>
+                    </h3>
+                    <p>
+                        As a SDG Coordinator for SDSN Youth, I have tackled complex problems on regional and national
+                        scales; ranging from climate crisis to gender equality. Having founded the GreenYouth
+                        Initiative, I have had the change to work with micromobility firms for building sustainable
+                        cities, and educational institutions for creating sustainability frameworks for
+                        curriculum-making processes.
+                    </p>
                 </div>
                 <div class="row py-2">
-                    <h3 class="textmedium zilla" style="color: antiquewhite">Vaka: Yeşil Gençlik<hr></h3>
+                    <h3 class="textmedium zilla" style="color: antiquewhite">Case: GreenYouth Initiative
+                        <hr>
+                    </h3>
+                    <p>
+                        Founded in 2021, GreenYouth Initiative provides youth-powered sustainability management to
+                        private and public institutions alike with services ranging from research and consulting to
+                        technological solutions development and execution.
+                    </p>
+                </div>
+            </div>
+
+            <div class="col col-sm-12 col-lg-5">
+                <div class="row py-2">
+                    <h3 class="textmedium zilla" style="color: antiquewhite">Which means...
+                        <hr>
+                    </h3>
+                    <p>
+                        I can help you bring sustainability and technology together to create unique solutions, follow
+                        the latest trends, oversee large-scale projects and bring a new perspective to your works. I can also help with internal sustainability trainings, reporting and content production.
+                        <br><br>
+                        A sustainable, inclusive and green structure is the backbone of a forward-thinking company, and
+                        I can ensure the upholding of these values.
+                        <br><br>
+                        <a class="categoryseparator hvr-sweep-to-right" href="https://www.sdsnyouth.org">SDSN Youth</a>
+                        <br>
+                        <a class="categoryseparator hvr-sweep-to-right" href="https://linkin.bio/sdghubtobbetu">SDG Hub
+                            TOBB ETU</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div id="engineering_section" style="display: none" class="row">
+            <div class="col col-sm-12 col-lg-5">
+                <div class="row py-2">
+                    <h3 class="textmedium zilla" style="color: antiquewhite">Experience and Education
+                        <hr>
+                    </h3>
+                    <p>
+                        Studying Electrical Engineering and Management Information Systems majors, I work on turning
+                        theory into practice by hands-on experiences and tech-focused projects. I'm a self-taught
+                        developer, and I work on developing beautiful things.
+                        <br><br>
+                        <strong>Hardware:</strong> I have developed an awarded wearable emergency-locating system,
+                        small-scale automation circuits and PoC systems for pipelining.
+                        <br><br>
+                        <strong>Software:</strong> I have designed numerous websites, developed mobile applications and
+                        handled the full-stack development for big data, management and HR programs.
+                    </p>
+                </div>
+            </div>
+
+            <div class="col col-sm-12 col-lg-5">
+                <div class="row py-2">
+                    <h3 class="textmedium zilla" style="color: antiquewhite">Case: Piëch
+                        <hr>
+                    </h3>
+                    <p>
+                        As a 6-month intern at Piëch Automotive, I developed multiple systems utilizing numerous
+                        technologies. The company 'Hub' system, of which I ran the full-stack development, is comprised
+                        of over 18,000 code lines.
+                        <br><br>
+                        Including a PLM and HR applications, it enables the company to
+                        create real-time AR models from BOM data, in the meanwhile enabling all departments from finance
+                        to engineering to work on the most up-to-date data. It also enables real-time control over
+                        supplier management, access, and employee vacation management.
+                        <br><br>
+                        Side projects include blockchain prototyping, web parsing and more.
+                    </p>
+                </div>
+            </div>
+            <div class="col col-sm-12 col-lg-10">
+                <div class="row py-2">
+                    <h3 class="textmedium zilla" style="color: antiquewhite">Which means...
+                        <hr>
+                    </h3>
+                    <p>
+                        I can do front-end, back-end or full-stack development, work on big data management and help manage complex development projects.
+                        <br><br><strong>Tech Stack</strong><br>
+                        Django, JavaScript, HTML, CSS, Python, React, Bootstrap, three.js, Solana, C, C++, Verilog, Flutter, SQLite.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div id="entrepreneurship_section" style="display: none" class="row">
+            <div class="col col-sm-12 col-lg-5">
+                <div class="row py-2">
+                    <h3 class="textmedium zilla" style="color: antiquewhite">Organizations
+                        <hr>
+                    </h3>
+                    <p>
+                        
+                    </p>
+                </div>
+                <div class="row py-2">
+                    <h3 class="textmedium zilla" style="color: antiquewhite">Vaka: Yeşil Gençlik
+                        <hr>
+                    </h3>
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
                         labore
                         et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
@@ -494,7 +616,9 @@
 
             <div class="col col-sm-12 col-lg-5">
                 <div class="row py-2">
-                    <h3 class="textmedium zilla" style="color: antiquewhite">Sivil Toplum<hr></h3>
+                    <h3 class="textmedium zilla" style="color: antiquewhite">Sivil Toplum
+                        <hr>
+                    </h3>
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
                         labore
                         et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
@@ -695,7 +819,7 @@ height: 120vh">
 
         <div class="col col-sm-12 col-lg-6 slidingcol" style="margin-top: 25vh">
             <div class="vstack my-5">
-                <h1  style="color: antiquewhite">
+                <h1 style="color: antiquewhite">
                     Projeler.
                 </h1>
 
@@ -777,7 +901,7 @@ height: 120vh">
 
 <section class="w-100 d-flex p-5" style="background: rgb(0,0,0);
 background: linear-gradient(164deg, rgba(0,0,0,1) 11%, rgba(59,83,204,1) 91%);
-height: 60vh">
+height: 80vh">
     <div class="vstack p-5 m-5 h-50 my-auto mx-auto d-flex align-items-center justify-content-center aos-animate"
          data-aos="fade-right" data-aos-duration="600" data-aos-anchor-placement="top-bottom">
         <p class="text-white zilla" style="font-weight: 400; font-size: 400%">
@@ -789,26 +913,26 @@ height: 60vh">
 <section class="w-100 d-flex py-3 mb-0" style="padding-inline: 10%; background: #FFFFFF">
     <div class="vstack my-5">
         <h1 class="" style="font-family:'Open Sans',sans-serif;font-size: 200%; font-weight: 600;">
-            daha da görecek çok şeyim var, iletişime geçelim:
+            and i still have a lot to see, a lot to show. let's get in touch:
         </h1>
         <!--region Piëch-->
         <div class="row justify-content-start d-flex  ">
             <div class="col col-sm-8 col-lg-4 d-flex">
                 <a href="mailto:ufuk@karacaufuk.com" style="color: black" class="my-auto text zilla w-100">
-                    bana e-posta gönder
+                    send me an email
                 </a>
             </div>
             <div class="col col-8">
                 <a href="https://www.linkedin.com/in/ufuk-karaca" style="" class="text zilla hvr-sweep-to-right">
                     linkedin
                 </a>
-                <span style="color: #151516" class="text zilla">
+                <span style="color: #151516" class="text zilla my-auto">
                     /
                 </span>
                 <a href="https://www.github.com/ufukkaraca" style="" class="text zilla hvr-sweep-to-right">
                     github
                 </a>
-                <span style="color: #151516" class="text zilla">
+                <span style="color: #151516" class="text zilla my-auto">
                     /
                 </span>
                 <a href="https://www.medium.com/@ufuk.karaca" style="" class="text zilla hvr-sweep-to-right">
@@ -834,11 +958,14 @@ height: 60vh">
         <!--region Piëch-->
         <div class="row justify-content-center d-flex py-3 text-white">
             <div class="col col-8 align-items-center">
-                <p style="font-family: Helvetica, sans-serif; font-weight: normal; color:antiquewhite;" class="my-auto mx-auto text-center">
-                    Designed by <a style="color: navajowhite" href="https://www.github.com/ufukkaraca">Ufuk Karaca</a> with &#10084;&#65039
+                <p style="font-family: Helvetica, sans-serif; font-weight: normal; color:antiquewhite;"
+                   class="my-auto mx-auto text-center">
+                    Designed by <a style="color: navajowhite" href="https://www.github.com/ufukkaraca">Ufuk Karaca</a>
+                    with &#10084;&#65039
                 </p>
                 <br>
-                <p style="font-family: Helvetica, sans-serif; font-weight: lighter; color: antiquewhite" class="text-center">
+                <p style="font-family: Helvetica, sans-serif; font-weight: lighter; color: antiquewhite"
+                   class="text-center">
                     &copy 2021
                 </p>
             </div>
