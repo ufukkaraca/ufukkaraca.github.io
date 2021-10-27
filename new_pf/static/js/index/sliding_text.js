@@ -18,10 +18,14 @@ function pxh(px) {
 
 window.onload = function () {
     let scc = $(".slidercontainer");
-    scc.css("height", (parseFloat($(".scrolltextl").css("width")) * 1.2))
+    scc.css("height", (parseFloat($(".scrolltextl").css("width")) * 1.4))
     if (screen.width <= 992) {
         $(".slidingcol").css("margin-top", 1 + "vh")
     }
+    var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'))
+    var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+        return new bootstrap.Popover(popoverTriggerEl)
+    })
 }
 
 
@@ -41,10 +45,9 @@ $(document).on("scroll", function () {
     let distance = (elementOffset - scrollTop);
     let screen = vh(100)
     if (distance < screen && parseFloat(slidingcol.css("margin-top")) > 0 && (vh(25) - pxh(vh(100) - 2 * distance)) > 0) {
-        if  (screen.width >= 992){
+        if (screen.width >= 992) {
             slidingcol.css("margin-top", (vh(25) - pxh(vh(100) - 2 * distance)) + "px");
-        }
-        else{
+        } else {
             slidingcol.css("margin-top", (vh(10) - pxh(vh(100) - 2 * distance)) + "px");
         }
 
@@ -56,3 +59,17 @@ $(document).on("scroll", function () {
 
 
 })
+
+function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+async function navi(button_id, nav_id) {
+    $(button_id).click();
+    await sleep(300);
+    $('html, body').animate({
+        scrollTop: $(nav_id).offset().top-100
+      }, 500)
+}
+
+
