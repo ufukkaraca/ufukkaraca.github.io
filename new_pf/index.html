@@ -354,10 +354,15 @@
     <label for="page-nav-toggle">
         <svg class="icon--menu-toggle" viewBox="0 0 60 30">
             <g class="icon-group">
-                <g class="icon--menu">
+                <g class="icon--menu" style="stroke: white">
                     <path d="M 6 0 L 54 0"/>
                     <path d="M 6 15 L 54 15"/>
                     <path d="M 6 30 L 54 30"/>
+                </g>
+                <g class="icon--menu" style="stroke: black">
+                    <path d="M 6 7.5 L 54 7.5"/>
+                    <path d="M 6 22.5 L 54 22.5"/>
+                    <path d="M 6 37.5 L 54 37.5"/>
                 </g>
                 <g class="icon--close">
                     <path d="M 15 0 L 45 30"/>
@@ -449,7 +454,7 @@
 
 <section class=" w-100 text-white d-flex py-3 mb-5" style="padding-inline: 10%">
     <div class="vstack d-flex rounded rounded-3 shadow p-5" style="width: 100%; background-color: #151516">
-        <p style="font-size:7vh; font-family: 'Zilla Slab',serif; font-weight: 800">
+        <p style="font-size:7vh; font-family: 'Zilla Slab',serif; font-weight: 800;color: antiquewhite">
             Bir bakışta.
         </p>
         <div class="hstack w-100 overflow-auto">
@@ -507,7 +512,8 @@ height: 120vh">
         <p class="text-white zilla" style="font-weight: 400; font-size: 500%">Experience is a jewel, and it had need be
             so, for it is often purchased at an infinite
             rate.</p>
-        <p class="align-self-start zilla" style="color: #a1a1a6; font-weight: 100">- William Shakespeare</p></div>
+        <p class="align-self-start zilla" style="color: #a1a1a6; font-size:200%; font-weight: 100">- William
+            Shakespeare</p></div>
 </section>
 
 
@@ -588,182 +594,294 @@ height: 120vh">
     </div>
 </section>
 <!--endregion-->
+<div style="height: 150px; overflow: hidden;">
+    <svg viewBox="0 0 500 150" preserveAspectRatio="none" style="height: 100%; width: 100%; background: white">
+        <polygon id="exp_to_ed_poly" points="0 150, 500 150, 500 150, 0 0" stroke="none" fill="#00000"/>
+    </svg>
+</div>
 
 
-<section class="w-100 d-flex py-3 gap-lg-5" style="padding-inline: 10%; background: #000000">
+<section class="w-100 d-flex py-3 gap-lg-5 text-white" style="padding-inline: 10%; background: #000000">
+    <div class="row">
+        <div class="col col-sm-12 col-lg-6">
+            <div class="vstack my-5">
+                <h1 class="aos-animate" data-aos="flip-down" data-aos-duration="500"
+                    data-aos-anchor-placement="top-bottom" style="color: antiquewhite">
+                    Eğitim.
+                </h1>
 
-    <div class="col col-sm-12 col-lg-6">
-        <div class="vstack my-5">
-            <h1 style="color: antiquewhite">
-                Eğitim.
-            </h1>
-
-            <!--region Piëch-->
-            <div class="row justify-content-center d-flex py-3 aos-animate hvr-sweep-to-right"
-                 data-aos="fade-right" data-aos-duration="600" data-aos-anchor-placement="top-bottom">
-                <div class="col col-4 d-flex">
-                    <p class="zilla">
-                        <strong>
-                            Araba Şirketi
-                        </strong>
-                        <br>
-                        Stajyer
-                    </p>
+                <!--region Piëch-->
+                <div class="row justify-content-center d-flex py-3 aos-animate hvr-sweep-to-right"
+                     data-aos="fade-right" data-aos-duration="600" data-aos-anchor-placement="top-bottom">
+                    <div class="col col-4 d-flex">
+                        <p class="zilla">
+                            <strong>
+                                Araba Şirketi
+                            </strong>
+                            <br>
+                            Stajyer
+                        </p>
+                    </div>
+                    <div class="col col-8">
+                        <p class="zilla my-auto">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                            labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                            laboris
+                            nisi
+                            utaliquip ex ea commodo consequat.
+                        </p>
+                    </div>
                 </div>
-                <div class="col col-8">
-                    <p class="zilla my-auto">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                        labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                        laboris
-                        nisi
-                        utaliquip ex ea commodo consequat.
-                    </p>
+                <!--endregion-->
+                <hr class="my-0 aos-animate"
+                    data-aos="fade-right" data-aos-duration="600" data-aos-anchor-placement="top-bottom">
+                <!--region SDSN Youth -->
+                <div class="row justify-content-center d-flex py-3 aos-animate hvr-sweep-to-right"
+                     data-aos="fade-right" data-aos-duration="600" data-aos-anchor-placement="top-bottom">
+                    <div class="col col-4 d-flex">
+                        <p class="zilla">
+                            <strong>
+                                Birleşmiş Milletler </strong>
+                            <br>
+                            Koordinatör
+                        </p>
+                    </div>
+                    <div class="col col-8">
+                        <p class="zilla my-auto">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                            labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                            laboris
+                            nisi
+                            utaliquip ex ea commodo consequat.
+                        </p>
+                    </div>
                 </div>
+                <!--endregion-->
+                <hr class="my-0 aos-animate"
+                    data-aos="fade-right" data-aos-duration="600" data-aos-anchor-placement="top-bottom">
+                <!--region Girişimcilik Vakfı-->
+                <div class="row rounded justify-content-center d-flex py-3 aos-animate hvr-sweep-to-right"
+                     data-aos="fade-right" data-aos-duration="600" data-aos-anchor-placement="top-bottom">
+                    <div class="col col-4 d-flex">
+                        <p class="zilla">
+                            <strong>
+                                Girişimcilik Vakfı </strong>
+                            <br>
+                            Yoldaş
+                        </p>
+                    </div>
+                    <div class="col col-8">
+                        <p class="zilla my-auto">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                            labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                            laboris
+                            nisi
+                            utaliquip ex ea commodo consequat.
+                        </p>
+                    </div>
+                </div>
+                <!--endregion-->
             </div>
-            <!--endregion-->
-            <hr class="my-0 aos-animate"
-                data-aos="fade-right" data-aos-duration="600" data-aos-anchor-placement="top-bottom">
-            <!--region SDSN Youth -->
-            <div class="row justify-content-center d-flex py-3 aos-animate hvr-sweep-to-right"
-                 data-aos="fade-right" data-aos-duration="600" data-aos-anchor-placement="top-bottom">
-                <div class="col col-4 d-flex">
-                    <p class="zilla">
-                        <strong>
-                            Birleşmiş Milletler </strong>
-                        <br>
-                        Koordinatör
-                    </p>
-                </div>
-                <div class="col col-8">
-                    <p class="zilla my-auto">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                        labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                        laboris
-                        nisi
-                        utaliquip ex ea commodo consequat.
-                    </p>
-                </div>
-            </div>
-            <!--endregion-->
-            <hr class="my-0 aos-animate"
-                data-aos="fade-right" data-aos-duration="600" data-aos-anchor-placement="top-bottom">
-            <!--region Girişimcilik Vakfı-->
-            <div class="row rounded justify-content-center d-flex py-3 aos-animate hvr-sweep-to-right"
-                 data-aos="fade-right" data-aos-duration="600" data-aos-anchor-placement="top-bottom">
-                <div class="col col-4 d-flex">
-                    <p class="zilla">
-                        <strong>
-                            Girişimcilik Vakfı </strong>
-                        <br>
-                        Yoldaş
-                    </p>
-                </div>
-                <div class="col col-8">
-                    <p class="zilla my-auto">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                        labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                        laboris
-                        nisi
-                        utaliquip ex ea commodo consequat.
-                    </p>
-                </div>
-            </div>
-            <!--endregion-->
         </div>
-    </div>
 
 
+        <div class="col col-sm-12 col-lg-6 slidingcol" style="margin-top: 25vh">
+            <div class="vstack my-5">
+                <h1 class="aos-animate" data-aos="flip-down" data-aos-duration="500"
+                    data-aos-anchor-placement="top-bottom" style="color: antiquewhite">
+                    Projeler.
+                </h1>
 
-
-
-
-
-
-    <div class="col col-sm-12 col-lg-6 slidingcol" style="margin-top: 25vh">
-        <div class="vstack my-5">
-            <h1 style="color: antiquewhite">
-                Projeler.
-            </h1>
-
-            <!--region Piëch-->
-            <div class="row justify-content-center d-flex py-3 aos-animate hvr-sweep-to-right"
-                 data-aos="fade-right" data-aos-duration="600" data-aos-anchor-placement="top-bottom">
-                <div class="col col-4 d-flex">
-                    <p class="zilla">
-                        <strong>
-                            Araba Şirketi
-                        </strong>
-                        <br>
-                        Stajyer
-                    </p>
+                <!--region Piëch-->
+                <div class="row justify-content-center d-flex py-3 aos-animate hvr-sweep-to-right"
+                     data-aos="fade-right" data-aos-duration="600" data-aos-anchor-placement="top-bottom">
+                    <div class="col col-4 d-flex">
+                        <p class="zilla">
+                            <strong>
+                                Araba Şirketi
+                            </strong>
+                            <br>
+                            Stajyer
+                        </p>
+                    </div>
+                    <div class="col col-8">
+                        <p class="zilla my-auto">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                            labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                            laboris
+                            nisi
+                            utaliquip ex ea commodo consequat.
+                        </p>
+                    </div>
                 </div>
-                <div class="col col-8">
-                    <p class="zilla my-auto">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                        labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                        laboris
-                        nisi
-                        utaliquip ex ea commodo consequat.
-                    </p>
+                <!--endregion-->
+                <hr class="my-0 aos-animate"
+                    data-aos="fade-right" data-aos-duration="600" data-aos-anchor-placement="top-bottom">
+                <!--region SDSN Youth -->
+                <div class="row justify-content-center d-flex py-3 aos-animate hvr-sweep-to-right"
+                     data-aos="fade-right" data-aos-duration="600" data-aos-anchor-placement="top-bottom">
+                    <div class="col col-4 d-flex">
+                        <p class="zilla">
+                            <strong>
+                                Birleşmiş Milletler </strong>
+                            <br>
+                            Koordinatör
+                        </p>
+                    </div>
+                    <div class="col col-8">
+                        <p class="zilla my-auto">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                            labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                            laboris
+                            nisi
+                            utaliquip ex ea commodo consequat.
+                        </p>
+                    </div>
                 </div>
+                <!--endregion-->
+                <hr class="my-0 aos-animate"
+                    data-aos="fade-right" data-aos-duration="600" data-aos-anchor-placement="top-bottom">
+                <!--region Girişimcilik Vakfı-->
+                <div class="row rounded justify-content-center d-flex py-3 aos-animate hvr-sweep-to-right"
+                     data-aos="fade-right" data-aos-duration="600" data-aos-anchor-placement="top-bottom">
+                    <div class="col col-4 d-flex">
+                        <p class="zilla">
+                            <strong>
+                                Girişimcilik Vakfı </strong>
+                            <br>
+                            Yoldaş
+                        </p>
+                    </div>
+                    <div class="col col-8">
+                        <p class="zilla my-auto">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                            labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                            laboris
+                            nisi
+                            utaliquip ex ea commodo consequat.
+                        </p>
+                    </div>
+                </div>
+                <!--endregion-->
             </div>
-            <!--endregion-->
-            <hr class="my-0 aos-animate"
-                data-aos="fade-right" data-aos-duration="600" data-aos-anchor-placement="top-bottom">
-            <!--region SDSN Youth -->
-            <div class="row justify-content-center d-flex py-3 aos-animate hvr-sweep-to-right"
-                 data-aos="fade-right" data-aos-duration="600" data-aos-anchor-placement="top-bottom">
-                <div class="col col-4 d-flex">
-                    <p class="zilla">
-                        <strong>
-                            Birleşmiş Milletler </strong>
-                        <br>
-                        Koordinatör
-                    </p>
-                </div>
-                <div class="col col-8">
-                    <p class="zilla my-auto">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                        labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                        laboris
-                        nisi
-                        utaliquip ex ea commodo consequat.
-                    </p>
-                </div>
-            </div>
-            <!--endregion-->
-            <hr class="my-0 aos-animate"
-                data-aos="fade-right" data-aos-duration="600" data-aos-anchor-placement="top-bottom">
-            <!--region Girişimcilik Vakfı-->
-            <div class="row rounded justify-content-center d-flex py-3 aos-animate hvr-sweep-to-right"
-                 data-aos="fade-right" data-aos-duration="600" data-aos-anchor-placement="top-bottom">
-                <div class="col col-4 d-flex">
-                    <p class="zilla">
-                        <strong>
-                            Girişimcilik Vakfı </strong>
-                        <br>
-                        Yoldaş
-                    </p>
-                </div>
-                <div class="col col-8">
-                    <p class="zilla my-auto">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                        labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                        laboris
-                        nisi
-                        utaliquip ex ea commodo consequat.
-                    </p>
-                </div>
-            </div>
-            <!--endregion-->
         </div>
     </div>
 </section>
 
-<section class="w-100 d-flex" style="background: rgb(0,0,0);
+<section class="w-100 d-flex p-5" style="background: rgb(0,0,0);
 background: linear-gradient(164deg, rgba(0,0,0,1) 11%, rgba(59,83,204,1) 91%);
-height: 100vh">
+height: 60vh">
+    <div class="vstack p-5 m-5 h-50 my-auto mx-auto d-flex align-items-center justify-content-center aos-animate"
+         data-aos="fade-right" data-aos-duration="600" data-aos-anchor-placement="top-bottom">
+        <p class="text-white zilla" style="font-weight: 400; font-size: 400%">
+            If I have seen further, it is by standing on the shoulders of giants.
+        </p>
+        <p class="align-self-start zilla" style="color: #a1a1a6; font-size: 200%; font-weight: 100">- Isaac Newton</p>
+    </div>
+</section>
+<section class="w-100 d-flex py-3 mb-0" style="padding-inline: 10%; background: #FFFFFF">
+    <div class="vstack my-5">
+        <h1 class="zilla" style="font-size: 300%; font-weight: 600;">
+            and i still have a lot to learn, and a lot to give. let's get in touch:
+        </h1>
 
+        <!--region Piëch-->
+        <div class="row justify-content-center d-flex py-3 aos-animate hvr-sweep-to-right"
+             data-aos="fade-right" data-aos-duration="600" data-aos-anchor-placement="top-bottom">
+            <div class="col col-4 d-flex">
+                <p class="zilla">
+                    <strong>
+                        Araba Şirketi
+                    </strong>
+                    <br>
+                    Stajyer
+                </p>
+            </div>
+            <div class="col col-8">
+                <p class="zilla my-auto">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                    labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+                    nisi
+                    utaliquip ex ea commodo consequat.
+                </p>
+            </div>
+        </div>
+        <!--endregion-->
+        <hr class="my-0 aos-animate"
+            data-aos="fade-right" data-aos-duration="600" data-aos-anchor-placement="top-bottom">
+        <!--region SDSN Youth -->
+        <div class="row justify-content-center d-flex py-3 aos-animate hvr-sweep-to-right"
+             data-aos="fade-right" data-aos-duration="600" data-aos-anchor-placement="top-bottom">
+            <div class="col col-4 d-flex">
+                <p class="zilla">
+                    <strong>
+                        Birleşmiş Milletler </strong>
+                    <br>
+                    Koordinatör
+                </p>
+            </div>
+            <div class="col col-8">
+                <p class="zilla my-auto">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                    labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+                    nisi
+                    utaliquip ex ea commodo consequat.
+                </p>
+            </div>
+        </div>
+        <!--endregion-->
+        <hr class="my-0 aos-animate"
+            data-aos="fade-right" data-aos-duration="600" data-aos-anchor-placement="top-bottom">
+        <!--region Girişimcilik Vakfı-->
+        <div class="row rounded justify-content-center d-flex py-3 aos-animate hvr-sweep-to-right"
+             data-aos="fade-right" data-aos-duration="600" data-aos-anchor-placement="top-bottom">
+            <div class="col col-4 d-flex">
+                <p class="zilla">
+                    <strong>
+                        Girişimcilik Vakfı </strong>
+                    <br>
+                    Yoldaş
+                </p>
+            </div>
+            <div class="col col-8">
+                <p class="zilla my-auto">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                    labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+                    nisi
+                    utaliquip ex ea commodo consequat.
+                </p>
+            </div>
+        </div>
+        <!--endregion-->
+    </div>
+</section>
+<div style="height: 150px; overflow: hidden;">
+    <svg viewBox="0 0 500 150" preserveAspectRatio="none"
+         style="stroke:transparent; stroke-width: 0;height: 100%; width: 100%;">
+        <path d="M-17.77,-9.38 C230.52,181.08 230.52,182.06 523.42,-14.30 L500.00,0.00 L-14.39,-16.28 Z"
+              style="stroke: none; fill: white;"></path>
+    </svg>
+</div>
+<section class="w-100 d-flex py-3" style="padding-inline: 10%; background: #000000">
+    <div class="vstack my-5">
+
+
+        <!--region Piëch-->
+        <div class="row justify-content-center d-flex py-3 text-white">
+            <div class="col col-8 align-items-center">
+                <p style="font-family: Helvetica, sans-serif; font-weight: normal; color:antiquewhite;" class="my-auto mx-auto text-center">
+                    Designed by <a style="color: navajowhite" href="https://www.github.com/ufukkaraca">Ufuk Karaca</a> with &#10084;&#65039
+                </p>
+                <br>
+                <p style="font-family: Helvetica, sans-serif; font-weight: lighter; color: antiquewhite" class="text-center">
+                    &copy 2021
+                </p>
+            </div>
+        </div>
+        <!--endregion-->
+
+        <!--endregion-->
+    </div>
 </section>
 
 <!--<section id="entry" class="w-100 bg-warning" style="height: 100vh;">

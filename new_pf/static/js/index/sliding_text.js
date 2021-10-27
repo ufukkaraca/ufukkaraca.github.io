@@ -19,6 +19,9 @@ function pxh(px) {
 window.onload = function () {
     let scc = $(".slidercontainer");
     scc.css("height", (parseFloat($(".scrolltextl").css("width")) * 1.2))
+    if (screen.width <= 992) {
+        $(".slidingcol").css("margin-top", 1 + "vh")
+    }
 }
 
 
@@ -32,16 +35,24 @@ $(document).on("scroll", function () {
     let sci = $(".scrollindicator");
     sci.css("opacity", Math.max(100 - 200 * window.scrollY / window.innerHeight) + "%");
 
-
     let slidingcol = $(".slidingcol");
     let scrollTop = window.scrollY;
     let elementOffset = slidingcol.offset().top;
     let distance = (elementOffset - scrollTop);
     let screen = vh(100)
-    console.log("Margin Top: "+slidingcol.css("margin-top"))
-    console.log("Offset:" + (elementOffset))
-    console.log("Distance: " + distance)
+    if (distance < screen && parseFloat(slidingcol.css("margin-top")) > 0 && (vh(25) - pxh(vh(100) - 2 * distance)) > 0) {
+        if  (screen.width >= 992){
+            slidingcol.css("margin-top", (vh(25) - pxh(vh(100) - 2 * distance)) + "px");
+        }
+        else{
+            slidingcol.css("margin-top", (vh(10) - pxh(vh(100) - 2 * distance)) + "px");
+        }
 
+    }
+    if (distance < screen) {
+        let temp = 150 - 0.25 * (screen - distance);
+        $("#exp_to_ed_poly").attr("points", `0 150, 500 150, 500 ${temp}, 0 0`)
+    }
 
 
 })
