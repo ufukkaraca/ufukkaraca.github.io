@@ -18,14 +18,10 @@ function pxh(px) {
 
 window.onload = function () {
     let scc = $(".slidercontainer");
-    scc.css("height", (parseFloat($(".scrolltextl").css("width")) * 1.4))
+    scc.css("height", (parseFloat($(".scrolltextl").css("width")) * 2))
     if (screen.width <= 992) {
         $(".slidingcol").css("margin-top", 1 + "vh")
     }
-    var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'))
-    var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
-        return new bootstrap.Popover(popoverTriggerEl)
-    })
 }
 
 let typewriter_wrote = false
