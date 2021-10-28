@@ -52,8 +52,8 @@ $(document).on("scroll", function () {
         }
 
     }
-    if (distance < screen) {
-        let temp = 150 - 0.25 * (screen - distance);
+    if ($("#triangle").offset().top-scrollTop < screen) {
+        let temp = 150 - 0.5 * (screen - $("#triangle").offset().top+scrollTop);
         $("#exp_to_ed_poly").attr("points", `0 150, 500 150, 500 ${temp}, 0 0`)
     }
 
