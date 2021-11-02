@@ -26,6 +26,8 @@ let popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
 });
 
 window.onload = function () {
+    $(".pvr").popover()
+
     let scc = $(".slidercontainer");
     scc.css("height", (parseFloat($(".scrolltextl").css("width")) * 2))
     if (screen.width <= 992) {
