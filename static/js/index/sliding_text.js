@@ -1,10 +1,10 @@
 function vh(v) {
-    var h = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
+    let h = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
     return (v * h) / 100;
 }
 
 function vw(v) {
-    var w = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
+    let w = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
     return (v * w) / 100;
 }
 
@@ -15,6 +15,15 @@ function pxw(px) {
 function pxh(px) {
     return px * (100 / document.documentElement.clientHeight);
 }
+
+let tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+let tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+    return new bootstrap.Tooltip(tooltipTriggerEl)
+});
+let popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'));
+let popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+    return new bootstrap.Popover(popoverTriggerEl)
+});
 
 window.onload = function () {
     let scc = $(".slidercontainer");
@@ -49,8 +58,9 @@ $(document).on("scroll", function () {
         }
 
     }
-    if ($("#triangle").offset().top - scrollTop < screen) {
-        let temp = 150 - 0.25 * (screen - $("#triangle").offset().top + scrollTop);
+    let triangle = $("#triangle")
+    if (triangle.offset().top - scrollTop < screen) {
+        let temp = 150 - 0.25 * (screen - triangle.offset().top + scrollTop);
         $("#exp_to_ed_poly").attr("points", `0 150, 500 150, 500 ${temp}, 0 0`)
     }
 
@@ -63,12 +73,11 @@ $(document).on("scroll", function () {
             if (i < txt.length) {
                 document.getElementById("contact_text").innerHTML += txt.charAt(i);
                 i++;
-                if (txt.charAt(i-1)==="." || txt.charAt(i-1)===","){
-                                    setTimeout(typeWriter, 500);
+                if (txt.charAt(i - 1) === "." || txt.charAt(i - 1) === ",") {
+                    setTimeout(typeWriter, 500);
 
-                }
-                else{
-                                    setTimeout(typeWriter, speed);
+                } else {
+                    setTimeout(typeWriter, speed);
 
                 }
             } else {
@@ -80,15 +89,17 @@ $(document).on("scroll", function () {
         typewriter_wrote = true;
     }
 
-    function sleep(ms) {
-        return new Promise(resolve => setTimeout(resolve, ms));
-    }
 
-    async function navi(button_id, nav_id) {
-        $(button_id).click();
-        await sleep(300);
-        $('html, body').animate({
-            scrollTop: $(nav_id).offset().top - 100
-        }, 500)
-    }
 })
+
+function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+async function navi(button_id, nav_id) {
+    $(button_id).click();
+    await sleep(300);
+    $('html, body').animate({
+        scrollTop: $(nav_id).offset().top - 100
+    }, 500)
+}
