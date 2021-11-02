@@ -1,6 +1,8 @@
 <!DOCTYPE html>
+<!--suppress GrazieInspection -->
 <html lang="en">
 <head>
+    <!--region Cookie Consent-->
     <script src="https://cdn.websitepolicies.io/lib/cookieconsent/1.0.3/cookieconsent.min.js" defer></script>
     <script>window.addEventListener("load", function () {
         window.wpcc.init({
@@ -20,7 +22,8 @@
             }
         })
     });</script>
-    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <!--endregion-->
+    <!--region Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-179256726-1"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
@@ -33,6 +36,8 @@
 
         gtag('config', 'UA-179256726-1');
     </script>
+    <!--endregion-->
+    <!--region Site Descriptions-->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -40,179 +45,28 @@
     <meta name="description" content="The personal website for Ufuk Karaca; engineering student at TOBB ETU.">
     <meta name="keywords"
           content="ufukkaraca, karacaufuk, ufuk, karaca, tobb etü, tobb, piëch, ufuk karaca sdg, sdg hub tobb etü">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
-          integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
-            crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+    <!--endregion-->
 
-
-    <!--region Extra Libraries -->
+    <!--region Bootstrap-->
+    <link href="static/css/bootstrap.min.css" rel="stylesheet">
+    <script src="static/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="static/css/bootstrap-icons.css">
+    <!--endregion-->
+    <!--region Stylesheets -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <!--region Flickity-->
-    <!-- CSS -->
-    <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
-    <!-- JavaScript -->
-    <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
-    <!--endregion-->
-    <!--endregion-->
     <link rel="stylesheet" href="static/css/navbar.css"/>
-    <style>
-
-        /* width */
-        ::-webkit-scrollbar {
-            width: 3px;
-        }
-
-        /* Track */
-        ::-webkit-scrollbar-track {
-            background: #151516;
-        }
-
-        /* Handle */
-        ::-webkit-scrollbar-thumb {
-            background: #a1a1a6;
-        }
-
-        /* Handle on hover */
-        ::-webkit-scrollbar-thumb:hover {
-            background: antiquewhite;
-        }
-
-    </style>
-    <style>
-        /* position dots up a bit */
-        .flickity-page-dots {
-            bottom: -22px;
-        }
-
-        /* dots are lines */
-        .flickity-page-dots .dot {
-            height: 4px;
-            width: 40px;
-            margin: 0;
-            border-radius: 0;
-        }
-    </style>
-
-    <style>
-        .hvr-sweep-to-right {
-            display: inline-block;
-            vertical-align: middle;
-            -webkit-transform: perspective(1px) translateZ(0);
-            transform: perspective(1px) translateZ(0);
-            box-shadow: 0 0 1px rgba(0, 0, 0, 0);
-            position: relative;
-            -webkit-transition-property: color;
-            transition-property: color;
-            -webkit-transition-duration: 1s;
-            transition-duration: 1s;
-        }
-
-        .hvr-sweep-to-right:before {
-            content: "";
-            position: absolute;
-            z-index: -1;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            -webkit-transform: scaleX(0);
-            transform: scaleX(0);
-            -webkit-transform-origin: 0 50%;
-            transform-origin: 0 50%;
-            background: #151516;
-            -webkit-transition-property: transform;
-            transition-property: transform;
-            -webkit-transition-duration: 0.5s;
-            transition-duration: 0.5s;
-            -webkit-transition-timing-function: ease-out;
-            transition-timing-function: ease-out;
-
-        }
-
-
-        .hvr-sweep-to-right:hover, .hvr-sweep-to-right:focus, .hvr-sweep-to-right:active {
-            color: antiquewhite;
-            -webkit-transition-property: color;
-            transition-property: color;
-            -webkit-transition-duration: 0.5s;
-            transition-duration: 0.5s;
-        }
-
-
-        .hvr-sweep-to-right:hover:before, .hvr-sweep-to-right:focus:before, .hvr-sweep-to-right:active:before {
-            -webkit-transform: scaleX(1);
-            transform: scaleX(1);
-        }
-
-    </style>
-
-    <style>
-        .blinking {
-            animation: blinkingText 1.2s infinite;
-        }
-
-        @keyframes blinkingText {
-            0% {
-                color: black;
-            }
-            49% {
-                color: black;
-            }
-            60% {
-                color: transparent;
-            }
-            99% {
-                color: transparent;
-            }
-            100% {
-                color: black;
-            }
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        .category {
-            color: #a1a1a6;
-        }
-
-        .categoryseparator {
-            color: #a1a1a6;
-        }
-
-        .category:hover {
-            text-decoration: underline;
-        }
-
-        .activecategory {
-            color: #FFFFFF;
-        }
-
-        .zilla {
-            font-family: 'Zilla Slab', serif;
-        }
-
-        p, a, span {
-            font-size: 2vmax;
-            font-family: 'Zilla Slab', serif
-        }
-
-        .textmedium {
-            font-size: 3.0vmax;
-        }
-
-    </style>
+    <link rel="stylesheet" href="static/css/sweeper.css"/>
+    <link rel="stylesheet" href="static/css/index.css"/>
+    <!--endregion-->
+    <!--region Fonts-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@100;300;400;500;600;700;800;900&display=swap"
           rel="stylesheet">
+    <!--endregion-->
 </head>
 <body class="bg-black">
-
+<!--region Navigation-->
 <header>
     <input id="page-nav-toggle" class="main-navigation-toggle" type="checkbox"/>
     <label for="page-nav-toggle">
@@ -248,7 +102,8 @@
     </nav>
 
 </header>
-
+<!--endregion-->
+<!--region Slider Intro-->
 <section class="w-100 bg-black d-flex slidercontainer" style="height: 200vh">
 
     <h1 class="text-white scrolltextr m-0 "
@@ -269,20 +124,7 @@
 
 
 </section>
-<!--<section class="welcomesection w-100 text-white d-flex pt-3" style="padding-inline: 10%">
-    <div class="vstack d-flex rounded rounded-3 shadow p-5" style="width: 100%; background-color: #151516">
-        <h1 class="">
-            Hi.
-        </h1>
-        <br/>
-        <h2 class="h3">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
-            et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat.
-        </h2>
-
-</section>-->
-
+<!--endregion-->
 <!--region Wave-->
 <div style="height: 150px;position:relative; overflow: hidden;">
     <svg viewBox='0 0 500 150' preserveAspectRatio='none' style='height: 100%; width: 100%;'>
@@ -579,7 +421,7 @@ height: 120vh">
 
                     With more than 18000 lines of code to date and counting, I worked on many projects. <span
                         type="button"
-                        class="categoryseparator" style=(:hover{color:antiquewhite}) href="#piech_case_study"
+                        class="categoryseparator" style=(:hover{color:antiquewhite})
                         onclick="navi('#engineering_button', '#piech_case_study')"
                 > See case study.</span>
                 </p>
@@ -607,7 +449,7 @@ height: 120vh">
                     SDSN Youth's SDG Students Program. This includes but is not limited to SDG-related events
                     organization, attending panels and roundtables, and coordinating sustainability initiatives. <span
                         type="button"
-                        class="categoryseparator" style=(:hover{color:antiquewhite}) href="#piech_case_study"
+                        class="categoryseparator" style=(:hover{color:antiquewhite})
                         onclick="navi('#sustainability_button', '#greenyouth_case_study')"
                 >See case study.</span>
                 </p>
@@ -661,7 +503,7 @@ height: 120vh">
                     "Y-Science" and take part in social good projects, learning groups, certification
                     programmes and more. <span
                         type="button"
-                        class="categoryseparator" style=(:hover{color:antiquewhite}) href="#piech_case_study"
+                        class="categoryseparator" style=(:hover{color:antiquewhite})
                         onclick="navi('#entrepreneurship_button', '#roadmap_case_study')"
                 >See case study.</span>
                 </p>
@@ -680,7 +522,6 @@ height: 120vh">
     </svg>
 </div>
 <!--endregion-->
-
 <!--region Education and Projects-->
 <section id="education_and_projects_section" class="w-100 d-flex py-3 gap-lg-5 text-white"
          style="padding-inline: 10%; background: #000000">
@@ -769,7 +610,7 @@ height: 120vh">
                             public and private institutions alike, to help them adapt themselves to the future of
                             business. <span
                                 type="button"
-                                class="categoryseparator" style=(:hover{color:antiquewhite}) href="#piech_case_study"
+                                class="categoryseparator" style=(:hover{color:antiquewhite})
                                 onclick="navi('#engineering_button', '#greenyouth_case_study')"
                         > See case study.</span>
                         </p>
@@ -869,7 +710,7 @@ height: 120vh">
                             public and private institutions alike, to help them adapt themselves to the future of
                             business. <span
                                 type="button"
-                                class="categoryseparator" style=(:hover{color:antiquewhite}) href="#piech_case_study"
+                                class="categoryseparator" style=(:hover{color:antiquewhite})
                                 onclick="navi('#engineering_button', '#greenyouth_case_study')"
                         > See case study.</span>
                         </p>
@@ -1096,7 +937,6 @@ height: 120vh">
     </div>
 </section>
 <!--endregion-->
-
 <!--region Contact Quote-->
 <section class="w-100 d-flex p-5" style="background: rgb(0,0,0);
 background: linear-gradient(164deg, rgba(0,0,0,1) 11%, rgba(59,83,204,1) 91%);
@@ -1110,8 +950,6 @@ height: 80vh">
     </div>
 </section>
 <!--endregion-->
-
-
 <!--region Contact-->
 <section id="contact_section" class="w-100 d-flex py-3 mb-0" style="padding-inline: 10%; background: #FFFFFF">
     <div class="vstack my-5">
@@ -1180,146 +1018,23 @@ height: 80vh">
 </section>
 <!--endregion-->
 
-<!--<section id="entry" class="w-100 bg-warning" style="height: 100vh;">
-    <div class="container-fluid w-100 h-100 bg-danger d-flex justify-content-center">
-        <div class="row h-100 w-100 bg-secondary">
-            <div class="col col-sm-12 col-lg-7 bg-primary d-flex align-items-center order-1 order-lg-0">
-                <p class="h3 bg-danger text-start aos-animate" data-aos="fade-right">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
-                    et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                    aliquip ex ea commodo consequat.
-                </p>
-            </div>
-            <div class="col col-sm-12 col-lg-5 bg-warning d-flex align-items-center justify-content-center">
-                <img class="w-50 h-50" style="filter: invert(1)" src="static/img/index/ufukkaraca_signature.png">
-            </div>
-        </div>
-    </div>
-</section>
-<section id="at_a_glance" class="py-5" style="height: 50vh; max-height: 60vw">
-    <div class="container-fluid h-100 align-items-center ">
-        <div class="row h-100 my-2 d-flex align-items-center my-auto"
-             data-flickity='{ "parallax": true, "initialIndex": 1, "selectedAttraction":0.015, "friction": 0.2}'>
-
-            &lt;!&ndash;region Sustainability &ndash;&gt;
-            <div class="col col-lg-3 col-6 mx-1 mx-lg-3" style="height: 100%;">
-                <div class="card w-100 h-100 bg-danger aos-animate" data-aos="fade-right"
-                     data-aos-anchor-placement="bottom-bottom">
-                    <div class="card-title">
-                        <span class="d-flex flex-row justify-content-start">
-                            <i class="bi bi-arrow-clockwise"></i> </span>
-
-                        <span class="h5">
-                            LoremIpsum1
-                        </span>
-                        <a class="btn btn-primary" type="button" data-bs-toggle="offcanvas"
-                           data-bs-target="#sustainabilityCanvas"
-                           aria-controls="sustainabilityCanvas">Toggle right offcanvas
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-
-            &lt;!&ndash;endregion&ndash;&gt;
-
-            &lt;!&ndash;region Engineering&ndash;&gt;
-            <div class="col col-lg-3 col-6 mx-1 mx-lg-3" style="height: 100%;">
-                <div class="card w-100 h-100 bg-dark aos-animate" data-aos="fade-up"
-                     data-aos-anchor-placement="bottom-bottom">
-                    <div class="card-title">
-                    <span class="d-flex flex-row justify-content-start">
-                        <i class="bi bi-arrow-clockwise"></i> </span>
-
-                        <span class="h5">
-                        LoremIpsum2
-                    </span>
-                        <a class="btn btn-primary" type="button" data-bs-toggle="offcanvas"
-                           data-bs-target="#engineeringCanvas"
-                           aria-controls="engineeringCanvas">Toggle right offcanvas
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-
-            &lt;!&ndash;endregion&ndash;&gt;
-
-
-            &lt;!&ndash;region Entrepreneurship&ndash;&gt;
-            <div class="col col-lg-3 col-6 mx-1 mx-lg-3" style="height: 100%;">
-                <div class="card w-100 h-100 bg-secondary aos-animate" data-aos="fade-left"
-                     data-aos-anchor-placement="bottom-bottom">
-                    <div class="card-title">
-                    <span class="d-flex flex-row justify-content-start">
-                        <i class="bi bi-arrow-clockwise"></i> </span>
-
-                        <span class="h5">
-                        LoremIpsum3
-                    </span>
-                        <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas"
-                                data-bs-target="#entrepreneurshipCanvas"
-                                aria-controls="entrepreneurshipCanvas">Toggle right offcanvas
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-
-            &lt;!&ndash;endregion&ndash;&gt;
-        </div>
-    </div>
-</section>
-&lt;!&ndash;region At a Glance Canvases&ndash;&gt;
-<div class="offcanvas offcanvas-start" style="width: 95vw" tabindex="-1" id="sustainabilityCanvas"
-     aria-labelledby="sustainabilityCanvasLabel">
-    <div class="offcanvas-header">
-        <h5 id="sustainabilityCanvasLabel">Offcanvas right</h5>
-        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
-                aria-label="Close"></button>
-    </div>
-    <div class="offcanvas-body">
-        ...
-    </div>
-</div>
-<div class="offcanvas offcanvas-bottom" style="height: 95vh" tabindex="-1" id="engineeringCanvas"
-     aria-labelledby="engineeringCanvasLabel">
-    <div class="offcanvas-header">
-        <h5 id="engineeringCanvasLabel">Offcanvas right</h5>
-        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
-                aria-label="Close"></button>
-    </div>
-    <div class="offcanvas-body">
-        ...
-    </div>
-</div>
-<div class="offcanvas offcanvas-end" style="width: 95vw" tabindex="-1" id="entrepreneurshipCanvas"
-     aria-labelledby="entrepreneurshipCanvasLabel">
-    <div class="offcanvas-header">
-        <h5 id="entrepreneurshipCanvasLabel">Offcanvas right</h5>
-        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
-                aria-label="Close"></button>
-    </div>
-    <div class="offcanvas-body">
-        ...
-    </div>
-</div>
-&lt;!&ndash;endregion&ndash;&gt;-->
-
-
 <!--------------------------------------------------->
+<!--------------------END OF HTML-------------------->
 <!--------------------------------------------------->
-<!--------------------------------------------------->
-<!--------------------------------------------------->
+
 <!--region Extra Libraries -->
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<!--region JQuery-->
+<script src="static/js/jquery-3.6.0.min.js"></script>
+<!--endregion-->
+<!--region Custom Scripts-->
+<script src="static/js/index/sliding_text.js" type="text/javascript"></script>
+<!--endregion-->
+<!--region AOS-->
+<script src="static/js/aos.js"></script>
 <script>
     AOS.init();
 </script>
 <!--endregion-->
-
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"
-        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-<script src="static/js/index/sliding_text.js" type="text/javascript"></script>
+<!--endregion-->
 </body>
 </html>
