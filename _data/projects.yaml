@@ -1,0 +1,44 @@
+- title: GreenYouth Initiative
+  date: March 2021 - Present
+  description: GreenYouth initiative aims to provide youth-powered sustainability consultancy services to public and private institutions alike, to help them adapt themselves to the future of business.
+  link_text: See case study.
+  link_url: 
+    - "#engineering_button"
+    - "#greenyouth_case_study"
+  link_href: false
+- title: Personal Website v2
+  date: October 2021
+  description: This website! It is the second iteration of my portfolio, making a better use of animations and web design.
+- title: EverythingRoe
+  date: June 2021 - Present
+  description: EverythingRoe, of which I'm a co-founder, has been providing digitalisation services to small local businesses with competitive pricing to help them adapt to the needs of the 21st century and keep on supporting their local communities.
+  link_text: See website.
+  link_url: "https://www.everythingroe.com"
+  link_href: true
+- title: CelRoad
+  date: March 2021
+  description: CelRoad, co-developed with Gökçe Ceylan was a Mobility as a Service project, aiming to bridge the gap between micromobility solutions and conventional means of transportation. It was a finalist in the InnoBU 2021 hackathon supported by Ford.
+  link_text: See presentation (Turkish).
+  link_url: "static/pdf/CelRoad.pdf"
+  link_href: true
+- title: Manevis
+  date: November 2020
+  description: Manevis, co-developed with Gökçe Ceylan was the world’s first financial youth network, aiming to make finance relatable and financial education reachable for generation Z. This project was developed as part of the Code.YapıKredi Ideathon 2020.
+  link_text: See presentation.
+  link_url: "static/pdf/Manevis.pdf"
+  link_href: true
+- title: Personal Website v1
+  date: October 2020
+  description: This was my first spin at coding a website without external services. I would like to believe that my design and coding skills have progressed significantly since then.
+  link_text: See website.
+  link_url: "https://www.karacaufuk.com/v1"
+  link_href: true
+- title: Verilog Projects
+  date: June 2020 - November 2020
+  description: These included the verilog implementation of an AES based encryption system and a multi-function calculator with complex mathematical formulas, both developed with a focus on pipelining based optimization. The source code for the latter can be found on GitHub.
+  link_text: See source code.
+  link_url: "https://github.com/ufukkaraca/verilogCalculator"
+  link_href: true
+- title: HAYAT433
+  date: December 2017 - April 2018
+  description: HAYAT 433 was an ultra-affordable locating system designed to minimise the amount of time spent finding victims after hydrological and geomorphological hazards. It uses RF transmitters and receivers within the base of a wearable microchip to provide rescue teams information about distance and 'recoverability' of victims. It was rewarded national first place in Science Expo Turkey 2018.
