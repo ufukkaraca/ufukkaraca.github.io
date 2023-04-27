@@ -1,7 +1,7 @@
 - company: Incari
   role: Creative Technologist
   dates: January 2022 - Present
-  description: >
+  description: |
     - Planning, crafting and driving the execution of internal and external projects closely with Design, Development and Product teams across multiple sectors showcasing product capabilities.
 
     - Creating, programming, testing and documenting new use-case scenarios for Incari Studio, a no-code 2D/3D HMI development platform. 
@@ -21,7 +21,7 @@
 - company: Piëch Automotive
   role: Intern
   dates: June 2021 - December 2021
-  description: >
+  description: |
     Led full-stack development, data processing and technical product management projects alongside carrying hands-on work on the GT, an electric supercar with super-fast charging and a driving experience focused design. With more than 18000 lines of code, projects of which I took ownership include but are not limited to:
     - Full-stack development of PLM systems utilizing big-data processing and database management systems, with a special focus on the end-user experience.
     - Development of web-based HR tools.
