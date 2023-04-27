@@ -1,19 +1,30 @@
-- company: Greny.co
-  role: Co-Founder, Lead Facilitator
-  dates: March 2022 - Present
-  description: >
-    Greny.co is a sustainability facilitatorship firm that helps traditional companies initiate their sustainability transformation with the power of sustainability-tech start-ups, assists teams in building natively-sustainable companies and turns sustainability into machine-intelligence-readable metrics.
-    
 - company: Incari
   role: Creative Technologist
   dates: January 2022 - Present
   description: >
-    Testing, developing and documenting the latest technologies in HMI systems, working on bleeding-edge 2D and 3D no-code development systems for faster progress.
-    
+    - Planning, crafting and driving the execution of internal and external projects closely with Design, Development and Product teams across multiple sectors showcasing product capabilities.
+
+    - Creating, programming, testing and documenting new use-case scenarios for Incari Studio, a no-code 2D/3D HMI development platform. 
+
+    - Working in a multidisciplinary environment to drive the development of new features and contribute to the product strategy roadmap. 
+
+    - Developing applications for the first European OS as part of the company's involvement in "Scale-up Europe", an initiative championed by Emmanuel Macron and aims to create 10 European tech companies each valued above €100bn by 2030. 
+
+    Tech Stack: Jira, React.js, Incari Studio, JavaScript, TypeScript, Adobe XD, Figma, HTML, CSS, SASS, ProtoPie, Python, Embedded Development, Yocto
+
+- company: Greny.co
+  role: Co-Founder, Lead Facilitator
+  dates: March 2022 - March 2023
+  description: >
+    Greny.co was a sustainability facilitatorship firm that helped traditional companies initiate their sustainability transformation with the power of sustainability-tech start-ups, assisted teams in building natively-sustainable companies and turned sustainability into machine-intelligence-readable metrics.
+        
 - company: Piëch Automotive
   role: Intern
   dates: June 2021 - December 2021
   description: >
-    Led full-stack development, data processing and technical product management projects alongside carrying hands-on work on the GT, an electric supercar with super-fast charging and a driving experience focused design.
+    Led full-stack development, data processing and technical product management projects alongside carrying hands-on work on the GT, an electric supercar with super-fast charging and a driving experience focused design. With more than 18000 lines of code, projects of which I took ownership include but are not limited to:
+    - Full-stack development of PLM systems utilizing big-data processing and database management systems, with a special focus on the end-user experience.
+    - Development of web-based HR tools.
+    - Blockchain development for internal tools prototyping.
 
-    With more than 18000 lines of code, I worked on many projects.
+    Tech Stack: Django, JavaScript, HTML, CSS, Python, React, Bootstrap, three.js, Unreal, Solana, SQL
