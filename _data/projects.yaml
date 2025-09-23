@@ -19,13 +19,13 @@
   date: March 2021
   description: CelRoad, co-developed with Gökçe Ceylan was a Mobility as a Service project, aiming to bridge the gap between micromobility solutions and conventional means of transportation. It was a finalist in the InnoBU 2021 hackathon supported by Ford.
   link_text: See presentation (Turkish).
-  link_url: "static/pdf/CelRoad.pdf"
+  link_url: "/assets/pdf/CelRoad.pdf"
   link_href: true
 - title: Manevis
   date: November 2020
   description: Manevis, co-developed with Gökçe Ceylan was the world’s first financial youth network, aiming to make finance relatable and financial education reachable for generation Z. This project was developed as part of the Code.YapıKredi Ideathon 2020.
   link_text: See presentation.
-  link_url: "static/pdf/Manevis.pdf"
+  link_url: "/assets/pdf/Manevis.pdf"
   link_href: true
 - title: Personal Website v1
   date: October 2020
