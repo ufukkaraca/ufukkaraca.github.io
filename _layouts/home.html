@@ -1,0 +1,64 @@
+---
+layout: default
+---
+
+<header class="site-header">
+    <div class="container row">
+        <a class="brand" href="/">Ufuk Karaca</a>
+        <nav class="nav" aria-label="Primary">
+            <a href="#work">Work</a>
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </div>
+</header>
+
+<main class="site-main">
+    <section class="hero container">
+        <h1>At the crossroads of sustainability and engineering.</h1>
+        <p class="tagline">Building thoughtful, human-centered technology.</p>
+        <p class="current">Currently at <span class="emphasis">{{ site.data.experience[0].company }}</span> — {{ site.data.experience[0].role }}</p>
+    </section>
+
+    <section id="work" class="container">
+        <h2 class="section-heading">Selected projects</h2>
+        <ul class="list">
+            {% for item in site.data.projects | limit: 3 %}
+            <li class="card reveal">
+                <div class="card-row">
+                    <div class="card-title">{{ item.title }}</div>
+                    <div class="card-meta">{{ item.date }}</div>
+                </div>
+                <p class="card-desc">{{ item.description }}</p>
+                {% if item.link_href %}
+                <a class="arrow-link" href="{{ item.link_url }}">{{ item.link_text }}</a>
+                {% else %}
+                {% if item.link_url %}
+                <a class="arrow-link" href="{{ item.link_url | first }}">{{ item.link_text | default: 'See more' }}</a>
+                {% endif %}
+                {% endif %}
+            </li>
+            {% endfor %}
+        </ul>
+    </section>
+
+    <section id="about" class="container">
+        <h2 class="section-heading">About</h2>
+        <p>Development, management and sustainability enthusiast. An avid supporter of youth-powered change.</p>
+    </section>
+
+    <section id="contact" class="container">
+        <h2 class="section-heading">Contact</h2>
+        <div class="contact-grid">
+            <a class="arrow-link" href="mailto:{{ site.data.contact.email }}">Email me</a>
+            {% for s in site.data.contact.socials %}
+            <a class="muted-link" href="{{ s.link }}">{{ s.name }}</a>
+            {% endfor %}
+        </div>
+    </section>
+
+    <footer class="site-footer container">
+        <p>© {{ 'now' | date: '%Y' }} — Designed by <a class="muted-link" href="https://www.github.com/ufukkaraca">Ufuk Karaca</a></p>
+    </footer>
+</main>
+
