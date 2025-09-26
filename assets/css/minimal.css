@@ -41,6 +41,25 @@ body {
     -moz-osx-font-smoothing: grayscale;
 }
 
+/* Accessibility helpers */
+.skip-link {
+    position: absolute;
+    top: -40px;
+    left: 8px;
+    background: var(--text);
+    color: var(--bg);
+    padding: 8px 12px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 0.9rem;
+    z-index: 1000;
+    transition: top 160ms ease;
+}
+
+.skip-link:focus {
+    top: 8px;
+}
+
 .container {
     max-width: 980px;
     margin-inline: auto;
@@ -246,6 +265,118 @@ section {
     border-top: 1px solid var(--line);
 }
 
+/* Dynamic sections */
+.section-subtle-heading {
+    font-size: 0.9rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin: 0 0 var(--space-3);
+}
+
+.tinker-timeline {
+    position: relative;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: var(--space-3);
+}
+
+.tinker-item {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: var(--space-3) var(--space-4);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    background: var(--surface);
+    position: relative;
+    overflow: hidden;
+}
+
+.tinker-item::after {
+    /* fade mask to create receding effect */
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to right, rgba(250, 247, 242, 0) 40%, var(--surface));
+    pointer-events: none;
+}
+
+.tinker-meta {
+    font-size: 0.75rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--muted);
+}
+
+.tinker-title {
+    font-weight: 600;
+}
+
+.thoughts-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: var(--space-3);
+}
+
+.thoughts-item {
+    padding: var(--space-3) var(--space-4);
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    transition: background 180ms ease;
+}
+
+.thoughts-item:hover {
+    background: color-mix(in oklab, var(--surface) 92%, white 8%);
+}
+
+.thoughts-item time {
+    display: block;
+    font-size: 0.75rem;
+    letter-spacing: 0.06em;
+    color: var(--muted);
+    margin-bottom: 4px;
+}
+
+.inline-badge {
+    display: inline-block;
+    padding: 2px 8px;
+    font-size: 0.7rem;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    background: color-mix(in oklab, var(--accent) 85%, white 15%);
+    color: var(--bg);
+    border-radius: 999px;
+}
+
+/* Progressive fade for timeline depth */
+.tinker-item:nth-child(n+4) {
+    opacity: 0.85;
+}
+
+.tinker-item:nth-child(n+6) {
+    opacity: 0.7;
+}
+
+.tinker-item:nth-child(n+8) {
+    opacity: 0.55;
+}
+
+.tinker-item:nth-child(n+10) {
+    opacity: 0.42;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .tinker-item, .thoughts-item {
+        transition: none;
+    }
+}
+
 /* Reveal on view */
 .reveal {
     opacity: 0;
@@ -262,10 +393,10 @@ section {
     .nav {
         gap: var(--space-3);
     }
+
     .card-row {
         flex-direction: column;
         align-items: flex-start;
         gap: 0;
     }
 }
-

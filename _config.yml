@@ -25,6 +25,24 @@ description: >- # this means to ignore newlines until "baseurl:"
 url: https://www.karacaufuk.com # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: theufukkaraca
 github_username:  ufukkaraca
+author: Ufuk Karaca
+permalink: pretty
+timezone: Europe/Berlin
+
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
+
+collections:
+  thoughts:
+    output: true
+    permalink: /thoughts/:title/
+
+# Social image (SVG or PNG)
+social_image: /assets/img/social-card.svg
 
 defaults:
   - scope:
