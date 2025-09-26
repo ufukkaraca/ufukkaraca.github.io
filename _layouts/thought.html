@@ -1,0 +1,52 @@
+---
+layout: default
+---
+{% assign sorted = site.thoughts | sort: 'date' %}
+{% assign index = sorted | index_of: page %}
+<article class="container" itemscope itemtype="https://schema.org/Article" style="padding-block:var(--space-6);">
+    <header style="margin-bottom:var(--space-4);">
+        <p
+            style="margin:0 0 var(--space-2);font-size:0.8rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);">
+            Thought</p>
+        <h1 itemprop="headline">{{ page.title }}</h1>
+        <p class="muted" style="margin-top:-4px;font-size:0.9rem;">
+            <time itemprop="datePublished"
+                datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: '%Y-%m-%d' }}</time>
+            · <a href="/thoughts/" class="muted-link">All thoughts</a>
+        </p>
+    </header>
+    <div class="thought-body" itemprop="articleBody">
+        {{ content }}
+    </div>
+    <nav class="thought-nav"
+        style="margin-top:var(--space-6);display:flex;justify-content:space-between;gap:var(--space-3);flex-wrap:wrap;">
+        {% assign current_pos = 0 %}
+        {% for t in sorted %}{% if t.url == page.url %}{% assign current_pos = forloop.index0 %}{% endif %}{% endfor %}
+        <div>
+            {% if current_pos > 0 %}
+            {% assign prev = sorted[current_pos | minus: 1] %}
+            <a class="arrow-link" href="{{ prev.url }}" aria-label="Previous thought: {{ prev.title }}">←
+                {{ prev.title }}</a>
+            {% endif %}
+        </div>
+        <div style="margin-left:auto;">
+            {% if current_pos < sorted.size | minus: 1 %}
+            {% assign next = sorted[current_pos | plus: 1] %}
+            <a class="arrow-link" href="{{ next.url }}" aria-label="Next thought: {{ next.title }}">{{ next.title }}
+                →</a>
+            {% endif %}
+        </div>
+    </nav>
+    <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": {{ page.title | jsonify }},
+    "datePublished": "{{ page.date | date_to_xmlschema }}",
+    "dateModified": "{{ page.date | date_to_xmlschema }}",
+    "author": {"@type": "Person", "name": {{ site.author | jsonify }}},
+    "mainEntityOfPage": {"@type": "WebPage", "@id": "{{ site.url }}{{ page.url }}"},
+    "url": "{{ site.url }}{{ page.url }}"
+  }
+  </script>
+</article>

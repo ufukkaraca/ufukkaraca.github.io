@@ -1,0 +1,30 @@
+---
+layout: null
+permalink: /sitemap.xml
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>{{ site.url }}/</loc>
+    <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  {% for page in site.pages %}{% if page.permalink and page.permalink != '/sitemap.xml' %}
+  <url>
+    <loc>{{ site.url }}{{ page.url }}</loc>
+    {% if page.date %}<lastmod>{{ page.date | date_to_xmlschema }}</lastmod>{% endif %}
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  {% endif %}{% endfor %}
+  {% assign sorted_thoughts = site.thoughts | sort: 'date' | reverse %}
+  {% for thought in sorted_thoughts %}
+  <url>
+    <loc>{{ site.url }}{{ thought.url }}</loc>
+    <lastmod>{{ thought.date | date_to_xmlschema }}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  {% endfor %}
+</urlset>

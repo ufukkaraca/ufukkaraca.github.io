@@ -1,0 +1,23 @@
+---
+layout: null
+permalink: /thoughts/feed.json
+---
+{
+  "version": "https://jsonfeed.org/version/1",
+  "title": {{ site.title | jsonify }},
+  "home_page_url": "{{ site.url }}/",
+  "feed_url": "{{ site.url }}/thoughts/feed.json",
+  "description": {{ site.description | jsonify }},
+  "items": [
+    {% assign sorted_thoughts = site.thoughts | sort: 'date' | reverse %}
+    {% for thought in sorted_thoughts %}
+    {
+      "id": "{{ site.url }}{{ thought.url }}",
+      "url": "{{ site.url }}{{ thought.url }}",
+      "title": {{ thought.title | jsonify }},
+      "content_html": {{ thought.content | jsonify }},
+      "date_published": "{{ thought.date | date_to_xmlschema }}"
+    }{% unless forloop.last %},{% endunless %}
+    {% endfor %}
+  ]
+}

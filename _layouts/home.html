@@ -1,64 +1,149 @@
 ---
 layout: default
 ---
+<section class="hero container">
+    <h1>Systems engineering at the hardware × software boundary.</h1>
+    <p class="tagline">Mapping constraints → defining interfaces → shipping resilient, human-centered platforms.</p>
+    <p class="current">Currently at <span class="emphasis">{{ site.data.experience[0].company }}</span> —
+        {{ site.data.experience[0].role }}</p>
+</section>
 
-<header class="site-header">
-    <div class="container row">
-        <a class="brand" href="/">Ufuk Karaca</a>
-        <nav class="nav" aria-label="Primary">
-            <a href="#work">Work</a>
-            <a href="#about">About</a>
-            <a href="#contact">Contact</a>
-        </nav>
-    </div>
-</header>
+<section id="work" class="container">
+    <h2 class="section-heading">Selected projects</h2>
+    <ul class="list">
+        {% for item in site.data.projects | limit: 3 %}
+        <li class="card reveal">
+            <div class="card-row">
+                <div class="card-title">{{ item.title }}</div>
+                <div class="card-meta">{{ item.date }}</div>
+            </div>
+            <p class="card-desc">{{ item.description }}</p>
+            {% if item.link_href %}
+            <a class="arrow-link" href="{{ item.link_url }}">{{ item.link_text }}</a>
+            {% else %}
+            {% if item.link_url %}
+            <a class="arrow-link" href="{{ item.link_url | first }}">{{ item.link_text | default: 'See more' }}</a>
+            {% endif %}
+            {% endif %}
+        </li>
+        {% endfor %}
+    </ul>
+</section>
 
-<main class="site-main">
-    <section class="hero container">
-        <h1>At the crossroads of sustainability and engineering.</h1>
-        <p class="tagline">Building thoughtful, human-centered technology.</p>
-        <p class="current">Currently at <span class="emphasis">{{ site.data.experience[0].company }}</span> — {{ site.data.experience[0].role }}</p>
-    </section>
+<section id="about" class="container">
+    <h2 class="section-heading">About</h2>
+    <p>Hands-on systems / platform engineer focusing on HMI & embedded integration, agentic/AI-enabled tooling, and
+        sustainable execution practices. I decompose ambiguous multi-domain problems into tractable architectural
+        layers and delivery streams.</p>
+</section>
 
-    <section id="work" class="container">
-        <h2 class="section-heading">Selected projects</h2>
-        <ul class="list">
-            {% for item in site.data.projects | limit: 3 %}
-            <li class="card reveal">
-                <div class="card-row">
-                    <div class="card-title">{{ item.title }}</div>
-                    <div class="card-meta">{{ item.date }}</div>
-                </div>
-                <p class="card-desc">{{ item.description }}</p>
-                {% if item.link_href %}
-                <a class="arrow-link" href="{{ item.link_url }}">{{ item.link_text }}</a>
-                {% else %}
-                {% if item.link_url %}
-                <a class="arrow-link" href="{{ item.link_url | first }}">{{ item.link_text | default: 'See more' }}</a>
-                {% endif %}
-                {% endif %}
-            </li>
-            {% endfor %}
-        </ul>
-    </section>
-
-    <section id="about" class="container">
-        <h2 class="section-heading">About</h2>
-        <p>Development, management and sustainability enthusiast. An avid supporter of youth-powered change.</p>
-    </section>
-
-    <section id="contact" class="container">
-        <h2 class="section-heading">Contact</h2>
-        <div class="contact-grid">
-            <a class="arrow-link" href="mailto:{{ site.data.contact.email }}">Email me</a>
-            {% for s in site.data.contact.socials %}
-            <a class="muted-link" href="{{ s.link }}">{{ s.name }}</a>
-            {% endfor %}
+<section id="skills" class="container">
+    <h2 class="section-heading">Skills snapshot</h2>
+    {% assign skills = site.data.skills %}
+    <div style="display:grid;gap:var(--space-4);grid-template-columns:repeat(auto-fit,minmax(240px,1fr));">
+        <div>
+            <h3
+                style="margin:0 0 var(--space-2);font-size:1rem;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);">
+                Languages</h3>
+            <ul style="list-style:none;padding:0;margin:0;">
+                {% for l in skills.languages %}<li style="margin:2px 0;">{{ l }}</li>{% endfor %}
+            </ul>
         </div>
-    </section>
+        <div>
+            <h3
+                style="margin:0 0 var(--space-2);font-size:1rem;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);">
+                Innovation & Systems</h3>
+            <ul style="list-style:none;padding:0;margin:0;">
+                {% for i in skills.innovation_systems %}<li style="margin:2px 0;">{{ i }}</li>{% endfor %}
+            </ul>
+        </div>
+        <div>
+            <h3
+                style="margin:0 0 var(--space-2);font-size:1rem;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);">
+                Technical</h3>
+            <ul style="list-style:none;padding:0;margin:0;">
+                {% for t in skills.technical %}<li style="margin:2px 0;">{{ t }}</li>{% endfor %}
+            </ul>
+        </div>
+        <div>
+            <h3
+                style="margin:0 0 var(--space-2);font-size:1rem;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);">
+                Certifications</h3>
+            <ul style="list-style:none;padding:0;margin:0;">
+                {% for c in skills.certifications %}<li style="margin:2px 0;">{{ c }}</li>{% endfor %}
+            </ul>
+        </div>
+    </div>
+</section>
 
-    <footer class="site-footer container">
-        <p>© {{ 'now' | date: '%Y' }} — Designed by <a class="muted-link" href="https://www.github.com/ufukkaraca">Ufuk Karaca</a></p>
-    </footer>
-</main>
+<section id="contact" class="container">
+    <h2 class="section-heading">Contact</h2>
+    <div class="contact-grid">
+        <a class="arrow-link" href="mailto:{{ site.data.contact.email }}">Email me</a>
+        {% for s in site.data.contact.socials %}
+        <a class="muted-link" href="{{ s.link }}">{{ s.name }}</a>
+        {% endfor %}
+    </div>
+</section>
 
+
+<section id="tinkering" class="container">
+    <h2 class="section-heading">Currently tinkering with</h2>
+    <p class="muted" style="margin-top:-8px;">Rotating set of domains / experiments (update by editing
+        <code>_data/tinkering.yaml</code>).
+    </p>
+    <ul class="tinker-timeline">
+        {% assign tinkering_items = site.data.tinkering | default: nil %}
+        {% if tinkering_items %}
+        {% for t in tinkering_items limit:5 %}
+        <li class="tinker-item reveal">
+            <span class="tinker-meta">{{ t.when }}</span>
+            <span class="tinker-title">{{ t.title }}</span>
+            {% if t.note %}<p class="muted" style="margin:4px 0 0 0;font-size:0.95rem;">{{ t.note }}</p>{% endif %}
+        </li>
+        {% endfor %}
+        {% else %}
+        <li class="tinker-item"><span class="tinker-meta">Now</span><span class="tinker-title">Add items in
+                <code>_data/tinkering.yaml</code></span>
+            <p class="muted" style="margin:4px 0 0 0;font-size:0.95rem;">Example: embedded HMI performance
+                profiling.</p>
+        </li>
+        {% endif %}
+    </ul>
+    {% if tinkering_items and tinkering_items.size > 5 %}
+    <p style="margin-top:var(--space-3)"><a class="arrow-link" href="/tinkering/">See all</a></p>
+    {% endif %}
+</section>
+
+<section id="thoughts" class="container">
+    <h2 class="section-heading">Thoughts</h2>
+    <p class="muted" style="margin-top:-8px;">Short systems-leaning notes (now using collection
+        <code>_thoughts/</code>).
+    </p>
+    {% assign thoughts_sorted = site.thoughts | sort: 'date' | reverse %}
+    <ul class="thoughts-list">
+        {% if thoughts_sorted and thoughts_sorted.size > 0 %}
+        {% for thought in thoughts_sorted limit:5 %}
+        <li class="thoughts-item reveal">
+            <time>{{ thought.date | date: '%Y-%m-%d' }}</time>
+            <a style="font-weight:600;" href="{{ thought.url }}">{{ thought.title }}</a>
+            <p style="margin:4px 0 0 0;font-size:0.95rem;">{{ thought.excerpt | strip_html | truncate: 140 }}</p>
+        </li>
+        {% endfor %}
+        {% else %}
+        <li class="thoughts-item"><time>{{ 'now' | date: '%Y-%m-%d' }}</time><strong style="font-weight:600;">Add
+                markdown files in <code>_thoughts/</code></strong>
+            <p style="margin:4px 0 0 0;font-size:0.95rem;">Example: Interface contracts as architectural leverage.
+            </p>
+        </li>
+        {% endif %}
+    </ul>
+    {% if thoughts_sorted and thoughts_sorted.size > 5 %}
+    <p style="margin-top:var(--space-3)"><a class="arrow-link" href="/thoughts/">See all</a></p>
+    {% endif %}
+</section>
+
+<footer class="site-footer container">
+    <p>© {{ 'now' | date: '%Y' }} — Designed by <a class="muted-link" href="https://www.github.com/ufukkaraca">Ufuk
+            Karaca</a></p>
+</footer>

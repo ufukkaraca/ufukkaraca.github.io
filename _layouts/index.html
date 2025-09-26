@@ -155,10 +155,6 @@
                 I enjoy working in the intersection of sustainability and technology to deliver solutions that will
                 create a
                 real impact. Keep on scrolling to get to know me.
-                <!--, or <a class="categoryseparator hvr-sweep-to-right mb-1"
-                                                                    style="font-size: 100%"
-                                                                    href="assets/pdf/Ufuk_Karaca_Resume.pdf">click here
-            to download my resume.</a>-->
                 <br><br>
 
             </p>
@@ -454,8 +450,7 @@
                     <p class="zilla my-auto">
                         {{ experience.description | newline_to_br }}
                         {% if experience.link %}
-                        <a type="button" class="categoryseparator" style=(:hover{color:antiquewhite})
-                            href="{{ experience.link }}">See case study.</a>
+                        <a type="button" class="categoryseparator" href="{{ experience.link }}">See case study.</a>
                         {% endif %}
                     </p>
                 </div>
@@ -702,7 +697,7 @@ height: 80vh">
                 </div>
                 <div class="col col-8">
                     {% for item in site.data.contact.socials %}
-                    <a href="{{item.link}}" style="" class="text zilla hvr-sweep-to-right">
+                    <a href="{{item.link}}" class="text zilla hvr-sweep-to-right">
                         {{item.name}}
                     </a>
                     {% if forloop.last == false %}
