@@ -35,6 +35,17 @@ exclude:
   - Gemfile.lock
   - node_modules
   - vendor
+  # Legacy (deprecated) assets kept temporarily for history / staged removal
+  - assets/css/navbar.css
+  - assets/css/sweeper.css
+  - assets/css/index.css
+  - assets/css/bootstrap.min.css
+  - assets/css/bootstrap-icons.css
+  - assets/css/aos.css
+  - assets/js/jquery-3.6.0.min.js
+  - assets/js/bootstrap.bundle.min.js
+  - assets/js/aos.js
+  - assets/js/index/sliding_text.js
 
 collections:
   thoughts:
