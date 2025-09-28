@@ -199,7 +199,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
-    /* TODO (Streams Disabled): X + Goodreads embed loader code removed. Restore from git history when re‑enabling. */
+    /* Former Streams embed code intentionally removed (Goodreads + X). See history if reintroducing. */
 
     // Works page: view toggle (projects / tinkering) + tag filtering
     var viewTabs = document.querySelectorAll('.view-tab');

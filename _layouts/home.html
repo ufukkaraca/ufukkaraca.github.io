@@ -38,11 +38,8 @@ layout: default
         </li>
         {% endfor %}
         {% else %}
-        <li class="thoughts-item"><time>{{ 'now' | date: '%Y-%m-%d' }}</time><strong style="font-weight:600">Add
-                markdown files in <code>_thoughts/</code></strong>
-            <p class="muted" style="margin:4px 0 0 0;font-size:0.9rem">Example: Interface contracts as architectural
-                leverage.
-            </p>
+        <li class="thoughts-item"><time>{{ 'now' | date: '%Y-%m-%d' }}</time><strong style="font-weight:600">No thoughts yet</strong>
+            <p class="muted" style="margin:4px 0 0 0;font-size:0.9rem">First entries coming soon.</p>
         </li>
         {% endif %}
     </ul>
@@ -66,9 +63,8 @@ layout: default
         </li>
         {% endfor %}
         {% else %}
-        <li class="tinker-item"><span class="tinker-meta">Now</span><span class="tinker-title">Add items in
-                <code>_data/tinkering.yaml</code></span>
-            <p class="muted" style="margin:4px 0 0 0;font-size:0.85rem">Example: embedded HMI performance profiling.</p>
+        <li class="tinker-item"><span class="tinker-meta">Now</span><span class="tinker-title">No tinkering items yet</span>
+            <p class="muted" style="margin:4px 0 0 0;font-size:0.85rem">Early explorations will appear here.</p>
         </li>
         {% endif %}
     </ul>

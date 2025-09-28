@@ -104,7 +104,7 @@ description: Aggregate view of selected systems projects & active tinkering thre
         </li>
         {% endfor %}
       {% else %}
-        <li class="tinker-item"><span class="tinker-meta">Now</span><span class="tinker-title">No tinkering data yet</span><p class="muted" style="margin:4px 0 0 0;font-size:0.95rem;">Add items to <code>_data/tinkering.yaml</code>.</p></li>
+  <li class="tinker-item"><span class="tinker-meta">Now</span><span class="tinker-title">No tinkering entries yet</span><p class="muted" style="margin:4px 0 0 0;font-size:0.95rem;">Tracking will appear here once items are added.</p></li>
       {% endif %}
     </ul>
     <p class="empty-note" id="tinkering-empty" style="display:none;margin-top:var(--space-4);">No tinkering entries for that year.</p>
