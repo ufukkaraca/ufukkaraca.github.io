@@ -1,4 +1,38 @@
-{% comment %}
+{%- comment -%} Base JSON-LD structured data. {%- endcomment -%}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "url": "{{ site.url }}/",
+      "name": "{{ site.title }}",
+      "description": "{{ site.description | strip_newlines | strip }}",
+      "inLanguage": "en",
+      "potentialAction": [{
+        "@type": "SearchAction",
+        "target": "{{ site.url }}/?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }]
+    },
+    {
+      "@type": "Person",
+      "name": "{{ site.author }}",
+      "url": "{{ site.url }}/",
+      "email": "mailto:{{ site.data.contact.email }}",
+      "sameAs": [
+        "https://github.com/{{ site.github_username | strip }}",
+        "https://x.com/{{ site.X_username | strip }}"
+      ],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "Personal site inquiries",
+        "email": "mailto:{{ site.data.contact.email }}"
+      }
+    }
+  ]
+}
+</script>{% comment %}
 Basic JSON-LD blocks for the site. Include this in the
 
 <head> of default layout.

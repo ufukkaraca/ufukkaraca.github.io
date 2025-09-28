@@ -6,7 +6,7 @@ description: Short fragments and seeds for longer writing.
 
 <section class="container" style="padding-block:var(--space-6);">
   <h1>Thoughts</h1>
-  <p class="muted" style="margin-top:-8px;">Mini-notes and architectural fragments. Now a proper collection in <code>_thoughts/</code>. Longer pieces may later expand.</p>
+  <p class="muted" style="margin-top:-8px;">Mini‑notes & architectural fragments. Some may grow into longer pieces.</p>
   {% assign thoughts_sorted = site.thoughts | sort:'date' | reverse %}
   <ul class="thoughts-list" style="margin-top:var(--space-5);">
   {% if thoughts_sorted and thoughts_sorted.size > 0 %}

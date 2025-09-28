@@ -15,12 +15,12 @@
     <meta property="og:url" content="{{ site.url }}{{ page.url | default: '/' }}">
     {% if site.social_image %}
     <meta property="og:image" content="{{ site.url }}{{ site.social_image }}">{% endif %}
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:site" content="@{{ site.twitter_username }}">
-    <meta name="twitter:title" content="{{ page.title | default: site.title }}">
-    <meta name="twitter:description" content="{{ page.description | default: site.description }}">
+    <meta name="X:card" content="summary_large_image">
+    <meta name="X:site" content="@{{ site.X_username }}">
+    <meta name="X:title" content="{{ page.title | default: site.title }}">
+    <meta name="X:description" content="{{ page.description | default: site.description }}">
     {% if site.social_image %}
-    <meta name="twitter:image" content="{{ site.url }}{{ site.social_image }}">{% endif %}
+    <meta name="X:image" content="{{ site.url }}{{ site.social_image }}">{% endif %}
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -43,14 +43,12 @@
     <header class="site-header">
         <div class="container row">
             <a class="brand" href="/">Ufuk Karaca</a>
-            {% assign on_home = page.url == '/' %}
-            {% if on_home %}{% assign prefix = '' %}{% else %}{% assign prefix = '/' %}{% endif %}
             <nav class="nav" aria-label="Primary">
-                <a href="{{ prefix }}#work">Work</a>
-                <a href="{{ prefix }}#about">About</a>
+                <a href="/works/" {% if page.url == '/works/' %} aria-current="page" {% endif %}>Works</a>
                 <a href="/experience/" {% if page.url == '/experience/' %} aria-current="page"
-                    {% endif %}>Experience</a>
-                <a href="{{ prefix }}#contact">Contact</a>
+                    {% endif %}>Background</a>
+                <a href="/thoughts/" {% if page.url == '/thoughts/' %} aria-current="page" {% endif %}>Blog</a>
+                <a href="/contact/" {% if page.url == '/contact/' %} aria-current="page" {% endif %}>Contact</a>
             </nav>
         </div>
     </header>
