@@ -111,5 +111,4 @@ description: Aggregate view of selected systems projects & active tinkering thre
   <p style="margin-top:var(--space-3);"><a class="arrow-link" href="/works/#tinkering">All tinkering (anchor) →</a></p>
   </div>
 
-  <p style="margin-top:var(--space-6);"><a class="arrow-link" href="/">← Back home</a></p>
 </section>

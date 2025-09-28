@@ -28,5 +28,4 @@ description: Representative initiatives, experiments, and historical builds.
     </li>
     {% endfor %}
   </ul>
-  <p style="margin-top:var(--space-6);"><a class="arrow-link" href="/">← Back home</a></p>
 </section>
