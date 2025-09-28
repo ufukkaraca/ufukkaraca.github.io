@@ -38,6 +38,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     var navIntroOffset = 24; // px downward start offset for nav before it settles
 
+    var firstNavRun = true;
     function handleFloatingNav() {
         if (!floatingNav) return;
         var y = window.scrollY;
@@ -62,12 +63,20 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         }
         if (cueVisible) {
-            // still in pre-hero fade region
             floatingNav.classList.add('is-prehero');
         } else {
             floatingNav.classList.remove('is-prehero');
+            // Once cue hidden ensure we don't stay stuck at 0
+            if (fadeProgress === 0) fadeProgress = 0.02;
         }
-        floatingNav.style.setProperty('--nav-fade', fadeProgress.toFixed(3));
+        // If hero page, first run starts from 0 (CSS already forced). Subsequent runs animate.
+        if (firstNavRun && floatingNav.hasAttribute('data-hero-nav')) {
+            // Set initial var without triggering transition jump (already at opacity:0)
+            floatingNav.style.setProperty('--nav-fade', fadeProgress.toFixed(3));
+            firstNavRun = false;
+        } else {
+            floatingNav.style.setProperty('--nav-fade', fadeProgress.toFixed(3));
+        }
         // Upward motion (translateY) from offset -> 0 synchronized with fadeProgress
         var shift = (1 - fadeProgress) * navIntroOffset; // px remaining
         floatingNav.style.setProperty('--nav-shift', shift.toFixed(2) + 'px');
@@ -84,10 +93,8 @@ document.addEventListener('DOMContentLoaded', function () {
     window.addEventListener('load', function () {
         if (!floatingNav) return;
         var docHeight = document.documentElement.scrollHeight - window.innerHeight;
-        if (docHeight < 40) {
-            // Force trigger once more after load for final layout
-            requestAnimationFrame(handleFloatingNav);
-        }
+        // Always re-run after layout stabilization to ensure nav fade applies
+        requestAnimationFrame(handleFloatingNav);
     });
 
     // Scroll cue hide logic

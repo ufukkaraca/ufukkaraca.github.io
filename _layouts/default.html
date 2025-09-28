@@ -48,7 +48,8 @@
     <main id="main-content" role="main">
         {{ content }}
     </main>
-    <nav class="floating-nav" aria-label="Primary" data-floating-nav>
+    <nav class="floating-nav" aria-label="Primary" data-floating-nav{% if page.layout == 'home' %} data-hero-nav="true"
+        {% endif %}>
         <ul class="floating-nav-list">
             <li>
                 {% if page.layout == 'home' %}

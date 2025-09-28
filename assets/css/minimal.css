@@ -837,10 +837,16 @@ section {
 }
 
 /* Pre-hero: nav starts hidden; JS drives --nav-fade 0->1 as cue fades */
+/* Floating nav base */
 .floating-nav {
     opacity: var(--nav-fade, 1);
     transform: translateX(-50%) translateY(var(--nav-shift, 0));
     transition: opacity 320ms ease, transform 420ms cubic-bezier(.22, .61, .36, 1);
+}
+
+/* Home (hero) page: start hidden until JS sets progressive fade */
+.floating-nav[data-hero-nav] {
+    --nav-fade: 0; /* start hidden via variable; base rule handles opacity */
 }
 
 .floating-nav.is-prehero {
@@ -879,12 +885,6 @@ section {
     border-radius: 4px;
 }
 
-/* Active link progress underline (animated width) */
-.floating-link[aria-current="page"] {
-    --progress: 0;
-    padding-bottom: 4px;
-}
-
 /* Remove underline progress for regular links; home icon gets progress instead */
 .floating-link[aria-current="page"]::after {
     display: none;
@@ -903,8 +903,10 @@ section {
 
 .progress-icon path[data-progress-base] {
     fill: none;
-    stroke: var(--line);
-    opacity: 0.55;
+    /* Slightly richer base stroke for better legibility while still subtle */
+    stroke: color-mix(in oklab, var(--text) 32%, var(--line));
+    opacity: 0.75;
+    /* previously 0.55 */
     stroke-linejoin: round;
     stroke-linecap: round;
 }
