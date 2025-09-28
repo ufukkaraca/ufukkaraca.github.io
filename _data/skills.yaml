@@ -12,6 +12,7 @@ innovation_systems:
   - Executive Communication
 technical:
   - Python
+  - C/C++
   - JavaScript / TypeScript
   - React
   - Embedded (Yocto)
@@ -19,7 +20,8 @@ technical:
   - Cloud (AWS / Azure / GCP)
   - AI (RAG, Agents, Prompt & Context Engineering)
   - HMI Tooling (Incari Studio, ProtoPie)
-  - Design (Figma, Adobe XD)
+  - Figma
 certifications:
-  - Google Project Management Certificate (Aug 2025)
-  - NVIDIA Fundamentals of Accelerated Computing with CUDA C/C++ (May 2023)
+  - Google Project Management Certificate
+  - NVIDIA Accelerated Computing with CUDA C/C++
+  - IBM RAG and Agentic AI (DNF)

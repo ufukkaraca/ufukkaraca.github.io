@@ -1,47 +1,44 @@
- - title: Incari Services Platform Framing
-   date: 2024
-   description: Shaped modular interface & capability map (auth, build, rendering, data sync) to align HMI / embedded demands and enable parallel prototyping.
-   link_href: false
-   tags: [architecture, hmi, embedded]
- - title: Rapid HMI Prototyping Pipeline
-   date: 2023
-   description: Lean pipeline (Studio + scripted transforms + React shell) reducing interactive concept loop time from days to hours.
-   link_href: false
-   tags: [tooling, prototyping]
- - title: Systems Portfolio Site
-   date: 2024
-   description: Data‑driven Jekyll site (collections, feeds, structured data) with accessibility & SEO foundations in a minimal serif system.
-   link_text: Browse site
-   link_url: "/"
-   link_href: true
-   tags: [site, content]
- - title: GreenYouth Initiative
-   date: 2021 – 2023
-   description: Sustainability facilitation experiments; produced early engagement & measurement templates.
-   link_href: false
-   tags: [sustainability]
- - title: EverythingRoe
-   date: 2021 – 2022
-   description: Co‑founded micro‑studio helping local businesses adopt lightweight digital tooling & presence.
-   link_text: Visit site
-   link_url: "https://www.everythingroe.com"
-   link_href: true
-   tags: [startup]
- - title: Personal Website v1
-   date: 2020
-   description: First self‑hosted static site focusing on build tooling, deployment workflow & hand‑rolled components.
-   link_text: View archive
-   link_url: "https://www.karacaufuk.com/v1"
-   link_href: true
-   tags: [site]
- - title: Verilog Projects
-   date: 2020
-   description: AES‑based encryption system & multi‑function calculator with pipelined optimization focus.
-   link_text: Source code
-   link_url: "https://github.com/ufukkaraca/verilogCalculator"
-   link_href: true
-   tags: [hardware]
- - title: HAYAT433
-   date: 2017 – 2018
-   description: Ultra‑affordable RF locating wearable reducing search time after hydrological / geomorphological hazards; national first place (Science Expo Turkey 2018).
-   tags: [embedded, award]
+- title: Incari Retrofit Program
+  date: 2024 - Present
+  description: Retrofit HMI platform bringing modern HMI capabilities to existing vehicles via signal acquisition and dynamic system adjustment through a fully-custom architecture; TPO across HW/SW and customer delivery. Technical base product for Retrobox hardware, MCCA Retrofit project (Mehari Eden), as well as a series-production retrofit product for a major OEM.
+  link_href: false
+  tags: [architecture, hmi, embedded, automotive, retrofit]
+- title: RodyrLabs Ody
+  date: 2025 - Present
+  description: Adaptive RAG-based agentic knowledge graph system for AI-powered corporate knowledge management in early MVP phase.
+  link_text: Check RodyrLabs
+  link_url: "https://www.rodyr.com/"
+  link_href: true
+  tags: [ai, startup]
+- title: RealToMe
+  date: 2025 - Present
+  link_href: false
+  description: Early-stage personal project exploring AI-assisted journaling and life-logging, focusing on user experience through vibe checks. Mostly for fun.
+  tags: [ai, app development]
+- title: Portfolio Website
+  date: 2021, 2023, 2025
+  description: Personal portfolio website getting a complete rebuild every ~2 years to explore new static site generation, design, and deployment tooling. Latest version live as of late-2025.
+  link_text: Browse site
+  link_url: "/"
+  link_href: true
+  tags: [site, content]
+- title: GreenYouth Initiative
+  date: 2021 – 2023
+  description: Sustainability facilitation experiments; produced early engagement & measurement templates and secured government funding.
+  link_href: false
+  tags: [sustainability]
+- title: EverythingRoe
+  date: 2021 – 2022
+  description: Co‑founded micro‑studio helping local businesses adopt lightweight digital tooling & presence.
+  link_href: false
+  tags: [startup, innovation]
+- title: Memories of Forgotten Strands
+  date: 2024 - Present
+  description: Personal literary project exploring themes of memory, identity and human connection through a fictional storyline. Slow, deliberate writing process with no set publication timeline.
+  link_href: false
+  tags: [writing, fiction, literature, arts]
+- title: Folding In
+  date: 2024 - Present
+  description: Collection of songs and instrumentals, hopefully cumulating in an EP - once I learn how to properly mix and master.
+  link_href: false
+  tags: [music, production, arts]
