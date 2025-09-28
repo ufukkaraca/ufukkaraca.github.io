@@ -846,7 +846,8 @@ section {
 
 /* Home (hero) page: start hidden until JS sets progressive fade */
 .floating-nav[data-hero-nav] {
-    --nav-fade: 0; /* start hidden via variable; base rule handles opacity */
+    --nav-fade: 0;
+    /* start hidden via variable; base rule handles opacity */
 }
 
 .floating-nav.is-prehero {
