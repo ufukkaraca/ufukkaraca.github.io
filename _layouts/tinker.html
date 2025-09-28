@@ -1,0 +1,55 @@
+---
+layout: default
+---
+{% assign sorted = site.tinkers | sort: 'date' %}
+<article class="container" itemscope itemtype="https://schema.org/CreativeWork" style="padding-block:var(--space-6);">
+    <header style="margin-bottom:var(--space-4);">
+        <p
+            style="margin:0 0 var(--space-2);font-size:0.7rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);">
+            Tinker</p>
+        <h1 itemprop="name">{{ page.title }}</h1>
+        <p class="muted" style="margin-top:-4px;font-size:0.85rem;">
+            <time itemprop="datePublished"
+                datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: '%Y-%m' }}</time>
+            · <a href="/tinkering/" class="muted-link">All tinkers</a>
+        </p>
+    </header>
+    <div class="tinker-body" itemprop="text">
+        {% if page.summary %}<p class="muted" style="font-size:0.85rem;margin-top:0;">{{ page.summary }}</p>{% endif %}
+        {{ content }}
+    </div>
+    <nav class="tinker-nav"
+        style="margin-top:var(--space-6);display:flex;justify-content:space-between;gap:var(--space-3);flex-wrap:wrap;">
+        {% assign current_pos = 0 %}
+        {% for t in sorted %}{% if t.url == page.url %}{% assign current_pos = forloop.index0 %}{% endif %}{% endfor %}
+        <div>
+            {% if current_pos > 0 %}
+            {% assign prev_index = current_pos | minus: 1 %}
+            {% assign prev = sorted[prev_index] %}
+            <a class="arrow-link arrow-link-prev" href="{{ prev.url }}"
+                aria-label="Previous tinker: {{ prev.title }}">{{ prev.title }}</a>
+            {% endif %}
+        </div>
+        <div style="margin-left:auto;">
+            {% assign last_index = sorted.size | minus: 1 %}
+            {% if current_pos < last_index %}
+            {% assign next_index = current_pos | plus: 1 %}
+            {% assign next = sorted[next_index] %}
+            <a class="arrow-link arrow-link-next" href="{{ next.url }}"
+                aria-label="Next tinker: {{ next.title }}">{{ next.title }}</a>
+            {% endif %}
+        </div>
+    </nav>
+    <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CreativeWork",
+    "name": {{ page.title | jsonify }},
+    "datePublished": "{{ page.date | date_to_xmlschema }}",
+    "dateModified": "{{ page.date | date_to_xmlschema }}",
+    "author": {"@type": "Person", "name": {{ site.author | jsonify }}},
+    "mainEntityOfPage": {"@type": "WebPage", "@id": "{{ site.url }}{{ page.url }}"},
+    "url": "{{ site.url }}{{ page.url }}"
+  }
+  </script>
+</article>

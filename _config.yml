@@ -40,6 +40,9 @@ collections:
   thoughts:
     output: true
     permalink: /thoughts/:title/
+  tinkers:
+    output: true
+    permalink: /tinkering/:title/
 
 # Social image (SVG or PNG)
 social_image: /assets/img/social-card.svg

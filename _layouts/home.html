@@ -38,7 +38,8 @@ layout: default
         </li>
         {% endfor %}
         {% else %}
-        <li class="thoughts-item"><time>{{ 'now' | date: '%Y-%m-%d' }}</time><strong style="font-weight:600">No thoughts yet</strong>
+        <li class="thoughts-item"><time>{{ 'now' | date: '%Y-%m-%d' }}</time><strong style="font-weight:600">No thoughts
+                yet</strong>
             <p class="muted" style="margin:4px 0 0 0;font-size:0.9rem">First entries coming soon.</p>
         </li>
         {% endif %}
@@ -53,22 +54,23 @@ layout: default
     <h2 class="section-heading">Currently tinkering with</h2>
     <p class="muted section-intro">Active exploration threads (recent first).</p>
     <ul class="tinker-timeline">
-        {% assign tinkering_items = site.data.tinkering | default: nil %}
-        {% if tinkering_items %}
-        {% for t in tinkering_items limit:3 %}
+        {% assign tinkers_sorted = site.tinkers | sort: 'date' | reverse %}
+        {% if tinkers_sorted and tinkers_sorted.size > 0 %}
+        {% for t in tinkers_sorted limit:3 %}
         <li class="tinker-item reveal">
-            <span class="tinker-meta">{{ t.when }}</span>
-            <span class="tinker-title">{{ t.title }}</span>
-            {% if t.note %}<p class="muted" style="margin:4px 0 0 0;font-size:0.85rem">{{ t.note }}</p>{% endif %}
+            <span class="tinker-meta">{{ t.date | date: '%Y-%m' }}</span>
+            <span class="tinker-title"><a class="muted-link" href="{{ t.url }}"
+                    style="font-weight:600">{{ t.title }}</a></span>
+            {% if t.summary %}<p class="muted" style="margin:4px 0 0 0;font-size:0.85rem">{{ t.summary }}</p>{% endif %}
         </li>
         {% endfor %}
         {% else %}
-        <li class="tinker-item"><span class="tinker-meta">Now</span><span class="tinker-title">No tinkering items yet</span>
-            <p class="muted" style="margin:4px 0 0 0;font-size:0.85rem">Early explorations will appear here.</p>
+        <li class="tinker-item"><span class="tinker-meta">Now</span><span class="tinker-title">No tinkers yet</span>
+            <p class="muted" style="margin:4px 0 0 0;font-size:0.85rem">First entries coming soon.</p>
         </li>
         {% endif %}
     </ul>
-    {% if tinkering_items and tinkering_items.size > 5 %}
+    {% if tinkers_sorted and tinkers_sorted.size > 5 %}
     <p class="section-cta"><a class="arrow-link" href="/works/#tinkering">See all</a></p>
     {% endif %}
     <p class="section-cta"><a class="arrow-link" href="/works/#tinkering">All tinkers</a></p>
