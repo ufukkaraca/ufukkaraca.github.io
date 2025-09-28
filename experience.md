@@ -54,5 +54,4 @@ description: Professional background – roles, education, leadership & a quick 
   <h2 style="margin-top:var(--space-6);">Writing & Notes</h2>
   <p style="max-width:60ch;">Short architectural fragments and system notes live in the <a href="/thoughts/">thoughts section</a>. A few may grow into longer artifacts later.</p>
 
-  <p style="margin-top:var(--space-5);"><a class="arrow-link" href="/">← Back to home</a></p>
 </section>

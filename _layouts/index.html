@@ -691,9 +691,7 @@ height: 80vh">
             <!-- #region Socials-->
             <div class="row justify-content-start d-flex  ">
                 <div class="col col-sm-8 col-lg-4 d-flex">
-                    <a href="mailto:{{site.data.contact.email}}" style="color: black" class="my-auto text zilla w-100">
-                        send me an email
-                    </a>
+                    {% include email.html label="send me an email" class="text zilla hvr-sweep-to-right" %}
                 </div>
                 <div class="col col-8">
                     {% for item in site.data.contact.socials %}

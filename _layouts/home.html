@@ -109,8 +109,9 @@ layout: default
         fuzzy
         multi‑domain constraints into crisp interface seams and delivery streams that compound.
     </p>
-    <div class="contact-grid" style="margin-top:var(--space-4)">
-        <a class="arrow-link" href="mailto:{{ site.data.contact.email }}">Email</a>
+    <div class="contact-grid"
+        style="margin-top:var(--space-4);display:flex;flex-wrap:wrap;gap:var(--space-3);align-items:center;">
+        {% include email.html label="email" class="muted-link" %}
         {% for s in site.data.contact.socials %}
         <a class="muted-link" href="{{ s.link }}">{{ s.name }}</a>
         {% endfor %}

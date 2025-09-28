@@ -322,5 +322,31 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         }
     }
+
+    // Email obfuscation decoder (reverse + sentinel replacement)
+    (function () {
+        function decode(el) {
+            if (!el || el.dataset.revealed) return;
+            var rev = el.getAttribute('data-email-r');
+            if (!rev) return;
+            // Reverse again
+            var addr = rev.split('').reverse().join('').replace(/\|/g, '@').replace(/~/g, '.');
+            var revealedLabel = el.getAttribute('data-email-revealed-label');
+            el.textContent = revealedLabel && revealedLabel.length ? revealedLabel : addr;
+            el.href = 'mailto:' + addr;
+            el.dataset.revealed = '1';
+            el.setAttribute('aria-label', addr);
+        }
+        document.addEventListener('click', function (e) {
+            var a = e.target.closest('[data-email-obf]');
+            if (!a) return;
+            if (!a.dataset.revealed) { e.preventDefault(); decode(a); }
+        });
+        document.addEventListener('keydown', function (e) {
+            if (e.key !== 'Enter') return;
+            var a = document.activeElement && document.activeElement.matches('[data-email-obf]') ? document.activeElement : null;
+            if (a && !a.dataset.revealed) { e.preventDefault(); decode(a); }
+        });
+    })();
 });
 
