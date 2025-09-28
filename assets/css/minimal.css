@@ -538,7 +538,7 @@ section {
     color: var(--text);
 }
 
-/* TODO (Streams Disabled): All Streams section styles (grid, tweet embed, Goodreads embed, notes) removed. */
+/* Streams section deprecated; related styles removed. */
 
 .section-heading {
     margin: 0 0 var(--space-3);

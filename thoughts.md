@@ -18,7 +18,7 @@ description: Short fragments and seeds for longer writing.
     </li>
     {% endfor %}
   {% else %}
-    <li class="thoughts-item"><time>{{ 'now' | date: '%Y-%m-%d' }}</time><strong>No thoughts yet</strong><p style="margin:4px 0 0 0;font-size:0.95rem;">Add markdown files in <code>_thoughts/</code>.</p></li>
+  <li class="thoughts-item"><time>{{ 'now' | date: '%Y-%m-%d' }}</time><strong>No published thoughts yet</strong><p style="margin:4px 0 0 0;font-size:0.95rem;">First entry coming soon.</p></li>
   {% endif %}
   </ul>
 </section>
