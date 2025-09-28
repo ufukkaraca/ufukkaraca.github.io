@@ -1,20 +1,20 @@
 - company: Incari
-  role: Solutions Engineer (Technical Product Owner & Solutions Architect)
+  role: Solutions Engineer (TPO & Architecture)
   dates: January 2024 - Present
   description: >
-    I split my time between shaping what we build and making sure it actually ships. Day to day that means translating fuzzy customer problems into small, nameable interface slices, keeping hardware and software conversations on the same page, and quietly pruning complexity before it takes root. I’ve guided Incari Services from loose idea to a set of deliverable building blocks, acted as the technical front door for OEM HMI / embedded programs, and used lightweight AI‑assisted tooling so a leaner team didn’t lose momentum. The work is a mix of architecture sketching, hands-on prototyping, and helping stakeholders see constraints as design tools rather than blockers.
+    I split my time between shaping what we build and making sure it actually ships. Day to day that means translating fuzzy customer problems into small, nameable interface slices, keeping hardware and software conversations on the same page, and quietly pruning complexity before it takes root. I’ve guided Incari Services in delivering technical building blocks, acted as the technical front door for OEM HMI / embedded programs, and used lightweight AI‑assisted tooling so a leaner team in 2025 didn’t lose momentum. The work is a mix of architecture sketching, hands-on prototyping (SW and HW), and helping stakeholders see constraints as design tools rather than blockers.
 
 - company: Incari
-  role: Creative Technologist (Product Strategy & Innovation)
+  role: Creative Technologist
   dates: January 2022 - December 2023
   description: >
-    This stretch was about creating visible proof that an idea deserved a roadmap slot. I built and stitched together interactive HMI prototypes (Studio, React, Python, C++) fast enough that product, design, and execs could make grounded calls. Rough market signals and customer conversations became lean feature concepts; a good chunk graduated into the shipped surface. I also kicked off a few internal “what if we…” threads that evolved into frequently used capabilities—small bets that compounded. Tool-wise it was whatever helped reduce loop time: Studio, ProtoPie, Figma, plus a rotating cast of scripting and build glue.
+    This stretch was about creating visible proof that an idea deserved a roadmap slot. I built and stitched together interactive HMI prototypes (Studio, React, Python, C++) fast enough that product, design, and execs could make grounded calls. Rough market signals and customer conversations became lean feature concepts through internal initiatives; a good chunk graduated into the shipped surface. I also kicked off a few internal “what if we…” threads that evolved into frequently used capabilities—small bets that compounded. Tool-wise it was whatever helped reduce loop time: Incari Studio, Figma, plus a rotating cast of scripting and build glue in the form of many languages.
 
 - company: Greny.co
   role: Co-Founder, Lead Facilitator
   dates: March 2022 - March 2023
   description: >
-    A nights-and-weekends venture where we helped more traditional organizations get unstuck on sustainability by borrowing start‑up style framing: sharp problem statements, lightweight metric models, quick experiments. I facilitated sessions, built simple data scaffolds, and kept a small distributed team aligned. Many lessons on pacing change in legacy contexts fed back into how I later approached enterprise HMI and tooling conversations.
+    A nights-and-weekends venture where we helped more traditional organizations get unstuck on sustainability by borrowing start‑up style framing: sharp problem statements, lightweight metric models, quick experiments. I facilitated sessions, built simple data scaffolds with ML models, and kept a small distributed team aligned. Many lessons on pacing change in legacy contexts fed back into how I later approached enterprise HMI and tooling conversations.
 
 - company: Piëch Automotive
   role: Engineering & Project Management Associate
