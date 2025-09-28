@@ -437,7 +437,10 @@ a {
 }
 
 /* Project card primary link variant (scoped so other arrow-links remain lightweight) */
-.card .arrow-link {
+/* Unified pill control styling (project link + expand button)
+   NOTE: Do NOT set explicit display on .expand-btn so the [hidden] attribute can collapse it.
+*/
+.card .arrow-link, .expand-btn {
     font-size: 0.7rem;
     letter-spacing: 0.08em;
     text-transform: uppercase;
@@ -445,29 +448,38 @@ a {
     border: 1px solid var(--line);
     padding: 4px 14px;
     border-radius: 999px;
-    gap: 6px;
     line-height: 1.2;
     position: relative;
     top: 0;
+    cursor: pointer;
+    color: var(--muted);
+    gap: 6px;
+    font-family: inherit;
     transition: background 140ms ease, color 140ms ease, border-color 140ms ease, transform 140ms ease;
 }
+
+/* Arrow link remains an inline-flex pill */
+.card .arrow-link { display: inline-flex; align-items: center; }
+
+/* Ensure hidden state always wins */
+.expand-btn[hidden] { display: none !important; }
 
 .card .arrow-link::after {
     /* ensure consistent arrow sizing in pill */
     font-size: 0.8rem;
 }
 
-.card .arrow-link:hover {
+.card .arrow-link:hover, .expand-btn:hover {
     background: var(--surface);
     color: var(--text);
     transform: translateY(-1px);
 }
 
-.card .arrow-link:active {
+.card .arrow-link:active, .expand-btn:active {
     transform: translateY(0);
 }
 
-.card .arrow-link:focus-visible {
+.card .arrow-link:focus-visible, .expand-btn:focus-visible {
     outline: 2px solid var(--accent);
     outline-offset: 3px;
 }
@@ -554,25 +566,11 @@ section {
     display: block;
 }
 
-.expand-btn {
-    margin-top: var(--space-2);
-    background: none;
-    border: 1px solid var(--line);
-    padding: 4px 10px;
-    font-family: inherit;
-    font-size: 0.8rem;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-    border-radius: 999px;
-    cursor: pointer;
-    color: var(--muted);
-    transition: background 160ms ease, color 160ms ease;
-}
+/* Expand button no standalone vertical margin; spacing handled by contextual rule below */
+.expand-btn { margin-top: 0; }
 
-.expand-btn:hover {
-    background: var(--surface);
-    color: var(--text);
-}
+/* Uniform spacing between tag badges and action row (link / expand controls) */
+.card .tag-badges + div { margin-top: var(--space-2); }
 
 /* Streams section deprecated; related styles removed. */
 
@@ -686,7 +684,8 @@ section {
     display: flex;
     flex-wrap: wrap;
     gap: 6px;
-    margin: var(--space-2) 0 0 0;
+    /* Added bottom margin to separate tags from following link/action row */
+    margin: var(--space-2) 0 var(--space-2) 0;
 }
 
 .tag-badge {
