@@ -7,7 +7,7 @@ description: Aggregate view of selected systems projects & active tinkering thre
 
 <section class="container" style="padding-block:var(--space-6);">
   <h1 style="margin-top:0;">Works</h1>
-  <p class="muted" style="max-width:64ch;margin-top:-8px;">Snapshot of system‑leaning projects and current exploration threads. Toggle between <em style="font-style:normal;font-weight:600;">Projects</em> and <em style="font-style:normal;font-weight:600;">Tinkering</em>. Tag filters apply only to projects. Legacy /tinkering/ links now resolve here.</p>
+  <p class="muted" style="max-width:64ch;margin-top:-8px;">Snapshot of system‑leaning projects and current exploration threads. Toggle between <em style="font-style:normal;font-weight:600;">Projects</em> and <em style="font-style:normal;font-weight:600;">Tinkering</em>. Tag filters apply only to projects.</p>
 
   <div class="view-toggle" role="tablist" aria-label="Works content view" style="margin-top:var(--space-5);">
     <button class="view-tab is-active" role="tab" aria-selected="true" data-view="projects" id="tab-projects">Projects</button>
@@ -64,12 +64,11 @@ description: Aggregate view of selected systems projects & active tinkering thre
     <p class="empty-note" id="projects-empty" style="display:none;margin-top:var(--space-4);">No projects match this tag.</p>
   </div>
 
-  {% assign tinkers = site.data.tinkering | default: nil %}
+  {% assign tinkers = site.tinkers | sort: 'date' | reverse %}
   {% assign tinker_years = '' | split: '' %}
-  {% if tinkers %}
+  {% if tinkers and tinkers.size > 0 %}
     {% for tk in tinkers %}
-      {% assign parts = tk.when | split: '-' %}
-      {% assign year = parts[0] | strip %}
+      {% assign year = tk.date | date: '%Y' %}
       {% unless tinker_years contains year %}
         {% assign tinker_years = tinker_years | push: year %}
       {% endunless %}
@@ -79,12 +78,11 @@ description: Aggregate view of selected systems projects & active tinkering thre
   <div id="tinkering-panel" role="tabpanel" aria-labelledby="tab-tinkering" class="works-panel" hidden style="margin-top:var(--space-5);">
     <h2 class="section-heading" style="margin-top:0;">Recent tinkering</h2>
     <div class="filter-toolbar" aria-label="Tinkering year filter">
-      <button class="year-filter is-active" data-year="*" aria-pressed="true">All Time <span class="count" aria-hidden="true">({{ tinkers | size }})</span></button>
+  <button class="year-filter is-active" data-year="*" aria-pressed="true">All Time <span class="count" aria-hidden="true">({{ tinkers | size }})</span></button>
       {% for y in sorted_tinker_years %}
         {% assign year_count = 0 %}
         {% for tk in tinkers %}
-          {% assign parts = tk.when | split: '-' %}
-          {% assign year = parts[0] | strip %}
+          {% assign year = tk.date | date: '%Y' %}
           {% if year == y %}
             {% assign year_count = year_count | plus: 1 %}
           {% endif %}
@@ -93,18 +91,16 @@ description: Aggregate view of selected systems projects & active tinkering thre
       {% endfor %}
     </div>
     <ul class="tinker-timeline" id="works-tinkering" style="margin-top:var(--space-4);">
-      {% if tinkers %}
+      {% if tinkers and tinkers.size > 0 %}
         {% for t in tinkers %}
-        {% assign parts = t.when | split: '-' %}
-        {% assign year = parts[0] | strip %}
-        <li class="tinker-item" data-year="{{ year }}" data-tags="tinker">
-          <span class="tinker-meta">{{ t.when }}</span>
-            <span class="tinker-title">{{ t.title }}</span>
-            {% if t.note %}<p class="muted" style="margin:4px 0 0 0;font-size:0.95rem;">{{ t.note }}</p>{% endif %}
+        <li class="tinker-item" data-year="{{ t.date | date: '%Y' }}" data-tags="tinker">
+          <span class="tinker-meta">{{ t.date | date: '%Y-%m' }}</span>
+          <span class="tinker-title"><a class="muted-link" href="{{ t.url }}" style="font-weight:600">{{ t.title }}</a></span>
+          {% if t.summary %}<p class="muted" style="margin:4px 0 0 0;font-size:0.95rem;">{{ t.summary }}</p>{% endif %}
         </li>
         {% endfor %}
       {% else %}
-  <li class="tinker-item"><span class="tinker-meta">Now</span><span class="tinker-title">No tinkering entries yet</span><p class="muted" style="margin:4px 0 0 0;font-size:0.95rem;">Tracking will appear here once items are added.</p></li>
+        <li class="tinker-item"><span class="tinker-meta">Now</span><span class="tinker-title">No tinkers yet</span><p class="muted" style="margin:4px 0 0 0;font-size:0.95rem;">First entries coming soon.</p></li>
       {% endif %}
     </ul>
     <p class="empty-note" id="tinkering-empty" style="display:none;margin-top:var(--space-4);">No tinkering entries for that year.</p>
