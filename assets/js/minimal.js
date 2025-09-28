@@ -1,5 +1,13 @@
 document.addEventListener('DOMContentLoaded', function () {
     var header = document.querySelector('.site-header');
+    var brand = document.querySelector('.brand');
+    // Kick off brand intro animation (defer to next frame to avoid layout flash)
+    if (brand) {
+        requestAnimationFrame(function () {
+            brand.classList.remove('brand--start');
+            brand.classList.add('brand--in');
+        });
+    }
     var scrollCue = document.querySelector('[data-scroll-cue]');
     var hero = document.querySelector('[data-hero]');
     // Sections after hero (exclude hero itself & footer)
@@ -11,12 +19,34 @@ document.addEventListener('DOMContentLoaded', function () {
     // Removed collapse interpolation: nav stays constant size now
     var cueHideThreshold = 120; // matches scroll cue hide point
     // No min scale / opacity anymore (kept variables removed)
+    var brandShrinkThreshold = 140; // px; aligns roughly with hero fade region
+    var brandIsMini = false;
+
     var onScroll = function () {
         if (!header) return;
         if (window.scrollY > 8) {
             header.classList.add('is-scrolled');
         } else {
             header.classList.remove('is-scrolled');
+        }
+        // Brand shrink / restore
+        if (brand) {
+            if (window.scrollY > brandShrinkThreshold) {
+                if (!brandIsMini) {
+                    brandIsMini = true;
+                    var full = brand.getAttribute('data-full');
+                    var initials = brand.getAttribute('data-initials') || full;
+                    brand.textContent = initials;
+                    brand.classList.add('brand--mini');
+                    brand.setAttribute('aria-label', full);
+                }
+            } else if (brandIsMini) {
+                brandIsMini = false;
+                var fullName = brand.getAttribute('data-full');
+                brand.textContent = fullName;
+                brand.classList.remove('brand--mini');
+                brand.setAttribute('aria-label', fullName);
+            }
         }
     };
     onScroll();

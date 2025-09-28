@@ -143,6 +143,31 @@ p {
     letter-spacing: -0.02em;
     text-decoration: none;
     color: var(--text);
+    font-size: clamp(1.35rem, 1.15rem + 0.6vw, 1.85rem);
+    display: inline-block;
+    transition: font-size 220ms ease, letter-spacing 220ms ease, transform 400ms cubic-bezier(.22,.61,.36,1), opacity 400ms ease;
+}
+
+/* Brand intro animation (removed after first frame) */
+.brand.brand--start {
+    opacity: 0;
+    transform: translateY(4px) scale(1.04);
+}
+.brand.brand--in {
+    opacity: 1;
+    transform: none;
+}
+
+/* Mini (scrolled) state switches to initials via JS */
+.brand.brand--mini {
+    font-size: 0.95rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .brand { transition: none; }
+    .brand.brand--start { opacity: 1; transform: none; }
 }
 
 .nav {
