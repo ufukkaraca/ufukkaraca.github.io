@@ -81,7 +81,7 @@ layout: default
 <section id="projects" class="container section-tight">
     <h2 class="section-heading">Recent projects</h2>
     <ul class="list">
-        {% for item in site.data.projects | limit: 3 %}
+        {% for item in site.data.projects limit: 3 %}
         <li class="card reveal" data-tags="{% if item.tags %}{{ item.tags | join: ',' }}{% endif %}">
             <div class="card-row">
                 <div class="card-title">{{ item.title }}</div>
