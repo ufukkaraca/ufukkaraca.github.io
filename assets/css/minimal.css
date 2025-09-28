@@ -436,6 +436,42 @@ a {
     transform: translateX(3px);
 }
 
+/* Project card primary link variant (scoped so other arrow-links remain lightweight) */
+.card .arrow-link {
+    font-size: 0.7rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    background: none;
+    border: 1px solid var(--line);
+    padding: 4px 14px;
+    border-radius: 999px;
+    gap: 6px;
+    line-height: 1.2;
+    position: relative;
+    top: 0;
+    transition: background 140ms ease, color 140ms ease, border-color 140ms ease, transform 140ms ease;
+}
+
+.card .arrow-link::after {
+    /* ensure consistent arrow sizing in pill */
+    font-size: 0.8rem;
+}
+
+.card .arrow-link:hover {
+    background: var(--surface);
+    color: var(--text);
+    transform: translateY(-1px);
+}
+
+.card .arrow-link:active {
+    transform: translateY(0);
+}
+
+.card .arrow-link:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+}
+
 .muted-link {
     color: var(--muted);
     text-decoration: none;
