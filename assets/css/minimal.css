@@ -459,10 +459,15 @@ a {
 }
 
 /* Arrow link remains an inline-flex pill */
-.card .arrow-link { display: inline-flex; align-items: center; }
+.card .arrow-link {
+    display: inline-flex;
+    align-items: center;
+}
 
 /* Ensure hidden state always wins */
-.expand-btn[hidden] { display: none !important; }
+.expand-btn[hidden] {
+    display: none !important;
+}
 
 .card .arrow-link::after {
     /* ensure consistent arrow sizing in pill */
@@ -567,10 +572,14 @@ section {
 }
 
 /* Expand button no standalone vertical margin; spacing handled by contextual rule below */
-.expand-btn { margin-top: 0; }
+.expand-btn {
+    margin-top: 0;
+}
 
 /* Uniform spacing between tag badges and action row (link / expand controls) */
-.card .tag-badges + div { margin-top: var(--space-2); }
+.card .tag-badges+div {
+    margin-top: var(--space-2);
+}
 
 /* Streams section deprecated; related styles removed. */
 
