@@ -114,82 +114,25 @@
         </h1>
         <h1 class="text-white scrolltextl m-0 "
             style="background-color: #151516; position: fixed;right: 80vw; top: 50%; transform: translateY(-50%); font-size: 10vh; white-space: nowrap">
-            engineering based solutions
-        </h1>
-        <h1 class="text-white scrolltextr m-0 "
-            style="background-color: #151516; position: fixed;left: 80vw; top: 75%; transform: translateY(-75%); font-size: 10vh; white-space: nowrap">
-            entrepreneurship mindset
-        </h1>
-        <p class="h3 scrollindicator ms-5" style="color:#a1a1a6 ;position: fixed; bottom: 10%; opacity: 100%">
-            Scroll to see more.
-        </p>
-
-
-    </section>
-    <!-- #endregion-->
-    <!-- #region Wave-->
-    <div style="height: 150px;position:relative; overflow: hidden;">
-        <svg viewBox='0 0 500 150' preserveAspectRatio='none' style='height: 100%; width: 100%;'>
-            <path d='M0.00,49.99 C104.03,197.53 349.21,-49.99 340.48,89.96 L500.00,150.00 L0.00,150.00 Z'
-                style='position: absolute; top:0; left:0;z-index: 99;stroke: none; fill: #ffffff;'></path>
-        </svg>
-        <h1 class="w-100 ps-5 h-100 align-items-center"
-            style="font-weight:800;position: absolute; top: 0; z-index:100;display: flex; color:#FFFFFF;mix-blend-mode: difference">
-            Hi.
-        </h1>
-
-    </div>
-    <!-- #endregion-->
-    <!-- #region Introduction-->
-    <section class="w-100 d-flex pb-3 position-sticky" style="padding-inline: 10%; background-color: #ffffff">
-        <div class="vstack d-flex p-5 my-auto" style=" width: 100%">
-            <p style="font-family: 'Zilla Slab', sans-serif">
-                Development, management and sustainability enthusiast. An avid supporter of youth-powered change.
-                <span style="font-size: 100%" class="d-inline-block pvr" tabindex="0" data-bs-toggle="popover"
-                    data-bs-placement="top" data-bs-html="true" data-bs-trigger="hover focus" data-bs-content="<p>I can speak English and Turkish fluently, know German and Spanish on an intermediate level and have been
-            working on my French as of recently. Bienvenue sur mon site Web personnel!<p>">
-                    <a type="button" class="categoryseparator hvr-sweep-to-right mb-1"
-                        style="font-size: 100%; text-decoration-color: transparent" disabled>Polyglot.</a>
-                </span>
-                <br><br>
-                I enjoy working in the intersection of sustainability and technology to deliver solutions that will
-                create a
-                real impact. Keep on scrolling to get to know me.
-                <br><br>
-
-            </p>
-        </div>
-    </section>
-    <!-- #endregion-->
-    <!-- #region Wave-->
-    <div style="height: 150px; overflow: hidden;">
-        <svg viewBox="0 0 500 150" preserveAspectRatio="none" style="height: 100%; width: 100%; background: #FFFFFF">
-            <path d="M-70.26,-57.72 C290.34,269.89 306.71,-167.27 547.11,149.50 L500.00,150.00 L0.00,150.00 Z"
-                style="stroke: none; fill: #000000;"></path>
-        </svg>
-    </div>
-    <!-- #endregion-->
-    <!-- #region At A Glance-->
-    <section id="at_a_glance" class=" w-100 text-white d-flex py-3 mb-5" style="padding-inline: 10%">
-        <div class="vstack d-flex rounded rounded-3 shadow p-5" style="width: 100%; background-color: #151516">
-            <p style="font-size:6vmax; font-family: 'Zilla Slab',serif; font-weight: 800;color: antiquewhite">
-                at a glance.
-            </p>
-            <div class="hstack w-100 overflow-auto">
-                <h2 id="sustainability_button" class="category activecategory zilla textmedium" type="button" onclick="{
-                $('.activecategory').removeClass('activecategory')
-                $(this).toggleClass('activecategory')
-                $('#sustainability_section').show('blind')
-                $('#engineering_section').hide('slide')
-                $('#entrepreneurship_section').hide('slide')
-            }">sustainability</h2>
-                <h2 class="px-2 categoryseparator textmedium">/</h2>
-                <h2 id="engineering_button" class="category zilla textmedium" type="button" onclick="{
-                $('.activecategory').removeClass('activecategory')
-                $(this).toggleClass('activecategory')
-                $('#sustainability_section').hide('slide')
-                $('#engineering_section').show('blind')
-                $('#entrepreneurship_section').hide('slide')
+            ---
+            # Deprecated legacy layout stub (was a large animated landing page prior to minimalist redesign)
+            layout: default
+            permalink: /__legacy-index-stub-removed/
+            robots: noindex
+            ---
+            <!--
+              This layout used to power the older animated single-page site (Bootstrap/jQuery/AOS heavy).
+              It has been superseded by `home.html` + `default.html` minimalist system.
+              All original markup & scripts removed to reduce repository noise.
+              Keep temporarily so that any stale inbound references (unlikely) do not 404 immediately;
+              returns a minimal notice instead via the default layout wrapper.
+              Remove this file (and related stubbed assets under assets/css & assets/js) after confirming
+              no external links depend on it.
+            -->
+            <section class="container section-tight">
+              <h1 style="margin-top:2rem">Legacy page removed</h1>
+              <p class="muted">This legacy animated landing page has been retired. Please return to the <a href="/">current home</a>.</p>
+            </section>
             }">engineering</h2>
                 <h2 class="px-2 categoryseparator textmedium">/</h2>
                 <h2 id="entrepreneurship_button" class="category zilla textmedium" type="button" onclick="{
