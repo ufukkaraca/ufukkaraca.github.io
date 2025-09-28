@@ -1,12 +1,70 @@
 document.addEventListener('DOMContentLoaded', function () {
     var header = document.querySelector('.site-header');
     var brand = document.querySelector('.brand');
-    // Kick off brand intro animation (defer to next frame to avoid layout flash)
+    var brandDrawText = brand ? brand.querySelector('.brand-draw-text') : null;
+    // Delay brand intro + stroke animation until full page load
     if (brand) {
-        requestAnimationFrame(function () {
-            brand.classList.remove('brand--start');
-            brand.classList.add('brand--in');
+        window.addEventListener('load', function () {
+            requestAnimationFrame(function () {
+                brand.classList.remove('brand--start');
+                brand.classList.add('brand--in');
+                if (brandDrawText && typeof brandDrawText.getComputedTextLength === 'function') {
+                    try {
+                        var len = brandDrawText.getComputedTextLength();
+                            // Stroke length buffer
+                            brand.style.setProperty('--brand-stroke-len', Math.ceil(len * 1.05));
+                            // Align SVG coordinate system tightly to text so scaling matches real font size
+                            var brandDraw = brand.querySelector('.brand-draw');
+                            if (brandDraw) {
+                                var fontSizePx = parseFloat(getComputedStyle(brand).fontSize) || 56; // fallback
+                                var vbHeight = Math.ceil(fontSizePx * 1.15); // small ascent/descent buffer
+                                // Baseline adjustments: set y on text relative later; keep existing y via CSS em
+                                brandDraw.setAttribute('viewBox', '0 0 ' + Math.ceil(len) + ' ' + vbHeight);
+                            }
+                    } catch (e) { }
+                }
+            });
         });
+        if (brandDrawText) {
+            brandDrawText.addEventListener('animationend', function (e) {
+                if (e.animationName === 'brandDraw') {
+                    brand.classList.add('brand--filled');
+                }
+            });
+        }
+    }
+    function restartBrandAnimation(durationMs) {
+        if (!brandDrawText) return;
+        var len = 0;
+        try { len = brandDrawText.getComputedTextLength(); } catch (e) { }
+        if (len) brand.style.setProperty('--brand-stroke-len', Math.ceil(len * 1.05));
+        brandDrawText.style.animation = 'none';
+        void brandDrawText.offsetWidth; // reflow
+        var dur = (durationMs || 1100) / 1000;
+        brand.classList.remove('brand--filled');
+        brandDrawText.style.animation = 'brandDraw ' + dur + 's ease forwards, brandStrokeFade 600ms ease ' + dur + 's forwards';
+        brandDrawText.addEventListener('animationend', function handler(e) {
+            if (e.animationName === 'brandDraw') {
+                brand.classList.add('brand--filled');
+                brandDrawText.removeEventListener('animationend', handler);
+            }
+        });
+    }
+
+    function swapBrandToInitials() {
+        if (!brand || !brandDrawText) return;
+        var initials = brand.getAttribute('data-initials');
+        if (!initials) return;
+        brandDrawText.textContent = initials;
+        restartBrandAnimation(1000);
+    }
+
+    function swapBrandToFull() {
+        if (!brand || !brandDrawText) return;
+        var full = brand.getAttribute('data-full');
+        if (!full) return;
+        brandDrawText.textContent = full;
+        restartBrandAnimation(1300);
     }
     var scrollCue = document.querySelector('[data-scroll-cue]');
     var hero = document.querySelector('[data-hero]');
@@ -30,22 +88,19 @@ document.addEventListener('DOMContentLoaded', function () {
             header.classList.remove('is-scrolled');
         }
         // Brand shrink / restore
-        if (brand) {
+        if (brand && brandDrawText) {
             if (window.scrollY > brandShrinkThreshold) {
                 if (!brandIsMini) {
                     brandIsMini = true;
-                    var full = brand.getAttribute('data-full');
-                    var initials = brand.getAttribute('data-initials') || full;
-                    brand.textContent = initials;
+                    swapBrandToInitials();
                     brand.classList.add('brand--mini');
-                    brand.setAttribute('aria-label', full);
+                    brand.setAttribute('aria-label', brand.getAttribute('data-full'));
                 }
             } else if (brandIsMini) {
                 brandIsMini = false;
-                var fullName = brand.getAttribute('data-full');
-                brand.textContent = fullName;
+                swapBrandToFull();
                 brand.classList.remove('brand--mini');
-                brand.setAttribute('aria-label', fullName);
+                brand.setAttribute('aria-label', brand.getAttribute('data-full'));
             }
         }
     };
