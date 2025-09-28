@@ -2,8 +2,15 @@ document.addEventListener('DOMContentLoaded', function () {
     var header = document.querySelector('.site-header');
     var scrollCue = document.querySelector('[data-scroll-cue]');
     var hero = document.querySelector('[data-hero]');
-    var afterHeroSections = hero ? Array.from(document.querySelectorAll('section:not(#home)')) : [];
+    // Sections after hero (exclude hero itself & footer)
+    var afterHeroSections = hero ? Array.from(document.querySelectorAll('section'))
+        .filter(function (s) { return s.id !== 'home' && !s.closest('footer'); }) : [];
     var heroHeight = 0;
+    var floatingNav = document.querySelector('[data-floating-nav]');
+    var lastScrollY = window.scrollY;
+    // Removed collapse interpolation: nav stays constant size now
+    var cueHideThreshold = 120; // matches scroll cue hide point
+    // No min scale / opacity anymore (kept variables removed)
     var onScroll = function () {
         if (!header) return;
         if (window.scrollY > 8) {
@@ -15,19 +22,89 @@ document.addEventListener('DOMContentLoaded', function () {
     onScroll();
     window.addEventListener('scroll', onScroll, { passive: true });
 
-    // Scroll cue hide logic
-    function hideCueOnScroll() {
-        if (!scrollCue) return;
-        // Hide a bit later so cue remains visible during initial micro-scroll
-        var threshold = 120; // px before hiding cue
-        if (window.scrollY > threshold) {
-            scrollCue.classList.add('is-hidden');
-        } else {
-            scrollCue.classList.remove('is-hidden');
+    // Progress icon (active page) handling: detect any path with data-progress-path inside an aria-current link
+    var progressPath = null;
+    var iconTotalLength = 0;
+    if (floatingNav) {
+        var currentLink = floatingNav.querySelector('.floating-link[aria-current="page"]');
+        if (currentLink) {
+            progressPath = currentLink.querySelector('[data-progress-path]');
+            if (progressPath) {
+                try { iconTotalLength = progressPath.getTotalLength(); } catch (e) { iconTotalLength = 100; }
+                floatingNav.style.setProperty('--icon-total', iconTotalLength.toFixed(2));
+            }
         }
     }
-    hideCueOnScroll();
-    window.addEventListener('scroll', hideCueOnScroll, { passive: true });
+
+    var navIntroOffset = 24; // px downward start offset for nav before it settles
+
+    function handleFloatingNav() {
+        if (!floatingNav) return;
+        var y = window.scrollY;
+        // Page progress for home icon stroke & active link progress variable (0..1)
+        var docHeight = document.documentElement.scrollHeight - window.innerHeight;
+        var pageProgress = docHeight > 0 ? Math.min(Math.max(y / docHeight, 0), 1) : 0;
+        if (progressPath) {
+            floatingNav.style.setProperty('--icon-progress', pageProgress.toFixed(3));
+        }
+
+        // Delayed inverse fade relative to scroll cue visibility.
+        // Raw cue progress 0..1 across cueHideThreshold scroll distance.
+        var cueVisible = !!(scrollCue && !scrollCue.classList.contains('is-hidden'));
+        var fadeProgress = 1; // 0 = hidden nav, 1 = visible nav
+        if (scrollCue) {
+            var raw = Math.min(Math.max(y / cueHideThreshold, 0), 1); // 0..1
+            var fadeStart = 0.7; // do not start showing nav until 70% through cue fade
+            if (raw < fadeStart) {
+                fadeProgress = 0;
+            } else {
+                fadeProgress = (raw - fadeStart) / (1 - fadeStart); // normalize 0..1 from fadeStart..1
+            }
+        }
+        if (cueVisible) {
+            // still in pre-hero fade region
+            floatingNav.classList.add('is-prehero');
+        } else {
+            floatingNav.classList.remove('is-prehero');
+        }
+        floatingNav.style.setProperty('--nav-fade', fadeProgress.toFixed(3));
+        // Upward motion (translateY) from offset -> 0 synchronized with fadeProgress
+        var shift = (1 - fadeProgress) * navIntroOffset; // px remaining
+        floatingNav.style.setProperty('--nav-shift', shift.toFixed(2) + 'px');
+
+        // No transform scaling or opacity adjustments now
+        var activeLink = floatingNav.querySelector('.floating-link[aria-current="page"]');
+        if (activeLink) activeLink.style.removeProperty('--progress');
+
+        lastScrollY = y;
+    }
+    handleFloatingNav();
+    window.addEventListener('scroll', handleFloatingNav, { passive: true });
+    // If page is too short to scroll (e.g., small viewport), ensure nav still shows progress underline state after cue hides
+    window.addEventListener('load', function () {
+        if (!floatingNav) return;
+        var docHeight = document.documentElement.scrollHeight - window.innerHeight;
+        if (docHeight < 40) {
+            // Force trigger once more after load for final layout
+            requestAnimationFrame(handleFloatingNav);
+        }
+    });
+
+    // Scroll cue hide logic
+    if (scrollCue) {
+        function hideCueOnScroll() {
+            // Hide a bit later so cue remains visible during initial micro-scroll
+            if (window.scrollY > cueHideThreshold) {
+                scrollCue.classList.add('is-hidden');
+            } else {
+                scrollCue.classList.remove('is-hidden');
+            }
+        }
+        hideCueOnScroll();
+        window.addEventListener('scroll', hideCueOnScroll, { passive: true });
+    }
+
+    // Removed tap-to-force-expand (not needed without scaling)
 
     // Resize handling (debounced) to ensure hero fills viewport after orientation / chrome UI changes
     var resizeTimer = null;
@@ -37,7 +114,7 @@ document.addEventListener('DOMContentLoaded', function () {
         hero.style.minHeight = '100svh';
         heroHeight = hero.getBoundingClientRect().height;
     }
-    adjustHeroHeight();
+    if (hero) adjustHeroHeight();
     window.addEventListener('resize', function () {
         if (resizeTimer) cancelAnimationFrame(resizeTimer);
         resizeTimer = requestAnimationFrame(adjustHeroHeight);
@@ -45,22 +122,22 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Subtle upward acceleration of following content while scrolling through hero
     function shiftAfterHero() {
-        if (!heroHeight || !afterHeroSections.length) return;
+        if (!hero || !heroHeight || !afterHeroSections.length) return;
         var y = window.scrollY;
         var progress = Math.min(Math.max(y / heroHeight, 0), 1); // 0 -> 1 across hero
-        // Ease-out curve (quadratic) for smoother start
-        var eased = 1 - Math.pow(1 - progress, 2);
-        var maxShift = 112; // increased maximum upward additional shift
+        var eased = 1 - Math.pow(1 - progress, 2); // ease-out
+        var maxShift = 112; // px upward
         var shift = Math.round(eased * maxShift);
-        // Respect reduced motion preference
         var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
         afterHeroSections.forEach(function (sec) {
             sec.style.transform = prefersReduced ? '' : 'translateY(' + (-shift) + 'px)';
         });
     }
-    shiftAfterHero();
-    window.addEventListener('scroll', shiftAfterHero, { passive: true });
-    window.addEventListener('resize', function () { requestAnimationFrame(shiftAfterHero); });
+    if (hero) {
+        shiftAfterHero();
+        window.addEventListener('scroll', shiftAfterHero, { passive: true });
+        window.addEventListener('resize', function () { requestAnimationFrame(shiftAfterHero); });
+    }
 
     var observer = new IntersectionObserver(function (entries) {
         entries.forEach(function (entry) {

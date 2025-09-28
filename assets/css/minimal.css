@@ -816,3 +816,130 @@ section {
         gap: 0;
     }
 }
+
+/* Floating bottom navigation */
+.floating-nav {
+    position: fixed;
+    left: 50%;
+    bottom: clamp(12px, 2.5vh, 32px);
+    transform: translateX(-50%);
+    background: color-mix(in oklab, var(--bg) 85%, white 15%);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    padding: 10px 20px 10px 16px;
+    box-shadow: 0 4px 18px -4px rgba(0, 0, 0, 0.12), 0 2px 6px -2px rgba(0, 0, 0, 0.08);
+    z-index: 120;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+/* Pre-hero: nav starts hidden; JS drives --nav-fade 0->1 as cue fades */
+.floating-nav {
+    opacity: var(--nav-fade, 1);
+    transform: translateX(-50%) translateY(var(--nav-shift, 0));
+    transition: opacity 320ms ease, transform 420ms cubic-bezier(.22, .61, .36, 1);
+}
+
+.floating-nav.is-prehero {
+    pointer-events: none;
+}
+
+/* force-expand no-op now that scaling behavior removed */
+
+.floating-nav-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 28px;
+    align-items: center;
+}
+
+.floating-link {
+    position: relative;
+    text-decoration: none;
+    font-size: 0.8rem;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    color: var(--muted);
+    transition: color 160ms ease;
+    font-weight: 600;
+}
+
+.floating-link[aria-current="page"], .floating-link:hover {
+    color: var(--text);
+}
+
+.floating-link:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 4px;
+    border-radius: 4px;
+}
+
+/* Active link progress underline (animated width) */
+.floating-link[aria-current="page"] {
+    --progress: 0;
+    padding-bottom: 4px;
+}
+
+/* Remove underline progress for regular links; home icon gets progress instead */
+.floating-link[aria-current="page"]::after {
+    display: none;
+}
+
+/* Active page icon stroke progress */
+.progress-icon {
+    stroke: var(--text);
+    fill: none;
+    stroke-width: 2px;
+    vector-effect: non-scaling-stroke;
+    width: 20px;
+    height: 20px;
+    display: block;
+}
+
+.progress-icon path[data-progress-base] {
+    fill: none;
+    stroke: var(--line);
+    opacity: 0.55;
+    stroke-linejoin: round;
+    stroke-linecap: round;
+}
+
+.progress-icon path[data-progress-path] {
+    fill: none;
+    stroke: var(--text);
+    stroke-linejoin: round;
+    stroke-linecap: round;
+    stroke-dasharray: var(--icon-total, 100);
+    stroke-dashoffset: calc(var(--icon-total, 100) - (var(--icon-progress, 0) * var(--icon-total, 100)));
+    transition: stroke-dashoffset 140ms linear, stroke 160ms ease;
+}
+
+a.floating-link[aria-current="page"]:hover .progress-icon path[data-progress-path],
+a.floating-link[aria-current="page"]:focus-visible .progress-icon path[data-progress-path] {
+    stroke: var(--accent);
+}
+
+@media (max-width: 640px) {
+    .floating-nav-list {
+        gap: 18px;
+    }
+
+    .floating-link {
+        font-size: 0.7rem;
+    }
+
+    .floating-nav {
+        padding: 8px 16px 8px 12px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .floating-nav {
+        transition: none;
+    }
+}
