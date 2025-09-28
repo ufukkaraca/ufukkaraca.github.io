@@ -1,9 +1,14 @@
-- when: Q3 2025
-  title: Embedded HMI performance profiling harness
-  note: Instrumenting frame timing + input latency across BSP variants.
-- when: Q3 2025
-  title: Agentic retrieval pipelines
-  note: Evaluating graph-augmented context assembly for domain documents.
-- when: Q3 2025
-  title: Rust → C++ interop experiment
-  note: Thin FFI layer for safety-critical UI state machine logic.
+ - when: 2025-09
+   title: Display pipeline profiling harness
+   note: Timing capture + frame budget diff visualizer.
+ - when: 2025-08
+   title: Interface contract schema prototypes
+   note: JSON + codegen surfaces for platform seams.
+ - when: 2025-08
+   title: Embedded HMI input latency traces
+ - when: 2025-07
+   title: Rapid shell scaffolder
+   note: Scripted starter for constrained prototypes.
+ - when: 2025-07
+   title: Deterministic build artifact hashing
+   note: Repro/workspace integrity checks.

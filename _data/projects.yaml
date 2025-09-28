@@ -1,42 +1,47 @@
  - title: Incari Services Platform Framing
    date: 2024
-   description: Decomposed fuzzy HMI/embedded services demand into a modular interface & capability map (auth, build, rendering, data sync) enabling parallel prototyping & clearer stakeholder negotiation.
-   link_text: (internal)
+   description: Shaped modular interface & capability map (auth, build, rendering, data sync) to align HMI / embedded demands and enable parallel prototyping.
    link_href: false
+   tags: [architecture, hmi, embedded]
  - title: Rapid HMI Prototyping Pipeline
    date: 2023
-   description: Lightweight pipeline stitching Studio, scripted asset transforms & React host shells to cut interactive concept loop time from days → hours for strategy validation.
-   link_text: (internal)
+   description: Lean pipeline (Studio + scripted transforms + React shell) reducing interactive concept loop time from days to hours.
    link_href: false
- - title: Systems Portfolio Site (this one)
+   tags: [tooling, prototyping]
+ - title: Systems Portfolio Site
    date: 2024
-   description: Content & data driven Jekyll build (collections, feeds, structured data) with accessibility & SEO foundations; minimal surface prioritizing clarity & resilience.
+   description: Data‑driven Jekyll site (collections, feeds, structured data) with accessibility & SEO foundations in a minimal serif system.
    link_text: Browse site
    link_url: "/"
    link_href: true
+   tags: [site, content]
  - title: GreenYouth Initiative
    date: 2021 – 2023
-   description: Youth‑powered sustainability facilitation experiments; shaped early engagement & measurement templates.
-   link_text: (archived)
+   description: Sustainability facilitation experiments; produced early engagement & measurement templates.
    link_href: false
+   tags: [sustainability]
  - title: EverythingRoe
    date: 2021 – 2022
-   description: Co‑founded digital enablement micro‑studio helping local businesses adopt lightweight tooling & online presence.
-   link_text: (site)
+   description: Co‑founded micro‑studio helping local businesses adopt lightweight digital tooling & presence.
+   link_text: Visit site
    link_url: "https://www.everythingroe.com"
    link_href: true
+   tags: [startup]
  - title: Personal Website v1
-   date: October 2020
-   description: First fully self-hosted static site experiment focusing on build tooling, deployment workflow and hand-rolled components.
-   link_text: See website.
+   date: 2020
+   description: First self‑hosted static site focusing on build tooling, deployment workflow & hand‑rolled components.
+   link_text: View archive
    link_url: "https://www.karacaufuk.com/v1"
    link_href: true
+   tags: [site]
  - title: Verilog Projects
-   date: June 2020 - November 2020
-   description: These included the verilog implementation of an AES based encryption system and a multi-function calculator with complex mathematical formulas, both developed with a focus on pipelining based optimization. The source code for the latter can be found on GitHub.
-   link_text: See source code.
+   date: 2020
+   description: AES‑based encryption system & multi‑function calculator with pipelined optimization focus.
+   link_text: Source code
    link_url: "https://github.com/ufukkaraca/verilogCalculator"
    link_href: true
+   tags: [hardware]
  - title: HAYAT433
-   date: December 2017 - April 2018
-   description: HAYAT 433 was an ultra-affordable locating system designed to minimise the amount of time spent finding victims after hydrological and geomorphological hazards. It uses RF transmitters and receivers within the base of a wearable microchip to provide rescue teams information about distance and 'recoverability' of victims. It was rewarded national first place in Science Expo Turkey 2018.
+   date: 2017 – 2018
+   description: Ultra‑affordable RF locating wearable reducing search time after hydrological / geomorphological hazards; national first place (Science Expo Turkey 2018).
+   tags: [embedded, award]

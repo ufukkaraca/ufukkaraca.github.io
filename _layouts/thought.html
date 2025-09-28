@@ -2,7 +2,6 @@
 layout: default
 ---
 {% assign sorted = site.thoughts | sort: 'date' %}
-{% assign index = sorted | index_of: page %}
 <article class="container" itemscope itemtype="https://schema.org/Article" style="padding-block:var(--space-6);">
     <header style="margin-bottom:var(--space-4);">
         <p
@@ -24,16 +23,19 @@ layout: default
         {% for t in sorted %}{% if t.url == page.url %}{% assign current_pos = forloop.index0 %}{% endif %}{% endfor %}
         <div>
             {% if current_pos > 0 %}
-            {% assign prev = sorted[current_pos | minus: 1] %}
-            <a class="arrow-link" href="{{ prev.url }}" aria-label="Previous thought: {{ prev.title }}">←
-                {{ prev.title }}</a>
+            {% assign prev_index = current_pos | minus: 1 %}
+            {% assign prev = sorted[prev_index] %}
+            <a class="arrow-link arrow-link-prev" href="{{ prev.url }}"
+                aria-label="Previous thought: {{ prev.title }}">{{ prev.title }}</a>
             {% endif %}
         </div>
         <div style="margin-left:auto;">
-            {% if current_pos < sorted.size | minus: 1 %}
-            {% assign next = sorted[current_pos | plus: 1] %}
-            <a class="arrow-link" href="{{ next.url }}" aria-label="Next thought: {{ next.title }}">{{ next.title }}
-                →</a>
+            {% assign last_index = sorted.size | minus: 1 %}
+            {% if current_pos < last_index %}
+            {% assign next_index = current_pos | plus: 1 %}
+            {% assign next = sorted[next_index] %}
+            <a class="arrow-link arrow-link-next" href="{{ next.url }}"
+                aria-label="Next thought: {{ next.title }}">{{ next.title }}</a>
             {% endif %}
         </div>
     </nav>

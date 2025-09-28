@@ -6,18 +6,23 @@ permalink: /tinkering/feed.xml
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>{{ site.title }} – Tinkering</title>
   <link href="{{ site.url }}/tinkering/feed.xml" rel="self"/>
-  <link href="{{ site.url }}/"/>
+  <link href="{{ site.url }}/works/#tinkering"/>
   <updated>{{ site.time | date_to_xmlschema }}</updated>
-  <id>{{ site.url }}/tinkering/</id>
+  <id>{{ site.url }}/works/#tinkering</id>
   {% assign tinker_items = site.data.tinkering | default: nil %}
   {% if tinker_items %}
     {% for tk in tinker_items %}
+      {% assign when = tk.when | default: tk.date %}
+      {% assign parts = when | split: '-' %}
+      {% assign y = parts[0] %}
+      {% assign m = parts[1] | default: '01' %}
+      {% capture iso_date %}{{ y }}-{{ m }}-01T00:00:00Z{% endcapture %}
     <entry>
       <title>{{ tk.title | xml_escape }}</title>
-      <id>{{ site.url }}/tinkering/#{{ tk.title | slugify }}</id>
-      <updated>{{ tk.date | date_to_xmlschema }}</updated>
-      <published>{{ tk.date | date_to_xmlschema }}</published>
-      <content type="html"><![CDATA[<p>{{ tk.note | default: '' }}</p>]]></content>
+      <id>{{ site.url }}/works/#tinkering-{{ tk.title | slugify }}</id>
+      <updated>{{ iso_date }}</updated>
+      <published>{{ iso_date }}</published>
+      <content type="html"><![CDATA[<p>{{ tk.note | default: '' }}</p><p><small>Canonical view: <a href='{{ site.url }}/works/#tinkering'>/works/#tinkering</a></small></p>]]></content>
     </entry>
     {% endfor %}
   {% endif %}
