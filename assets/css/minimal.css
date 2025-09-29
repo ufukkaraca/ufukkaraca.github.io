@@ -143,10 +143,10 @@ p {
     letter-spacing: -0.02em;
     text-decoration: none;
     color: var(--text);
-    font-size: clamp(1.55rem, 1.25rem + 0.9vw, 2.35rem);
+    font-size: clamp(1.35rem, 1.15rem + 0.6vw, 1.85rem);
     display: inline-block;
     position: relative;
-    transition: font-size 220ms ease, letter-spacing 220ms ease, transform 400ms cubic-bezier(.22,.61,.36,1), opacity 400ms ease;
+    transition: font-size 220ms ease, letter-spacing 220ms ease, transform 420ms cubic-bezier(.22, .61, .36, 1), opacity 420ms ease;
 }
 
 /* Brand intro animation (removed after first frame) */
@@ -154,6 +154,7 @@ p {
     opacity: 0;
     transform: translateY(4px) scale(1.04);
 }
+
 .brand.brand--in {
     opacity: 1;
     transform: none;
@@ -163,46 +164,48 @@ p {
 .brand.brand--mini {
     font-size: 0.95rem;
     letter-spacing: 0.05em;
+}
+
+/* Layered name → initials cross-fade */
+.brand-full, .brand-initials {
+    display: inline-block;
+    transition: opacity 260ms ease, transform 300ms cubic-bezier(.22, .61, .36, 1);
+    will-change: opacity, transform;
+}
+
+.brand-initials {
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
+    transform: translateY(4px);
+    letter-spacing: 0.05em;
     text-transform: uppercase;
 }
 
-/* Stroke drawing overlay */
-.brand-label { transition: opacity 400ms ease 120ms; }
-.brand:not(.brand--filled) .brand-label { opacity: 0; }
-.brand.brand--filled .brand-label { opacity: 1; }
-
-.brand-draw { position:absolute; inset:0; width:100%; height:100%; pointer-events:none; }
-.brand-draw { transform: translateY(var(--brand-offset-y,0)); }
-.brand-draw { font-size: inherit; }
-.brand-draw-text {
-    font-family: inherit;
-    font-weight: 600;
-    font-size: 1em; /* match live brand font size */
-    fill: none;
-    stroke: currentColor;
-    stroke-width: 1.2;
-    vector-effect: non-scaling-stroke;
-    stroke-linecap: round;
-    stroke-linejoin: round;
-    stroke-dasharray: var(--brand-stroke-len, 1200);
-    stroke-dashoffset: var(--brand-stroke-len, 1200);
-    animation: brandDraw 3.2s ease forwards;
+.brand.brand--mini .brand-full {
+    opacity: 0;
+    transform: translateY(-4px);
 }
 
-@keyframes brandDraw { to { stroke-dashoffset: 0; } }
-
-/* After fill reveal, fade stroke out gently */
- .brand.brand--filled .brand-draw-text { animation: brandDraw 3.2s ease forwards, brandStrokeFade 700ms ease 3.2s forwards; }
-@keyframes brandStrokeFade { to { opacity: 0; } }
-
-@media (prefers-reduced-motion: reduce) {
-    .brand-draw-text { animation: none; stroke-dashoffset:0; opacity:0; }
-    .brand-label { opacity:1 !important; }
+.brand.brand--mini .brand-initials {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 @media (prefers-reduced-motion: reduce) {
-    .brand { transition: none; }
-    .brand.brand--start { opacity: 1; transform: none; }
+    .brand {
+        transition: none;
+    }
+
+    .brand.brand--start {
+        opacity: 1;
+        transform: none;
+    }
+
+    .brand-full, .brand-initials {
+        transition: none;
+    }
 }
 
 .nav {
