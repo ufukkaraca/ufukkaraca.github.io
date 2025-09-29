@@ -15,11 +15,18 @@ module Jekyll
   HEIGHT = 600 # Use 2:1 aspect ratio for Twitter summary_large_image to avoid letterboxing
 
     def generate(site)
-      return unless defined?(MiniMagick)
-      # Detect ImageMagick / GraphicsMagick CLI
+      # If MiniMagick gem not loaded we still try to assign existing persisted images
+      unless defined?(MiniMagick)
+        Jekyll.logger.warn "OGImage", "mini_magick not loaded; using any pre-generated images or fallback social_image"
+        fallback_assign(site)
+        return
+      end
+
+      # Detect ImageMagick / GraphicsMagick CLI availability
       has_im = system('convert -version > /dev/null 2>&1') || system('magick -version > /dev/null 2>&1') || system('gm version > /dev/null 2>&1')
       unless has_im
-        Jekyll.logger.warn "OGImage", "Skipping generation (ImageMagick/GraphicsMagick not installed)"
+        Jekyll.logger.warn "OGImage", "Skipping generation (ImageMagick/GraphicsMagick not installed); using pre-generated images if present"
+        fallback_assign(site)
         return
       end
 
@@ -150,6 +157,37 @@ module Jekyll
     def escape_draw(str)
       # Escape single quotes for ImageMagick draw text
       str.to_s.gsub("'","\\'")
+    end
+
+    def fallback_assign(site)
+      collection = site.collections['thoughts']
+      return unless collection
+      docs = collection.docs
+      return if docs.empty?
+      persist = site.config.dig('og_image', 'persist_to_source')
+      source_dir = File.join(site.source, 'assets', 'og')
+      default_social = site.config['social_image']
+      docs.each do |doc|
+        begin
+          slug = Jekyll::Utils.slugify(doc.data['slug'] || doc.data['title'] || doc.basename_without_ext)
+          filename = "thought-#{slug}.png"
+          rel_path = File.join('/assets/og', filename)
+          abs_source = File.join(source_dir, filename)
+          title  = (doc.data['title'] || slug).to_s.strip
+          date   = doc.data['date'] ? doc.data['date'].strftime('%Y-%m-%d') : ''
+          author = site.config['author'].to_s
+          if persist && File.exist?(abs_source)
+            doc.data['social_image'] ||= rel_path
+            doc.data['social_image_alt'] ||= "Thought: #{title} — #{date} by #{author}".strip
+          else
+            # fall back to global site image if per-thought image not available
+            doc.data['social_image'] ||= default_social
+            doc.data['social_image_alt'] ||= "#{title} by #{author}".strip
+          end
+        rescue => e
+          Jekyll.logger.debug "OGImage", "fallback_assign failed for #{doc.path}: #{e.class} #{e.message}"
+        end
+      end
     end
   end
 end
