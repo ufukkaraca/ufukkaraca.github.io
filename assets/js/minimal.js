@@ -1,70 +1,12 @@
 document.addEventListener('DOMContentLoaded', function () {
     var header = document.querySelector('.site-header');
     var brand = document.querySelector('.brand');
-    var brandDrawText = brand ? brand.querySelector('.brand-draw-text') : null;
-    // Delay brand intro + stroke animation until full page load
+    // Kick off brand intro animation (defer to next frame to avoid layout flash)
     if (brand) {
-        window.addEventListener('load', function () {
-            requestAnimationFrame(function () {
-                brand.classList.remove('brand--start');
-                brand.classList.add('brand--in');
-                if (brandDrawText && typeof brandDrawText.getComputedTextLength === 'function') {
-                    try {
-                        var len = brandDrawText.getComputedTextLength();
-                            // Stroke length buffer
-                            brand.style.setProperty('--brand-stroke-len', Math.ceil(len * 1.05));
-                            // Align SVG coordinate system tightly to text so scaling matches real font size
-                            var brandDraw = brand.querySelector('.brand-draw');
-                            if (brandDraw) {
-                                var fontSizePx = parseFloat(getComputedStyle(brand).fontSize) || 56; // fallback
-                                var vbHeight = Math.ceil(fontSizePx * 1.15); // small ascent/descent buffer
-                                // Baseline adjustments: set y on text relative later; keep existing y via CSS em
-                                brandDraw.setAttribute('viewBox', '0 0 ' + Math.ceil(len) + ' ' + vbHeight);
-                            }
-                    } catch (e) { }
-                }
-            });
+        requestAnimationFrame(function () {
+            brand.classList.remove('brand--start');
+            brand.classList.add('brand--in');
         });
-        if (brandDrawText) {
-            brandDrawText.addEventListener('animationend', function (e) {
-                if (e.animationName === 'brandDraw') {
-                    brand.classList.add('brand--filled');
-                }
-            });
-        }
-    }
-    function restartBrandAnimation(durationMs) {
-        if (!brandDrawText) return;
-        var len = 0;
-        try { len = brandDrawText.getComputedTextLength(); } catch (e) { }
-        if (len) brand.style.setProperty('--brand-stroke-len', Math.ceil(len * 1.05));
-        brandDrawText.style.animation = 'none';
-        void brandDrawText.offsetWidth; // reflow
-        var dur = (durationMs || 1100) / 1000;
-        brand.classList.remove('brand--filled');
-        brandDrawText.style.animation = 'brandDraw ' + dur + 's ease forwards, brandStrokeFade 600ms ease ' + dur + 's forwards';
-        brandDrawText.addEventListener('animationend', function handler(e) {
-            if (e.animationName === 'brandDraw') {
-                brand.classList.add('brand--filled');
-                brandDrawText.removeEventListener('animationend', handler);
-            }
-        });
-    }
-
-    function swapBrandToInitials() {
-        if (!brand || !brandDrawText) return;
-        var initials = brand.getAttribute('data-initials');
-        if (!initials) return;
-        brandDrawText.textContent = initials;
-        restartBrandAnimation(1000);
-    }
-
-    function swapBrandToFull() {
-        if (!brand || !brandDrawText) return;
-        var full = brand.getAttribute('data-full');
-        if (!full) return;
-        brandDrawText.textContent = full;
-        restartBrandAnimation(1300);
     }
     var scrollCue = document.querySelector('[data-scroll-cue]');
     var hero = document.querySelector('[data-hero]');
@@ -77,7 +19,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // Removed collapse interpolation: nav stays constant size now
     var cueHideThreshold = 120; // matches scroll cue hide point
     // No min scale / opacity anymore (kept variables removed)
-    var brandShrinkThreshold = 140; // px; aligns roughly with hero fade region
+    var brandShrinkThreshold = 140; // px threshold for brand initials
     var brandIsMini = false;
 
     var onScroll = function () {
@@ -88,19 +30,11 @@ document.addEventListener('DOMContentLoaded', function () {
             header.classList.remove('is-scrolled');
         }
         // Brand shrink / restore
-        if (brand && brandDrawText) {
-            if (window.scrollY > brandShrinkThreshold) {
-                if (!brandIsMini) {
-                    brandIsMini = true;
-                    swapBrandToInitials();
-                    brand.classList.add('brand--mini');
-                    brand.setAttribute('aria-label', brand.getAttribute('data-full'));
-                }
-            } else if (brandIsMini) {
-                brandIsMini = false;
-                swapBrandToFull();
-                brand.classList.remove('brand--mini');
-                brand.setAttribute('aria-label', brand.getAttribute('data-full'));
+        if (brand) {
+            var shouldMini = window.scrollY > brandShrinkThreshold;
+            if (shouldMini !== brandIsMini) {
+                brandIsMini = shouldMini;
+                brand.classList.toggle('brand--mini', shouldMini);
             }
         }
     };
