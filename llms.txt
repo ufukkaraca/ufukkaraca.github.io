@@ -1,0 +1,46 @@
+# llms.txt - AI crawler and model usage policy for karacaufuk.com
+# Generated on 2025-09-29
+
+Site: https://www.karacaufuk.com
+Owner: Ufuk Karaca
+Contact: (add preferred email or URL if desired)
+
+# Purpose
+# This file communicates permissions and restrictions for Large Language Model (LLM) and AI-focused crawlers.
+# It complements robots.txt but is NOT an official standard. Compliance is voluntary.
+
+[Usage]
+# Permitted: Non-commercial indexing for search, link graph analysis, and snippet generation up to 500 characters.
+# Prohibited: Bulk dataset creation, model training fine-tuning corpora, redistribution of full-article text, or derivative datasets.
+# Required: Prominent attribution ("Source: karacaufuk.com") when showing excerpts.
+
+[Access]
+# Respect crawl-delay of at least 5 seconds between requests.
+# Avoid fetching more than 1 page per request burst.
+# Do not request pages with query parameters repeatedly.
+
+[Disallowed Sections]
+# (Add specific paths if you later wish to block them for AI usage)
+# /drafts/
+# /private/
+
+[Content Extraction]
+Max-Excerpt-Length: 500
+Disallow-Archival: true
+Derivative-Training: disallowed
+Embedding-Storage: disallowed
+Cache-Retention-Days: 30
+
+[Attribution]
+Required-Attribution: "Content by Ufuk Karaca (karacaufuk.com)"
+Link-Back: https://www.karacaufuk.com
+
+[Data Rights]
+Revocation: The owner reserves the right to revoke any granted usage at any time.
+Jurisdiction: EU (Germany)
+
+[Change Management]
+Version: 1.0
+Updated: 2025-09-29
+
+# End of llms.txt
