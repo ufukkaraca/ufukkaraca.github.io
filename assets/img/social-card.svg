@@ -4,10 +4,8 @@
             font-family: 'Source Serif Pro', 'Georgia', serif;
         }
     </style>
-    <rect width="1200" height="630" fill="#111" />
+    <rect width="1200" height="630" fill="#d5d5d5" />
     <rect x="40" y="40" width="1120" height="550" fill="#181818" stroke="#333" />
     <text x="80" y="160" fill="#f5f5f5" font-size="72" font-weight="600">Ufuk Karaca</text>
     <text x="80" y="240" fill="#d0d0d0" font-size="40">Systems engineering at the hardware × software boundary</text>
-    <text x="80" y="320" fill="#888" font-size="28">Personal Website</text>
-    <text x="80" y="400" fill="#666" font-size="24">{{ site.url }}</text>
 </svg>
