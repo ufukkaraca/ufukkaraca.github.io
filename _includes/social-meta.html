@@ -43,7 +43,9 @@ Image priority order:
 <meta property="og:url" content="{{ meta_url }}">
 <meta property="og:image" content="{{ meta_image }}">
 <meta property="og:image:alt" content="{{ meta_title }}">
-<meta property="og:image:type" content="image/png">
+{%- assign img_type = 'image/png' -%}
+{%- if meta_image contains '.svg' -%}{%- assign img_type = 'image/svg+xml' -%}{%- endif -%}
+<meta property="og:image:type" content="{{ img_type }}">
 
 <!-- Twitter / X -->
 <meta name="twitter:card" content="summary_large_image">
