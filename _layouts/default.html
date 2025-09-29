@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ page.title | default: site.title }}</title>
-    {# Description & author now handled in social-meta include but kept minimal fallback for no-JS parsers #}
+    {% comment %} Description & author fallbacks kept for non-JS parsers; full social tags injected via include
+    {% endcomment %}
     <meta name="description" content="{{ page.description | default: site.description }}">
     <meta name="author" content="{{ site.author }}">
     <!-- Favicon -->
