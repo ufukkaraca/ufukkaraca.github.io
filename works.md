@@ -104,7 +104,6 @@ description: Aggregate view of selected systems projects & active tinkering thre
       {% endif %}
     </ul>
     <p class="empty-note" id="tinkering-empty" style="display:none;margin-top:var(--space-4);">No tinkering entries for that year.</p>
-  <p style="margin-top:var(--space-3);"><a class="arrow-link" href="/works/#tinkering">All tinkering (anchor) →</a></p>
   </div>
 
 </section>
