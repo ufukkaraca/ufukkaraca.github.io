@@ -15,6 +15,11 @@ module Jekyll
   HEIGHT = 600 # Use 2:1 aspect ratio for Twitter summary_large_image to avoid letterboxing
 
     def generate(site)
+      if ENV['OG_SKIP_GENERATE']
+        Jekyll.logger.info "OGImage", "Skipping generation due to OG_SKIP_GENERATE env; assigning fallbacks"
+        fallback_assign(site)
+        return
+      end
       # If MiniMagick gem not loaded we still try to assign existing persisted images
       unless defined?(MiniMagick)
         Jekyll.logger.warn "OGImage", "mini_magick not loaded; using any pre-generated images or fallback social_image"
