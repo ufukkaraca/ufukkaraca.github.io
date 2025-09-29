@@ -941,7 +941,9 @@ section {
 .floating-nav {
     position: fixed;
     left: 50%;
-    bottom: clamp(12px, 2.5vh, 32px);
+    /* Avoid crowding iOS Safari home indicator & ensure minimum breathing room.
+       Order: safe-area inset + base clamp; max() chooses larger of device inset or design spacing. */
+    bottom: max(env(safe-area-inset-bottom, 0px), clamp(14px, 2.8vh, 40px));
     transform: translateX(-50%);
     background: color-mix(in oklab, var(--bg) 85%, white 15%);
     backdrop-filter: blur(10px);
