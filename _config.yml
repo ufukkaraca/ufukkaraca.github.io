@@ -60,7 +60,11 @@ og_image:
   background: "#111111"
   title_color: "#FFFFFF"
   meta_color: "#BBBBBB"
+  # Approx chars per wrapped line
 
+  # Persist generated PNG cards into repo (assets/og) so they can be committed.
+  # Set to true to track images in git; false keeps them build-only.
+  persist_to_source: true
 defaults:
   - scope:
       path: ""
