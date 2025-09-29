@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ page.title | default: site.title }}</title>
+    {# Description & author now handled in social-meta include but kept minimal fallback for no-JS parsers #}
     <meta name="description" content="{{ page.description | default: site.description }}">
     <meta name="author" content="{{ site.author }}">
     <!-- Favicon -->
@@ -15,20 +16,7 @@
     <link rel="author" type="text/plain" href="/humans.txt" />
     <meta name="color-scheme" content="light dark">
     <meta name="format-detection" content="telephone=no,email=no,address=no">
-    <link rel="canonical" href="{{ site.url }}{{ page.url | default: '/' }}">
-    <meta property="og:site_name" content="{{ site.title }}">
-    <meta property="og:title" content="{{ page.title | default: site.title }}">
-    <meta property="og:description" content="{{ page.description | default: site.description }}">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="{{ site.url }}{{ page.url | default: '/' }}">
-    {% if site.social_image %}
-    <meta property="og:image" content="{{ site.url }}{{ site.social_image }}">{% endif %}
-    <meta name="X:card" content="summary_large_image">
-    <meta name="X:site" content="@{{ site.X_username }}">
-    <meta name="X:title" content="{{ page.title | default: site.title }}">
-    <meta name="X:description" content="{{ page.description | default: site.description }}">
-    {% if site.social_image %}
-    <meta name="X:image" content="{{ site.url }}{{ site.social_image }}">{% endif %}
+    {% include social-meta.html %}
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link

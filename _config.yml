@@ -19,12 +19,12 @@
 # in the templates via {{ site.myvariable }}.
 
 title: Ufuk Karaca
-email: 
+email:
 description: >- # this means to ignore newlines until "baseurl:"
   Personal portfolio website for Ufuk Karaca.
 url: https://www.karacaufuk.com # the base hostname & protocol for your site, e.g. http://example.com
 X_username: theufukkaraca
-github_username:  ufukkaraca
+github_username: ufukkaraca
 author: Ufuk Karaca
 permalink: pretty
 timezone: Europe/Berlin
@@ -47,13 +47,17 @@ collections:
 # Social image (SVG or PNG)
 social_image: /assets/img/social-card.svg
 
+# Optional: dynamic OG image generation endpoint for per-thought cards.
+# Provide a deployed endpoint (e.g. Vercel function) that accepts query params: title, date, author
+# Example (uncomment & replace):
+# og_dynamic_provider: https://og-yourdeployment.vercel.app/api/thought
+
 defaults:
   - scope:
       path: ""
       type: "pages"
     values:
       layout: "default"
-
 # Exclude from processing.
 # The following items will not be processed, by default.
 # Any item listed under the `exclude:` key here will be automatically added to
