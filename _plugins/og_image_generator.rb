@@ -54,24 +54,23 @@ module Jekyll
   rel_path = File.join('/assets/og', filename)
   abs_source = File.join(source_dir, filename)
   abs_build  = File.join(build_dir, filename)
+        # Prepare content metadata first (needed for alt text even on reuse paths)
+        title  = (doc.data['title'] || slug).to_s.strip
+        date   = doc.data['date'] ? doc.data['date'].strftime('%Y-%m-%d') : ''
+        author = site.config['author'].to_s
+        meta_line = [date, author].reject(&:empty?).join(' • ')
 
-        # Skip if already exists (allow manual override) unless force flag
+        # Skip if already exists (allow manual override)
         if persist && File.exist?(abs_source)
-          # Already persisted; copy into build dir if missing
           FileUtils.cp(abs_source, abs_build) unless File.exist?(abs_build)
           doc.data['social_image'] ||= rel_path
           doc.data['social_image_alt'] ||= "Thought: #{title} — #{date} by #{author}".strip
           next
         elsif !persist && File.exist?(abs_build)
           doc.data['social_image'] ||= rel_path
-          doc.data['social_image_alt'] ||= "Thought: #{title} — #{date} by #{author}".strip
+            doc.data['social_image_alt'] ||= "Thought: #{title} — #{date} by #{author}".strip
           next
         end
-
-        title = (doc.data['title'] || slug).to_s.strip
-        date  = doc.data['date'] ? doc.data['date'].strftime('%Y-%m-%d') : ''
-        author = site.config['author'].to_s
-        meta_line = [date, author].reject(&:empty?).join(' • ')
         lines = wrap_title(title, max_chars, max_lines)
 
         # Create blank canvas
@@ -108,8 +107,8 @@ module Jekyll
           FileUtils.cp(abs_source, abs_build)
         end
 
-        # Alt text for accessibility / twitter:image:alt
-        doc.data['social_image_alt'] = "Thought: #{title} — #{date} by #{author}".strip
+  # Alt text for accessibility / twitter:image:alt
+  doc.data['social_image_alt'] ||= "Thought: #{title} — #{date} by #{author}".strip
 
   doc.data['social_image'] = rel_path
   Jekyll.logger.info "OGImage", "Generated #{rel_path}#{persist ? ' (persisted)' : ''}"
