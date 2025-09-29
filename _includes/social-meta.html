@@ -43,9 +43,13 @@ Image priority order:
 <meta property="og:url" content="{{ meta_url }}">
 <meta property="og:image" content="{{ meta_image }}">
 <meta property="og:image:alt" content="{{ meta_title }}">
-{%- assign img_type = 'image/png' -%}
-{%- if meta_image contains '.svg' -%}{%- assign img_type = 'image/svg+xml' -%}{%- endif -%}
-<meta property="og:image:type" content="{{ img_type }}">
+<meta property="og:image:type" content="image/png">
+{%- if page.social_image and page.social_image contains '/assets/og/thought-' -%}
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="600">
+{%- endif -%}
+<meta property="og:image:alt" content="{{ page.social_image_alt | default: meta_title }}">
+<meta name="twitter:image:alt" content="{{ page.social_image_alt | default: meta_title }}">
 
 <!-- Twitter / X -->
 <meta name="twitter:card" content="summary_large_image">
