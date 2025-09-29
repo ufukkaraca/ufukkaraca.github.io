@@ -13,6 +13,10 @@ gem "minima", "~> 2.5"
 # Explicit dependencies for macOS system Ruby environment stability
 gem "webrick", "~> 1.9"
 gem "ffi", ">= 1.17", "< 1.18" # newer pre-built binaries reduce native compile friction on recent macOS
+# Workaround: Explicitly declare transitive dependency required by sass-embedded (via jekyll-sass-converter)
+# Older Bundler (2.3.x) on CI fails with missing dependency + NoMethodError unless this is present.
+# Safe to keep; can be removed after lockfile is regenerated with a newer Bundler including google-protobuf spec.
+gem "google-protobuf", "~> 3.21", require: false
 # If you want to use GitHub Pages, remove the "gem "jekyll"" above and
 # uncomment the line below. To upgrade, run `bundle update github-pages`.
 # gem "github-pages", group: :jekyll_plugins
