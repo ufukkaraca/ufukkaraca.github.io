@@ -8,7 +8,8 @@ end
 module Jekyll
   class OgImageGenerator < Generator
     safe true
-    priority :low
+    # Run earlier so pages have social_image during template rendering
+    priority :high
 
   WIDTH  = 1200
   HEIGHT = 600 # Use 2:1 aspect ratio for Twitter summary_large_image to avoid letterboxing
@@ -60,15 +61,15 @@ module Jekyll
         author = site.config['author'].to_s
         meta_line = [date, author].reject(&:empty?).join(' • ')
 
+        # Precompute expected relative path (set early so even if generation fails we have a predictable reference)
+        doc.data['social_image'] ||= rel_path
+        doc.data['social_image_alt'] ||= "Thought: #{title} — #{date} by #{author}".strip
+
         # Skip if already exists (allow manual override)
         if persist && File.exist?(abs_source)
           FileUtils.cp(abs_source, abs_build) unless File.exist?(abs_build)
-          doc.data['social_image'] ||= rel_path
-          doc.data['social_image_alt'] ||= "Thought: #{title} — #{date} by #{author}".strip
           next
         elsif !persist && File.exist?(abs_build)
-          doc.data['social_image'] ||= rel_path
-            doc.data['social_image_alt'] ||= "Thought: #{title} — #{date} by #{author}".strip
           next
         end
         lines = wrap_title(title, max_chars, max_lines)
@@ -110,6 +111,7 @@ module Jekyll
   # Alt text for accessibility / twitter:image:alt
   doc.data['social_image_alt'] ||= "Thought: #{title} — #{date} by #{author}".strip
 
+  # social_image already set earlier; ensure value correct
   doc.data['social_image'] = rel_path
   Jekyll.logger.info "OGImage", "Generated #{rel_path}#{persist ? ' (persisted)' : ''}"
       rescue => e
