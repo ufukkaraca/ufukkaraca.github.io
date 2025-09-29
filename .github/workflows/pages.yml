@@ -1,0 +1,64 @@
+name: Build and Deploy (Jekyll + Pages + PR Preview)
+
+# Assumptions:
+# - Default production branch is 'main'. Adjust below if different.
+# - GitHub Pages is configured in repo settings to "Source: GitHub Actions".
+# - This workflow creates preview deployments for pull requests and a production deployment on pushes to main.
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+permissions:
+  contents: read
+  pages: write      # to deploy to GitHub Pages
+  id-token: write   # to authenticate the deployment
+
+concurrency:
+  group: pages-${{ github.ref }}
+  cancel-in-progress: false
+
+env:
+  JEKYLL_ENV: production
+
+jobs:
+  build:
+    name: Build site
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+            bundler-cache: true
+
+      - name: Install dependencies
+        run: bundle install --jobs 4 --retry 3
+
+      - name: Build Jekyll
+        run: bundle exec jekyll build --trace
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+  deploy:
+    name: Deploy to GitHub Pages
+    needs: build
+    runs-on: ubuntu-latest
+    # Deploy for both PR previews and production pushes
+    steps:
+      - name: Deploy
+        id: deployment
+        uses: actions/deploy-pages@v4
+    environment:
+      # Distinguish preview vs production in environment list
+      name: ${{ github.event_name == 'pull_request' && format('pr-preview-{0}', github.event.number) || 'github-pages' }}
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    # Only attempt to set concurrency lock for production; previews are isolated by environment name above.
