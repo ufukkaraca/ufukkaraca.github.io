@@ -378,6 +378,19 @@ p {
     transform: translate(-50%, 10px);
 }
 
+/* Extremely compress scroll cue on shorter viewports (<800px height) */
+@media (max-height: 800px) {
+    .scroll-cue {
+        /* retain centering translate and add scale */
+        transform: translateX(-50%) scale(0.01);
+    }
+
+    .scroll-cue.is-hidden {
+        /* preserve hidden shift while still scaled down */
+        transform: translate(-50%, 10px) scale(0.01);
+    }
+}
+
 /* Smooth upward shift of sections after hero */
 section:not(#home) {
     transition: transform 400ms cubic-bezier(.22, .61, .36, 1);
