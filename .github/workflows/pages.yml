@@ -18,6 +18,7 @@ concurrency:
 
 env:
     JEKYLL_ENV: production
+    OG_SKIP_GENERATE: true
 
 jobs:
     build:
@@ -30,14 +31,8 @@ jobs:
             - name: Setup Ruby
               uses: ruby/setup-ruby@v1
               with:
-                ruby-version: 3.3.9
-                bundler-cache: true
-
-            - name: Install ImageMagick (for OG image generation)
-              run: |
-                    sudo apt-get update
-                    sudo apt-get install -y --no-install-recommends imagemagick
-                    convert -version
+                  ruby-version: 3.3.9
+                  bundler-cache: true
 
             - name: Install dependencies
               run: bundle install --jobs 4 --retry 3
@@ -48,7 +43,7 @@ jobs:
             - name: Upload artifact
               uses: actions/upload-pages-artifact@v3
               with:
-                path: _site
+                  path: _site
 
     deploy:
         name: Deploy to GitHub Pages
