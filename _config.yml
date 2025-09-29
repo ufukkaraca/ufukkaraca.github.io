@@ -52,6 +52,15 @@ social_image: /assets/img/social-card.svg
 # Example (uncomment & replace):
 # og_dynamic_provider: https://og-yourdeployment.vercel.app/api/thought
 
+# Build-time OG image generation options (used by _plugins/og_image_generator.rb)
+og_image:
+  # font: /System/Library/Fonts/Supplemental/Arial\ Bold.ttf # optional absolute path
+  title_pointsize: 72
+  meta_pointsize: 36
+  background: "#111111"
+  title_color: "#FFFFFF"
+  meta_color: "#BBBBBB"
+
 defaults:
   - scope:
       path: ""

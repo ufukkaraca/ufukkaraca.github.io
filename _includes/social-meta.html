@@ -11,11 +11,24 @@ og_dynamic_provider in _config.yml.
 {%- assign meta_title = page.title | default: site.title -%}
 {%- assign meta_desc = page.description | default: site.description -%}
 {%- assign meta_url = site.url | append: (page.url | default: '/') -%}
-{%- assign meta_image = site.url | append: site.social_image -%}
-{%- if page.collection == 'thoughts' and site.og_dynamic_provider -%}
+{%- comment -%}
+Image priority order:
+1. page.social_image (set manually or by build plugin)
+2. dynamic provider (if enabled for thoughts and no page.social_image)
+3. site.social_image fallback
+{%- endcomment -%}
+{%- assign meta_image = nil -%}
+{%- if page.social_image -%}
+{%- assign meta_image = page.social_image -%}
+{%- elsif page.collection == 'thoughts' and site.og_dynamic_provider -%}
 {%- capture dynamic_image -%}{{ site.og_dynamic_provider }}?title={{ meta_title | uri_escape }}&date={{ page.date | date: '%Y-%m-%d' | uri_escape }}&author={{ site.author | uri_escape }}{%- endcapture -%}
 {%- assign meta_image = dynamic_image -%}
+{%- else -%}
+{%- assign meta_image = site.social_image -%}
 {%- endif -%}
+{%- unless meta_image contains site.url -%}
+{%- assign meta_image = site.url | append: meta_image -%}
+{%- endunless -%}
 
 <!-- Primary Meta -->
 <meta name="description" content="{{ meta_desc }}">
