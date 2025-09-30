@@ -1,0 +1,27 @@
+languages:
+  - English (C2)
+  - Turkish (C2)
+  - German (B2)
+  - Spanish (A2)
+innovation_systems:
+  - Product Strategy
+  - Systems Architecture
+  - HW/SW Integration
+  - Rapid Prototyping
+  - Problem Decomposition
+  - Executive Communication
+technical:
+  - Python
+  - C/C++
+  - JavaScript / TypeScript
+  - React
+  - Embedded (Yocto)
+  - Git
+  - Cloud (AWS / Azure / GCP)
+  - AI (RAG, Agents, Prompt & Context Engineering)
+  - HMI Tooling (Incari Studio, ProtoPie)
+  - Figma
+certifications:
+  - Google Project Management Certificate
+  - NVIDIA Accelerated Computing with CUDA C/C++
+  - IBM RAG and Agentic AI (DNF)

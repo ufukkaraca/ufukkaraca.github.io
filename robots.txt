@@ -1,0 +1,5 @@
+User-agent: *
+Disallow:
+
+Sitemap: https://www.karacaufuk.com/sitemap.xml
+LLM-Policy: https://www.karacaufuk.com/llms.txt

@@ -1,4 +1,7 @@
 source "https://rubygems.org"
+
+# Target modern Ruby so newer sass-embedded / google-protobuf versions resolve cleanly.
+ruby "3.3.9"
 # Hello! This is where you manage which Jekyll version is used to run.
 # When you want to use a different version, change it below, save the
 # file and run `bundle install`. Run Jekyll with `bundle exec`, like so:
@@ -10,12 +13,18 @@ source "https://rubygems.org"
 gem "jekyll", "~> 4.3.2"
 # This is the default theme for new Jekyll sites. You may change this to anything you like.
 gem "minima", "~> 2.5"
+# Explicit dependencies for macOS system Ruby environment stability
+gem "webrick", "~> 1.9"
+gem "ffi", ">= 1.17", "< 1.18" # newer pre-built binaries reduce native compile friction on recent macOS
+# Force newer Embedded Dart Sass to pick up protobuf 4.x (supports Ruby 3.3)
+gem "sass-embedded", "~> 1.93", ">= 1.93.2"
 # If you want to use GitHub Pages, remove the "gem "jekyll"" above and
 # uncomment the line below. To upgrade, run `bundle update github-pages`.
 # gem "github-pages", group: :jekyll_plugins
 # If you have any plugins, put them here!
 group :jekyll_plugins do
   gem "jekyll-feed", "~> 0.12"
+  gem "jekyll-seo-tag", "~> 2.8"
 end
 
 # Windows and JRuby does not include zoneinfo files, so bundle the tzinfo-data gem
@@ -31,3 +40,6 @@ gem "wdm", "~> 0.1.1", :platforms => [:mingw, :x64_mingw, :mswin]
 # Lock `http_parser.rb` gem to `v0.6.x` on JRuby builds since newer versions of the gem
 # do not have a Java counterpart.
 gem "http_parser.rb", "~> 0.6.0", :platforms => [:jruby]
+
+# Image generation for build-time OG cards
+gem "mini_magick", "~> 4.12"

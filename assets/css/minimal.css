@@ -1,0 +1,1070 @@
+/* Minimal, warm serif theme */
+:root {
+    --bg: #FAF7F2;
+    --surface: #F3EFE8;
+    --text: #1C1B1A;
+    --muted: #6E6A63;
+    --line: #E5DED4;
+    --accent: #8B7355;
+    --accent-2: #6F8B7A;
+
+    --space-1: 4px;
+    --space-2: 8px;
+    --space-3: 16px;
+    --space-4: 24px;
+    --space-5: 40px;
+    --space-6: 64px;
+    --space-7: 96px;
+    /* extended for wider separation when needed */
+
+    --rhythm-tight: 6px;
+    --rhythm: 12px;
+
+    --radius: 10px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 16px;
+}
+
+body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: "Source Serif 4", ui-serif, Georgia, serif;
+    line-height: 1.55;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Accessibility helpers */
+.skip-link {
+    position: absolute;
+    top: -40px;
+    left: 8px;
+    background: var(--text);
+    color: var(--bg);
+    padding: 8px 12px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 0.9rem;
+    z-index: 1000;
+    transition: top 160ms ease;
+}
+
+.skip-link:focus {
+    top: 8px;
+}
+
+.container {
+    max-width: 980px;
+    margin-inline: auto;
+    padding-inline: var(--space-4);
+}
+
+/* Slightly tighter horizontal rhythm on narrow viewports */
+@media (max-width: 640px) {
+    .container {
+        padding-inline: var(--space-3);
+    }
+
+    .hero.container {
+        padding-top: var(--space-5);
+    }
+
+    .hero-focus {
+        margin-left: -2px;
+        /* optical alignment tweak */
+        margin-right: 0;
+    }
+}
+
+/* Typography */
+h1, h2, h3 {
+    margin: 0 0 var(--space-3) 0;
+    font-family: "Cormorant Garamond", ui-serif, Georgia, serif;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+}
+
+h1 {
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    line-height: 1.1;
+}
+
+h2 {
+    font-size: clamp(1.375rem, 2.5vw, 1.75rem);
+}
+
+p {
+    margin: 0 0 var(--space-3) 0;
+    font-size: 1.05rem;
+}
+
+.muted {
+    color: var(--muted);
+}
+
+/* Header */
+.site-header {
+    position: sticky;
+    top: 0;
+    background: color-mix(in oklab, var(--bg) 92%, white 8%);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    border-bottom: 1px solid transparent;
+    transition: border-color 200ms ease;
+    z-index: 100;
+}
+
+.site-header.is-scrolled {
+    border-color: var(--line);
+}
+
+.site-header .row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-block: var(--space-3);
+}
+
+.brand {
+    font-family: "Cormorant Garamond", ui-serif, Georgia, serif;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    text-decoration: none;
+    color: var(--text);
+    font-size: clamp(1.35rem, 1.15rem + 0.6vw, 1.85rem);
+    display: inline-block;
+    position: relative;
+    transition: font-size 220ms ease, letter-spacing 220ms ease, transform 420ms cubic-bezier(.22, .61, .36, 1), opacity 420ms ease;
+}
+
+/* Brand intro animation (removed after first frame) */
+.brand.brand--start {
+    opacity: 0;
+    transform: translateY(4px) scale(1.04);
+}
+
+.brand.brand--in {
+    opacity: 1;
+    transform: none;
+}
+
+/* Mini (scrolled) state switches to initials via JS */
+.brand.brand--mini {
+    font-size: 0.95rem;
+    letter-spacing: 0.05em;
+}
+
+/* Layered name → initials cross-fade */
+.brand-full, .brand-initials {
+    display: inline-block;
+    transition: opacity 260ms ease, transform 300ms cubic-bezier(.22, .61, .36, 1);
+    will-change: opacity, transform;
+}
+
+.brand-initials {
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
+    transform: translateY(4px);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+.brand.brand--mini .brand-full {
+    opacity: 0;
+    transform: translateY(-4px);
+}
+
+.brand.brand--mini .brand-initials {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .brand {
+        transition: none;
+    }
+
+    .brand.brand--start {
+        opacity: 1;
+        transform: none;
+    }
+
+    .brand-full, .brand-initials {
+        transition: none;
+    }
+}
+
+.nav {
+    display: flex;
+    gap: var(--space-4);
+}
+
+.nav a {
+    position: relative;
+    text-decoration: none;
+    color: var(--text);
+    padding-bottom: 2px;
+}
+
+.nav a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 1px;
+    background: currentColor;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 200ms ease;
+}
+
+.nav a:hover::after {
+    transform: scaleX(1);
+}
+
+/* Hero */
+.hero {
+    /* Reduced bottom padding to tighten gap before next section */
+    padding-top: clamp(var(--space-6), 10vh, 140px);
+    padding-bottom: clamp(var(--space-4), 6vh, 88px);
+}
+
+.hero-focus {
+    --hero-focus-bg: color-mix(in oklab, var(--surface) 90%, white 10%);
+    position: relative;
+    margin-top: var(--space-4);
+    margin-bottom: var(--space-4);
+    padding: var(--space-4) var(--space-5) var(--space-4) var(--space-5);
+    border: 1px solid var(--line);
+    background: var(--hero-focus-bg);
+    border-radius: calc(var(--radius) + 2px);
+    box-shadow: 0 1px 3px -1px rgba(0 0 0 / 7%), 0 0 0 1px rgba(0 0 0 / 3%);
+    overflow: hidden;
+}
+
+.hero-focus::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, color-mix(in oklab, var(--accent) 30%, transparent) 0%, transparent 55%);
+    pointer-events: none;
+    opacity: 0.35;
+}
+
+.hero-focus::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background: linear-gradient(to bottom, var(--accent), color-mix(in oklab, var(--accent) 65%, var(--accent-2)) 85%);
+    border-top-left-radius: inherit;
+    border-bottom-left-radius: inherit;
+}
+
+.hero-focus p+p {
+    margin-top: var(--space-3);
+}
+
+.hero-main {
+    min-height: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+
+/* Full-height hero + scroll cue */
+[data-hero] {
+    min-height: 100svh;
+    /* use small viewport unit for mobile chrome */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding-top: var(--space-7);
+    position: relative;
+}
+
+@media (max-width: 640px) {
+    [data-hero] {
+        padding-top: var(--space-6);
+    }
+}
+
+.scroll-cue {
+    min-height: 10%;
+    position: absolute;
+    left: 50%;
+    bottom: var(--space-7);
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--muted);
+    opacity: 0.9;
+    transition: opacity 300ms ease, transform 400ms ease;
+    pointer-events: none;
+}
+
+.scroll-cue-text {
+    font-family: "Cormorant Garamond", ui-serif, Georgia, serif;
+    font-weight: 500;
+}
+
+.scroll-cue-indicator {
+    width: 18px;
+    height: 28px;
+    border: 2px solid var(--muted);
+    border-radius: 12px;
+    position: relative;
+}
+
+.scroll-cue-indicator::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 6px;
+    width: 4px;
+    height: 4px;
+    background: var(--muted);
+    border-radius: 50%;
+    transform: translate(-50%, 0);
+    animation: scrollDot 1600ms ease-in-out infinite;
+}
+
+@keyframes scrollDot {
+    0% {
+        transform: translate(-50%, 0);
+        opacity: 0;
+    }
+
+    20% {
+        opacity: 1;
+    }
+
+    60% {
+        transform: translate(-50%, 10px);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translate(-50%, 14px);
+        opacity: 0;
+    }
+}
+
+.scroll-cue.is-hidden {
+    opacity: 0;
+    transform: translate(-50%, 10px);
+}
+
+/* Extremely compress scroll cue on shorter viewports (<800px height) */
+@media (max-height: 800px) {
+    .scroll-cue {
+        /* retain centering translate and add scale */
+        transform: translateX(-50%) scale(0.01);
+    }
+
+    .scroll-cue.is-hidden {
+        /* preserve hidden shift while still scaled down */
+        transform: translate(-50%, 10px) scale(0.01);
+    }
+}
+
+/* Smooth upward shift of sections after hero */
+section:not(#home) {
+    transition: transform 400ms cubic-bezier(.22, .61, .36, 1);
+    will-change: transform;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    section:not(#home) {
+        transition: none;
+    }
+}
+
+@media (max-width: 640px) {
+    .hero-focus {
+        padding: var(--space-4) var(--space-4) var(--space-4) calc(var(--space-4) + 2px);
+        margin-top: var(--space-3);
+        margin-bottom: var(--space-3);
+    }
+}
+
+.hero-focus-desc {
+    max-width: 60ch;
+}
+
+.tagline {
+    font-size: clamp(1.125rem, 2vw, 1.25rem);
+    color: var(--muted);
+}
+
+.current {
+    margin-top: var(--space-2);
+    color: var(--muted);
+}
+
+.emphasis {
+    color: var(--text);
+}
+
+/* Lists and cards */
+.list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: var(--space-3);
+}
+
+.card {
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    background: var(--surface);
+    padding: var(--space-4);
+    transition: transform 200ms ease, background 200ms ease, border-color 200ms ease;
+}
+
+.card:hover {
+    transform: translateY(-2px);
+    background: color-mix(in oklab, var(--surface) 92%, white 8%);
+}
+
+.card-row {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: var(--space-3);
+}
+
+.card-title {
+    font-weight: 600;
+}
+
+.card-meta {
+    color: var(--muted);
+    font-size: 0.95rem;
+}
+
+.card-desc {
+    color: var(--text);
+}
+
+/* Links */
+a {
+    color: var(--text);
+}
+
+.arrow-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    color: var(--text);
+}
+
+.arrow-link::after {
+    content: "→";
+    transition: transform 150ms ease;
+}
+
+/* Directional variants (no duplication with inline characters) */
+.arrow-link-prev::before {
+    content: "←";
+    margin-right: 10px;
+    transition: transform 150ms ease;
+}
+
+.arrow-link-prev::after {
+    content: none;
+}
+
+.arrow-link-prev:hover::before {
+    transform: translateX(-3px);
+}
+
+.arrow-link-next::after {
+    content: "→";
+}
+
+.arrow-link:hover::after {
+    transform: translateX(3px);
+}
+
+/* Project card primary link variant (scoped so other arrow-links remain lightweight) */
+/* Unified pill control styling (project link + expand button)
+   NOTE: Do NOT set explicit display on .expand-btn so the [hidden] attribute can collapse it.
+*/
+.card .arrow-link, .expand-btn {
+    font-size: 0.7rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    background: none;
+    border: 1px solid var(--line);
+    padding: 4px 14px;
+    border-radius: 999px;
+    line-height: 1.2;
+    position: relative;
+    top: 0;
+    cursor: pointer;
+    color: var(--muted);
+    gap: 6px;
+    font-family: inherit;
+    transition: background 140ms ease, color 140ms ease, border-color 140ms ease, transform 140ms ease;
+}
+
+/* Arrow link remains an inline-flex pill */
+.card .arrow-link {
+    display: inline-flex;
+    align-items: center;
+}
+
+/* Ensure hidden state always wins */
+.expand-btn[hidden] {
+    display: none !important;
+}
+
+.card .arrow-link::after {
+    /* ensure consistent arrow sizing in pill */
+    font-size: 0.8rem;
+}
+
+.card .arrow-link:hover, .expand-btn:hover {
+    background: var(--surface);
+    color: var(--text);
+    transform: translateY(-1px);
+}
+
+.card .arrow-link:active, .expand-btn:active {
+    transform: translateY(0);
+}
+
+.card .arrow-link:focus-visible, .expand-btn:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+}
+
+.muted-link {
+    color: var(--muted);
+    text-decoration: none;
+}
+
+.muted-link:hover {
+    color: var(--text);
+}
+
+/* Sections */
+section {
+    padding-block: var(--space-6);
+}
+
+/* Utility spacing adjustments for denser homepage flow */
+.section-tight {
+    /* Slightly reduce top padding only; keep bottom for internal rhythm */
+    padding-top: var(--space-5);
+    padding-bottom: var(--space-5);
+}
+
+/* Vertical stack utility */
+.stack {
+    display: flex;
+    flex-direction: column;
+}
+
+.stack-tight>*+* {
+    margin-top: var(--rhythm-tight);
+}
+
+.stack-normal>*+* {
+    margin-top: var(--rhythm);
+}
+
+/* Muted intro / meta paragraph standard spacing */
+.section-intro {
+    margin-top: -4px;
+    margin-bottom: var(--space-4);
+    font-size: 0.95rem;
+}
+
+/* Hero refinements */
+[data-hero] h1 {
+    margin-bottom: var(--space-4);
+}
+
+[data-hero] .tagline {
+    margin-bottom: var(--space-5);
+}
+
+[data-hero] .hero-focus {
+    margin-top: var(--space-2);
+}
+
+/* List section spacing reset */
+.thoughts-list, .tinker-timeline, .list {
+    margin-top: 0;
+}
+
+/* Call-to-action link group spacing */
+.section-cta {
+    margin-top: var(--space-4);
+}
+
+/* Clamp / expandable content */
+.clamp {
+    --clamp-lines: 3;
+    display: -webkit-box;
+    -webkit-line-clamp: var(--clamp-lines);
+    line-clamp: var(--clamp-lines);
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    position: relative;
+}
+
+.clamp.is-expanded {
+    -webkit-line-clamp: unset;
+    line-clamp: unset;
+    display: block;
+}
+
+/* Expand button no standalone vertical margin; spacing handled by contextual rule below */
+.expand-btn {
+    margin-top: 0;
+}
+
+/* Uniform spacing between tag badges and action row (link / expand controls) */
+.card .tag-badges+div {
+    margin-top: var(--space-2);
+}
+
+/* Streams section deprecated; related styles removed. */
+
+.section-heading {
+    margin: 0 0 var(--space-3);
+}
+
+.contact-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-3);
+}
+
+.site-footer {
+    padding-block: var(--space-6);
+    color: var(--muted);
+    border-top: 1px solid var(--line);
+}
+
+/* Footer proximity adjustments (homepage) */
+#about.section-tight {
+    padding-bottom: var(--space-2);
+}
+
+.site-footer {
+    padding-top: var(--space-3);
+}
+
+/* Dynamic sections */
+.section-subtle-heading {
+    font-size: 0.9rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin: 0 0 var(--space-3);
+}
+
+.tinker-timeline {
+    position: relative;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: var(--space-3);
+}
+
+.tinker-item {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: var(--space-3) var(--space-4);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    background: var(--surface);
+    position: relative;
+    overflow: hidden;
+}
+
+.tinker-meta {
+    font-size: 0.75rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--muted);
+}
+
+.tinker-title {
+    font-weight: 600;
+}
+
+.thoughts-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: var(--space-3);
+}
+
+.thoughts-item {
+    padding: var(--space-3) var(--space-4);
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    transition: background 180ms ease;
+}
+
+.thoughts-item:hover {
+    background: color-mix(in oklab, var(--surface) 92%, white 8%);
+}
+
+.thoughts-item time {
+    display: block;
+    font-size: 0.75rem;
+    letter-spacing: 0.06em;
+    color: var(--muted);
+    margin-bottom: 4px;
+}
+
+.inline-badge {
+    display: inline-block;
+    padding: 2px 8px;
+    font-size: 0.7rem;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    background: color-mix(in oklab, var(--accent) 85%, white 15%);
+    color: var(--bg);
+    border-radius: 999px;
+}
+
+/* Tag badges */
+.tag-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    /* Added bottom margin to separate tags from following link/action row */
+    margin: var(--space-2) 0 var(--space-2) 0;
+}
+
+.tag-badge {
+    display: inline-flex;
+    padding: 2px 10px;
+    font-size: 0.65rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    background: color-mix(in oklab, var(--accent-2) 80%, white 20%);
+    color: var(--bg);
+    border-radius: 999px;
+    line-height: 1.3;
+}
+
+.filter-toolbar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: var(--space-4);
+}
+
+.filter-toolbar .tag-filter {
+    background: none;
+    border: 1px solid var(--line);
+    padding: 4px 14px;
+    font-family: inherit;
+    font-size: 0.7rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    border-radius: 999px;
+    cursor: pointer;
+    color: var(--muted);
+    transition: background 140ms ease, color 140ms ease, border-color 140ms ease;
+}
+
+.filter-toolbar .tag-filter:hover {
+    background: var(--surface);
+    color: var(--text);
+}
+
+.filter-toolbar .tag-filter.is-active {
+    background: var(--text);
+    color: var(--bg);
+    border-color: var(--text);
+}
+
+/* Works page view toggle */
+.view-toggle {
+    display: flex;
+    gap: 8px;
+}
+
+.view-tab {
+    background: none;
+    border: 1px solid var(--line);
+    padding: 6px 18px;
+    font-family: inherit;
+    font-size: 0.7rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    border-radius: 999px;
+    cursor: pointer;
+    color: var(--muted);
+    transition: background 140ms ease, color 140ms ease, border-color 140ms ease;
+}
+
+.view-tab:hover {
+    background: var(--surface);
+    color: var(--text);
+}
+
+.view-tab.is-active {
+    background: var(--text);
+    color: var(--bg);
+    border-color: var(--text);
+}
+
+.works-panel {
+    animation: fadeIn 240ms ease;
+}
+
+/* Year filter (tinkering) */
+.year-filter {
+    background: none;
+    border: 1px solid var(--line);
+    padding: 4px 14px;
+    font-family: inherit;
+    font-size: 0.7rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    border-radius: 999px;
+    cursor: pointer;
+    color: var(--muted);
+    transition: background 140ms ease, color 140ms ease, border-color 140ms ease;
+}
+
+.year-filter:hover {
+    background: var(--surface);
+    color: var(--text);
+}
+
+.year-filter.is-active {
+    background: var(--text);
+    color: var(--bg);
+    border-color: var(--text);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(4px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Progressive fade for timeline depth */
+.tinker-item:nth-child(n+4) {
+    opacity: 0.85;
+}
+
+.tinker-item:nth-child(n+6) {
+    opacity: 0.7;
+}
+
+.tinker-item:nth-child(n+8) {
+    opacity: 0.55;
+}
+
+.tinker-item:nth-child(n+10) {
+    opacity: 0.42;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .tinker-item, .thoughts-item {
+        transition: none;
+    }
+}
+
+/* Reveal on view */
+.reveal {
+    opacity: 0;
+    transform: translateY(8px);
+    transition: opacity 500ms ease, transform 500ms ease;
+}
+
+.reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@media (max-width: 680px) {
+    .nav {
+        gap: var(--space-3);
+    }
+
+    .card-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0;
+    }
+}
+
+/* Floating bottom navigation */
+.floating-nav {
+    position: fixed;
+    left: 50%;
+    /* Avoid crowding iOS Safari home indicator & ensure minimum breathing room.
+       Order: safe-area inset + base clamp; max() chooses larger of device inset or design spacing. */
+    bottom: max(env(safe-area-inset-bottom, 0px), clamp(14px, 2.8vh, 40px));
+    transform: translateX(-50%);
+    background: color-mix(in oklab, var(--bg) 85%, white 15%);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    padding: 10px 20px 10px 16px;
+    box-shadow: 0 4px 18px -4px rgba(0, 0, 0, 0.12), 0 2px 6px -2px rgba(0, 0, 0, 0.08);
+    z-index: 120;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+/* Pre-hero: nav starts hidden; JS drives --nav-fade 0->1 as cue fades */
+/* Floating nav base */
+.floating-nav {
+    opacity: var(--nav-fade, 1);
+    transform: translateX(-50%) translateY(var(--nav-shift, 0));
+    transition: opacity 320ms ease, transform 420ms cubic-bezier(.22, .61, .36, 1);
+}
+
+/* Home (hero) page: start hidden until JS sets progressive fade */
+.floating-nav[data-hero-nav] {
+    --nav-fade: 0;
+    /* start hidden via variable; base rule handles opacity */
+}
+
+.floating-nav.is-prehero {
+    pointer-events: none;
+}
+
+/* force-expand no-op now that scaling behavior removed */
+
+.floating-nav-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 28px;
+    align-items: center;
+}
+
+.floating-link {
+    position: relative;
+    text-decoration: none;
+    font-size: 0.8rem;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    color: var(--muted);
+    transition: color 160ms ease;
+    font-weight: 600;
+}
+
+.floating-link[aria-current="page"], .floating-link:hover {
+    color: var(--text);
+}
+
+.floating-link:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 4px;
+    border-radius: 4px;
+}
+
+/* Remove underline progress for regular links; home icon gets progress instead */
+.floating-link[aria-current="page"]::after {
+    display: none;
+}
+
+/* Active page icon stroke progress */
+.progress-icon {
+    stroke: var(--text);
+    fill: none;
+    stroke-width: 2px;
+    vector-effect: non-scaling-stroke;
+    width: 20px;
+    height: 20px;
+    display: block;
+}
+
+.progress-icon path[data-progress-base] {
+    fill: none;
+    /* Slightly richer base stroke for better legibility while still subtle */
+    stroke: color-mix(in oklab, var(--text) 32%, var(--line));
+    opacity: 0.75;
+    /* previously 0.55 */
+    stroke-linejoin: round;
+    stroke-linecap: round;
+}
+
+.progress-icon path[data-progress-path] {
+    fill: none;
+    stroke: var(--text);
+    stroke-linejoin: round;
+    stroke-linecap: round;
+    stroke-dasharray: var(--icon-total, 100);
+    stroke-dashoffset: calc(var(--icon-total, 100) - (var(--icon-progress, 0) * var(--icon-total, 100)));
+    transition: stroke-dashoffset 140ms linear, stroke 160ms ease;
+}
+
+a.floating-link[aria-current="page"]:hover .progress-icon path[data-progress-path],
+a.floating-link[aria-current="page"]:focus-visible .progress-icon path[data-progress-path] {
+    stroke: var(--accent);
+}
+
+@media (max-width: 640px) {
+    .floating-nav-list {
+        gap: 18px;
+    }
+
+    .floating-link {
+        font-size: 0.7rem;
+    }
+
+    .floating-nav {
+        padding: 8px 16px 8px 12px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .floating-nav {
+        transition: none;
+    }
+}

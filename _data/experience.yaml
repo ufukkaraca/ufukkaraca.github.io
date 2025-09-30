@@ -1,37 +1,23 @@
 - company: Incari
-  role: Solutions Engineer
+  role: Solutions Engineer (TPO & Architecture)
   dates: January 2024 - Present
-  description: |
-    - Planning, crafting and driving the execution of internal and external projects closely with Design, Development and Product teams across multiple sectors showcasing product capabilities.
+  description: >
+    I split my time between shaping what we build and making sure it actually ships. Day to day that means translating fuzzy customer problems into small, nameable interface slices, keeping hardware and software conversations on the same page, and quietly pruning complexity before it takes root. I’ve guided Incari Services in delivering technical building blocks, acted as the technical front door for OEM HMI / embedded programs, and used lightweight AI‑assisted tooling so a leaner team in 2025 didn’t lose momentum. The work is a mix of architecture sketching, hands-on prototyping (SW and HW), and helping stakeholders see constraints as design tools rather than blockers.
 
-    - Crafting strategies for customer projects and leading the execution of the projects powered by Incari Technologies.
-
-    - Leading company initiatives for continued customer success as part of the Incari Services team, in close collaboration with hardware, software and sales teams.
 - company: Incari
   role: Creative Technologist
   dates: January 2022 - December 2023
-  description: |
-    - Creating, programming, testing and documenting new use-case scenarios for Incari Studio, a no-code 2D/3D HMI development platform. 
-
-    - Working in a multidisciplinary environment to drive the development of new features and contribute to the product strategy roadmap. 
-
-    - Developing applications for the first European OS as part of the company's involvement in "Scale-up Europe", an initiative championed by Emmanuel Macron and aims to create 10 European tech companies each valued above €100bn by 2030. 
-
-    Tech Stack: Jira, React.js, Incari Studio, JavaScript, TypeScript, Adobe XD, Figma, HTML, CSS, SASS, ProtoPie, Python, Embedded Development, Yocto
+  description: >
+    This stretch was about creating visible proof that an idea deserved a roadmap slot. I built and stitched together interactive HMI prototypes (Studio, React, Python, C++) fast enough that product, design, and execs could make grounded calls. Rough market signals and customer conversations became lean feature concepts through internal initiatives; a good chunk graduated into the shipped surface. I also kicked off a few internal “what if we…” threads that evolved into frequently used capabilities—small bets that compounded. Tool-wise it was whatever helped reduce loop time: Incari Studio, Figma, plus a rotating cast of scripting and build glue in the form of many languages.
 
 - company: Greny.co
   role: Co-Founder, Lead Facilitator
   dates: March 2022 - March 2023
   description: >
-    Greny.co was a sustainability facilitatorship firm that helped traditional companies initiate their sustainability transformation with the power of sustainability-tech start-ups, assisted teams in building natively-sustainable companies and turned sustainability into machine-intelligence-readable metrics.
-        
-- company: Piëch Automotive
-  role: Intern
-  dates: June 2021 - December 2021
-  description: |
-    Led full-stack development, data processing and technical product management projects alongside carrying hands-on work on the GT, an electric supercar with super-fast charging and a driving experience focused design. With more than 18000 lines of code, projects of which I took ownership include but are not limited to:
-    - Full-stack development of PLM systems utilizing big-data processing and database management systems, with a special focus on the end-user experience.
-    - Development of web-based HR tools.
-    - Blockchain development for internal tools prototyping.
+    A nights-and-weekends venture where we helped more traditional organizations get unstuck on sustainability by borrowing start‑up style framing: sharp problem statements, lightweight metric models, quick experiments. I facilitated sessions, built simple data scaffolds with ML models, and kept a small distributed team aligned. Many lessons on pacing change in legacy contexts fed back into how I later approached enterprise HMI and tooling conversations.
 
-    Tech Stack: Django, JavaScript, HTML, CSS, Python, React, Bootstrap, three.js, Unreal, Solana, SQL
+- company: Piëch Automotive
+  role: Engineering & Project Management Associate
+  dates: June 2021 - December 2021
+  description: >
+    Dropped into an early-stage electric sports car program to help knit together software-defined vehicle concepts, internal tooling, and investor-facing narratives. I stood up a first-pass PLM / data workflow stack while also prototyping visualizations and automation scripts—whatever unblocked the next design or funding conversation. It was a rapid immersion in balancing aspirational roadmaps with the friction of real data models and integration boundaries.

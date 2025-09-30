@@ -1,0 +1,23 @@
+---
+layout: null
+permalink: /thoughts/feed.xml
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>{{ site.title }} – Thoughts</title>
+  <link href="{{ site.url }}/thoughts/feed.xml" rel="self"/>
+  <link href="{{ site.url }}/"/>
+  {% assign sorted_thoughts = site.thoughts | sort: 'date' | reverse %}
+  <updated>{{ sorted_thoughts.first.date | default: site.time | date_to_xmlschema }}</updated>
+  <id>{{ site.url }}/thoughts/</id>
+  {% for thought in sorted_thoughts %}
+  <entry>
+    <title>{{ thought.title | xml_escape }}</title>
+    <link href="{{ site.url }}{{ thought.url }}"/>
+    <id>{{ site.url }}{{ thought.url }}</id>
+    <updated>{{ thought.date | date_to_xmlschema }}</updated>
+    <published>{{ thought.date | date_to_xmlschema }}</published>
+    <content type="html"><![CDATA[{{ thought.content | strip | truncate: 200 | escape }}]]></content>
+  </entry>
+  {% endfor %}
+</feed>
