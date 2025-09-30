@@ -4,6 +4,7 @@
 # Add `llm_featured: true` in front matter of thoughts/tinkers you want prioritized.
 
 require 'json'
+require 'digest'
 
 module Jekyll
   class LlmProfileGenerator < Generator
@@ -95,7 +96,8 @@ module Jekyll
       domains = []
       (site.data['skills'] || {}).each do |_, arr|
         next unless arr.is_a?(Array)
-        arr.each { |x| domains << x.split(/[(/]/).first.strip if x }
+  # Split on '(' or '/' characters if present (escape '[' usage)
+  arr.each { |x| domains << x.split(/[\(\/]/).first.strip if x }
       end
       (site.data['projects'] || []).each do |p|
         (p['tags'] || []).each { |t| domains << t }

@@ -121,13 +121,9 @@ layout: default
             Karaca</a></p>
 </footer>
 {% comment %} LLM profile artifacts (in source only) {% endcomment %}
-<!-- BEGIN LLM_PROFILE {{ site.data.llm_profile_hash }} {{ site.config.llm_profile.jsonld | size }} bytes -->
-{% if site.config.llm_profile and site.config.llm_profile.snapshot %}
-<!--
-{{ site.config.llm_profile.snapshot | strip }}
--->
-{% endif %}
-<script type="application/ld+json">
-{{ site.config.llm_profile.jsonld | strip }}
-</script>
+<!-- BEGIN LLM_PROFILE {{ site.data.llm_profile_hash }} {{ site.data.llm_profile_jsonld | size }} bytes -->
+{% if site.data.llm_profile_text %}<!--
+{{ site.data.llm_profile_text }}
+-->{% endif %}
+<script type="application/ld+json">{{ site.data.llm_profile_jsonld }}</script>
 <!-- END LLM_PROFILE {{ site.data.llm_profile_hash }} -->
