@@ -120,3 +120,14 @@ layout: default
     <p>© {{ 'now' | date: '%Y' }} — Designed by <a class="muted-link" href="https://www.github.com/ufukkaraca">Ufuk
             Karaca</a></p>
 </footer>
+{% comment %} LLM profile artifacts (in source only) {% endcomment %}
+<!-- BEGIN LLM_PROFILE {{ site.data.llm_profile_hash }} {{ site.config.llm_profile.jsonld | size }} bytes -->
+{% if site.config.llm_profile and site.config.llm_profile.snapshot %}
+<!--
+{{ site.config.llm_profile.snapshot | strip }}
+-->
+{% endif %}
+<script type="application/ld+json">
+{{ site.config.llm_profile.jsonld | strip }}
+</script>
+<!-- END LLM_PROFILE {{ site.data.llm_profile_hash }} -->
