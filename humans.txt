@@ -1,0 +1,19 @@
+/* TEAM */
+Developer: Ufuk Karaca
+Site: https://www.karacaufuk.com
+Location: Berlin, Germany
+
+/* TECHNOLOGY */
+Platform: Jekyll
+Language: HTML5, CSS3, JavaScript, Ruby
+Hosting: GitHub Pages
+Build: GitHub Actions
+
+/* RIGHTS */
+Copyright (c) 2025 Ufuk Karaca. All rights reserved.
+
+/* CONTACT */
+Email: ufuk@karacaufuk.com
+GitHub: https://github.com/ufukkaraca
+LinkedIn: https://www.linkedin.com/in/ufuk-karaca
+X: https://x.com/theufukkaraca

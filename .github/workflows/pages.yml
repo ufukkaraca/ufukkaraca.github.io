@@ -1,0 +1,58 @@
+name: Build and Deploy (Jekyll + Pages + PR Preview)
+
+on:
+    push:
+        branches:
+            - main
+    pull_request:
+        types: [opened, synchronize, reopened]
+
+permissions:
+    contents: read
+    pages: write
+    id-token: write
+
+concurrency:
+    group: pages-${{ github.ref }}
+    cancel-in-progress: false
+
+env:
+    JEKYLL_ENV: production
+    OG_SKIP_GENERATE: true
+
+jobs:
+    build:
+        name: Build site
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v4
+
+            - name: Setup Ruby
+              uses: ruby/setup-ruby@v1
+              with:
+                  ruby-version: 3.3.9
+                  bundler-cache: true
+
+            - name: Install dependencies
+              run: bundle install --jobs 4 --retry 3
+
+            - name: Build Jekyll
+              run: bundle exec jekyll build --trace
+
+            - name: Upload artifact
+              uses: actions/upload-pages-artifact@v3
+              with:
+                  path: _site
+
+    deploy:
+        name: Deploy to GitHub Pages
+        needs: build
+        runs-on: ubuntu-latest
+        steps:
+            - name: Deploy
+              id: deployment
+              uses: actions/deploy-pages@v4
+        environment:
+            name: ${{ github.event_name == 'pull_request' && format('pr-preview-{0}', github.event.number) || 'github-pages' }}
+            url: ${{ steps.deployment.outputs.page_url }}

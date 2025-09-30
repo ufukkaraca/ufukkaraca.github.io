@@ -1,0 +1,29 @@
+{%- comment -%} Email obfuscation include (no front matter to avoid stray '---'). {%- endcomment -%}
+{%- comment -%}
+Reusable email obfuscation include.
+Parameters:
+address (optional) - full email, defaults to site.data.contact.email
+label (optional) - initial link label before reveal (default: "Reveal email")
+label_revealed (optional) - text to keep after reveal (default: actual email)
+class (optional) - classes for anchor
+style (optional) - inline styles for anchor
+Security: Obfuscates by storing shifted char codes (+2) so raw address absent from HTML.
+JS decodes on first click / Enter.
+{%- endcomment -%}
+{%- assign addr = include.address | default: site.data.contact.email -%}
+{%- assign label = include.label | default: 'Reveal email ↗' -%}
+{%- assign label_revealed = include.label_revealed | default: addr -%}
+{%- assign user = addr | split:'@' | first -%}
+{%- assign domain = addr | split:'@' | last -%}
+{%- comment -%} Reverse + sentinel substitution: '@' -> '|' and '.' -> '~'. {%- endcomment -%}
+{%- assign reversed = addr | replace:'@','|' | replace:'.','~' | split:'' | reverse | join:'' -%}
+{%- if include.class -%}
+{%- assign anchor_class = include.class -%}
+{%- else -%}
+{%- assign anchor_class = 'arrow-link' -%}
+{%- endif -%}
+<a href="#" class="{{ anchor_class }}" data-email-obf data-email-r="{{ reversed }}"
+    data-email-revealed-label="{{ label_revealed }}" aria-label="Reveal email address"
+    rel="nofollow noopener">{{ label }}</a>
+<noscript><span class="muted" style="margin-left:6px;">{{ user }} [at]
+        {{ domain | replace:'.',' [dot] ' }}</span></noscript>

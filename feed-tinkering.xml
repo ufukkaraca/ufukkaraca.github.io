@@ -1,0 +1,24 @@
+---
+layout: null
+permalink: /tinkering/feed.xml
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>{{ site.title }} – Tinkering</title>
+  <link href="{{ site.url }}/tinkering/feed.xml" rel="self"/>
+  <link href="{{ site.url }}/works/#tinkering"/>
+  <updated>{{ site.time | date_to_xmlschema }}</updated>
+  <id>{{ site.url }}/works/#tinkering</id>
+  {% assign tinker_items = site.tinkers | sort: 'date' | reverse %}
+  {% if tinker_items and tinker_items.size > 0 %}
+    {% for tk in tinker_items %}
+    <entry>
+      <title>{{ tk.title | xml_escape }}</title>
+      <id>{{ site.url }}{{ tk.url }}</id>
+      <updated>{{ tk.date | date_to_xmlschema }}</updated>
+      <published>{{ tk.date | date_to_xmlschema }}</published>
+      <content type="html"><![CDATA[<p>{{ tk.summary | default: '' }}</p><p><small>Canonical: <a href='{{ site.url }}{{ tk.url }}'>{{ site.url }}{{ tk.url }}</a></small></p>]]></content>
+    </entry>
+    {% endfor %}
+  {% endif %}
+</feed>
