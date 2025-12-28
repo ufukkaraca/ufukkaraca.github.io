@@ -1,3 +1,10 @@
+- title: Align Social
+  date: 2025 - Present
+  description: Hyper-local social networking app focused on creating in-real-life builder connections within shared spaces, like coworking spaces and maker labs.
+  link_text: Visit Align Social
+  link_url: "https://alignsocial.app"
+  link_href: true
+  tags: [app development, social networking, community]
 - title: Incari Retrofit Program
   date: 2024 - Present
   description: Retrofit HMI platform bringing modern HMI capabilities to existing vehicles via signal acquisition and dynamic system adjustment through a fully-custom architecture; TPO across HW/SW and customer delivery. Technical base product for Retrobox hardware, MCCA Retrofit project (Mehari Eden), as well as a series-production retrofit product for a major OEM.
@@ -12,7 +19,9 @@
   tags: [ai, startup]
 - title: RealToMe
   date: 2025 - Present
-  link_href: false
+  link_href: true
+  link_text: Visit RealToMe
+  link_url: "https://realtome.app"
   description: Early-stage personal project exploring AI-assisted journaling and life-logging, focusing on user experience through vibe checks. Mostly for fun.
   tags: [ai, app development]
 - title: Portfolio Website
