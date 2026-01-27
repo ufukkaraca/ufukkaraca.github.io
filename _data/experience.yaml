@@ -1,6 +1,11 @@
+- company: rodyr labs
+  role: Founder
+  dates: January 2026 - Present
+  description: >
+    Supercharging human-knowledge interfaces, and building Ody, an adaptive agentic knowledge graph system for AI-powered corporate knowledge management.
 - company: Incari
   role: Solutions Engineer (TPO & Architecture)
-  dates: January 2024 - Present
+  dates: January 2024 - January 2026
   description: >
     I split my time between shaping what we build and making sure it actually ships. Day to day that means translating fuzzy customer problems into small, nameable interface slices, keeping hardware and software conversations on the same page, and quietly pruning complexity before it takes root. I’ve guided Incari Services in delivering technical building blocks, acted as the technical front door for OEM HMI / embedded programs, and used lightweight AI‑assisted tooling so a leaner team in 2025 didn’t lose momentum. The work is a mix of architecture sketching, hands-on prototyping (SW and HW), and helping stakeholders see constraints as design tools rather than blockers.
 
